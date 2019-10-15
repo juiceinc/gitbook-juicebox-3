@@ -12,6 +12,7 @@
 * [stacks/](reference/stacks/README.md)
   * [templates.html](reference/stacks/templates.html.md)
   * [stack.yaml](reference/stacks/stack.yaml/README.md)
+    * [Defining Slices](reference/stacks/stack.yaml/defining-slices.md)
     * [Global filters](reference/stacks/stack.yaml/global-filters.md)
     * [Slice Groups](reference/stacks/stack.yaml/slice-groups.md)
     * [Slice common configuration](reference/stacks/stack.yaml/slices-and-common-configuration.md)
