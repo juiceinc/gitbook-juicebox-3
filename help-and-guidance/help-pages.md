@@ -1,8 +1,12 @@
-# Providing Help & Guidance — Juicebox 3.14.2 documentation
+# Help in Juicebox
 
-Warning
+## Enabling help[¶]()
 
-This help isn’t complete. It may even look terrible. If you want to work on it, see [How to Contribute](https://docs.juiceboxdata.com/projects/juicebox/topics/contributing.html#how-to-contribute). You can also ask for help in the Juice Slack \#documentation channel.
+For help to be displayed [show\_help](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/apps/index.html#show-help) needs to be `true` in [Apps](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/apps/index.html).
 
-..todo:: Add more overview on the design philosophy for general guidance.
+## Building help[¶]()
+
+The app contains a `help/` directory and each stack can also \(optionally\) contain a `help/` directory.
+
+Those `help/` directories contain either a `help.html` document or a `help.md` document in Markdown format.
 
