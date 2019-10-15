@@ -193,7 +193,7 @@ A background or backgrounds for this stack.
   </tbody>
 </table>### global\_filters\_service[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#global-filters-service)
 
-A [data\_service](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html#data-service) definition for the global filters. If this is missing, no global filters will appear.
+A data\_service definition for the global filters. If this is missing, no global filters will appear.
 
 | Optional: | No |
 | :--- | :--- |
