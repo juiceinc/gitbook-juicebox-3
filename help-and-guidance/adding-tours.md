@@ -1,10 +1,10 @@
 # Adding Tours
 
-## Enabling stack tours[¶]()
+## Enabling stack tours
 
 For tours to be displayed [has\_tour](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#has-tour) needs to be `true` in [Stacks](../reference/stacks/stack.yaml/).
 
-## Building stack tours[¶]()
+## Building stack tours
 
 Tours are defined in yaml files in a stack’s `help/` directory. These tours get loaded and displayed for a stack on the top of the stack page.
 
