@@ -19,7 +19,7 @@
 
 ## Help & Guidance
 
-* [Help pages](help-and-guidance/help-pages.md)
+* [Providing Help & Guidance — Juicebox 3.14.2 documentation](help-and-guidance/help-pages.md)
 * [Adding Tours](help-and-guidance/adding-tours.md)
 
 ## Styling and Formatting

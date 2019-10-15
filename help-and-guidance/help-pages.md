@@ -1,23 +1,8 @@
-# Help pages
+# Providing Help & Guidance — Juicebox 3.14.2 documentation
 
-## Getting Super Powers
+Warning
 
-Becoming a super hero is a fairly straight forward process:
+This help isn’t complete. It may even look terrible. If you want to work on it, see [How to Contribute](https://docs.juiceboxdata.com/projects/juicebox/topics/contributing.html#how-to-contribute). You can also ask for help in the Juice Slack \#documentation channel.
 
-```
-$ give me super-powers
-```
-
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
-
-Once you're strong enough, save the world:
-
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-
-
+..todo:: Add more overview on the design philosophy for general guidance.
 
