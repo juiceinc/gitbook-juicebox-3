@@ -12,8 +12,8 @@
 * [stacks/](reference/stacks/README.md)
   * [templates.html](reference/stacks/templates.html.md)
   * [stack.yaml](reference/stacks/stack.yaml/README.md)
-    * [Global filters](reference/stacks/stack.yaml/global-filters.md)
-    * [Slice Groups](reference/stacks/stack.yaml/slice-groups.md)
+    * [Defining and Configuring Global Filters](reference/stacks/stack.yaml/global-filters.md)
+    * [Grouping Slices](reference/stacks/stack.yaml/slice-groups.md)
     * [Defining and Configuring Slices](reference/stacks/stack.yaml/slices-and-common-configuration.md)
     * [Bubble Slice](reference/stacks/stack.yaml/bubble-slice.md)
 
