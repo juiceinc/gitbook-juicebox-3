@@ -10,6 +10,7 @@
   * [Common Slice Configurations](reference/slices/slices-and-common-configuration.md)
   * [Bubble Slice](reference/slices/bubble-slice.md)
   * [Card Slice](reference/slices/card-slice.md)
+  * [Distribution Slice](reference/slices/distribution-slice.md)
 * [Juicebox file structure](reference/juicebox-file-structure.md)
 * [app.yaml](reference/app.yaml.md)
 * [theme.yaml](reference/theme.yaml.md)
@@ -18,7 +19,6 @@
   * [stack.yaml](reference/stacks/stack.yaml/README.md)
     * [Defining and Configuring Global Filters](reference/stacks/stack.yaml/global-filters.md)
     * [Grouping Slices](reference/stacks/stack.yaml/slice-groups.md)
-    * [Distribution Slice](reference/stacks/stack.yaml/distribution-slice.md)
 
 ## Help & Guidance
 
