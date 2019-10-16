@@ -1,26 +1,8 @@
-# Defining and Configuring Slices
+# Common Slice Configurations
 
-## Defining Slices
-
-Slices are defined in a list the `stack.yaml` \(see: [stack.yaml slices](./#slices)\). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml`.
-
-Slices are powered by either a data service or a JSON file found in the stack’s `fixtures` directory. 
-
-Many slices support configuration options that change the visual appearance and function of the slice. The `config` options of each slice vary by the slice type. Details on each slice's `config` options can be found in the [slice docs](http://dev.fruitiondata.com/static/docs/slices.html). 
-
-Here's an example slice definition in `stack.yaml` that is powered by a data service:
-
-```yaml
-- slice_type: "option-chooser"
-  slug: "option-chooser-1"
-  title: "This should go away"
-  config: {}
-  data_service: "basicservice.FirstChooserV3Service"
-```
-
-## Common Slice Configurations
-
-The following configuration options can be applied to any slice.
+{% hint style="info" %}
+The following configuration options can be applied to all slices
+{% endhint %}
 
 ## slice\_type
 
@@ -85,13 +67,13 @@ slices:
 
 `default`: This is the standard layout where the visualization content takes the full width of the slice. The slice `title` header is on top, with component locations above and below the vis
 
-![layout: default](../../../.gitbook/assets/image%20%282%29.png)
+![layout: default](../../.gitbook/assets/image%20%282%29.png)
 
 ### layout: bare
 
 `bare` removes all components except the visualization
 
-![layout: bare](../../../.gitbook/assets/image%20%283%29.png)
+![layout: bare](../../.gitbook/assets/image%20%283%29.png)
 
 ### layout: twocolumns
 
@@ -99,7 +81,7 @@ slices:
 
 This layout is good when you would like to use more text to describe what the user is seeing.
 
-![layout: twocolumns](../../../.gitbook/assets/image%20%284%29.png)
+![layout: twocolumns](../../.gitbook/assets/image%20%284%29.png)
 
 The `subtitle` component is available in this layout, and sits below the `title` and above the filter pill.
 
@@ -107,7 +89,7 @@ The `subtitle` component is available in this layout, and sits below the `title`
 
 `twocolumns-twothirds`: This two column variation makes the left side one third and the right visualization side into two thirds.
 
-![layout: twocolumns-twothirds](../../../.gitbook/assets/image%20%285%29.png)
+![layout: twocolumns-twothirds](../../.gitbook/assets/image%20%285%29.png)
 
 ## display\_slice\_as
 
@@ -175,7 +157,7 @@ What commands should be included on this slice. Commands allow users to perform 
 | :--- | :--- | :--- | :--- |
 | list \(of strings\) | Valid command names | \[\] |  |
 
-To create custom app commands and learn more about built-in commands, see [Writing app command](../../../advanced-topics/writing-custom-app-commands.md)
+To create custom app commands and learn more about built-in commands, see [Writing app command](../../advanced-topics/writing-custom-app-commands.md)
 
 ```text
 slices:
@@ -259,5 +241,5 @@ A boolean flag that indicates if a slice should notify all the slices below it \
 
 ## Additional template options
 
-Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../../advanced-topics/customizing-slice-templates.md)
+Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../advanced-topics/customizing-slice-templates.md)
 

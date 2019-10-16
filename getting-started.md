@@ -58,7 +58,7 @@ Only one of the pie chart datasets can be active at a time. The active pie chart
 
 Once all slices have loaded, Juicebox stores all the selections a user has made. If a user returns to a story, Juicebox will restore the selections they had made when they last looked at the story.
 
-Slices can limit the number of selections that can be made in a slice. We'll learn more about this in [Slice common configuration](reference/stacks/stack.yaml/slices-and-common-configuration.md).
+Slices can limit the number of selections that can be made in a slice. We'll learn more about this in [Slice common configuration](reference/slices/slices-and-common-configuration.md).
 
 However, what a user sees is limited by their data permissions. **Which can change!**
 

@@ -2,7 +2,7 @@
 
 A card slice is used to display record details in a searchable sortable way.
 
-![layout/look of basic card slice](../../../.gitbook/assets/common-card.png)
+![layout/look of basic card slice](../../.gitbook/assets/common-card.png)
 
 ## Card config
 

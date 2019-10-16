@@ -86,7 +86,7 @@ This is provided by adding a link called “GUIDE ME” in the top-left corner o
   guide: "stack-welcome-tour"
 ```
 
-The location of the link can be changed with the slice’s [layout](../reference/stacks/stack.yaml/slices-and-common-configuration.md#layout) config option in [Common slice configuration](../reference/stacks/stack.yaml/slices-and-common-configuration.md).
+The location of the link can be changed with the slice’s [layout](../reference/slices/slices-and-common-configuration.md#layout) config option in [Common slice configuration](../reference/slices/slices-and-common-configuration.md).
 
 ```text
 - slice_type: "free-form"
