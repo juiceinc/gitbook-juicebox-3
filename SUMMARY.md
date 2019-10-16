@@ -16,6 +16,7 @@
     * [Grouping Slices](reference/stacks/stack.yaml/slice-groups.md)
     * [Defining and Configuring Slices](reference/stacks/stack.yaml/slices-and-common-configuration.md)
     * [Bubble Slice](reference/stacks/stack.yaml/bubble-slice.md)
+    * [Card Slice](reference/stacks/stack.yaml/card-slice.md)
 
 ## Help & Guidance
 
