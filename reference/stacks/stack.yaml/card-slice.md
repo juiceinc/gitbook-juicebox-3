@@ -2,6 +2,8 @@
 
 A card slice is used to display record details in a searchable sortable way.
 
+![layout/look of basic card slice](../../../.gitbook/assets/common-card.png)
+
 ## Card config
 
 Card slices support the [Common configuration options for all slices](slices-and-common-configuration.md). Additional options are:
