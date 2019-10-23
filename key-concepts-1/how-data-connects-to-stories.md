@@ -1,2 +1,2 @@
-# How Data Connects to Stories
+# How data connects to stories
 

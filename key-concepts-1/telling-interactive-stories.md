@@ -1,2 +1,2 @@
-# Telling Interactive Stories
+# Telling interactive stories
 

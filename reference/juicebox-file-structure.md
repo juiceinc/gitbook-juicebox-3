@@ -1,4 +1,4 @@
-# File Structure Overview
+# Configuring Juicebox
 
 ## Python and Yaml
 

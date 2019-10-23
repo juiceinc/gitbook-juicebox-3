@@ -2,10 +2,20 @@
 
 * [Welcome to Juicebox](README.md)
 * [Getting Started](getting-started.md)
+* [Tutorial: Building your first Juicebox story](tutorial-building-your-first-juicebox-story/README.md)
+  * [Tutorial Part 1](tutorial-building-your-first-juicebox-story/tutorial-part-1.md)
+  * [Tutorial Part 2](tutorial-building-your-first-juicebox-story/tutorial-part-2.md)
+  * [Tutorial Part 3](tutorial-building-your-first-juicebox-story/tutorial-part-3.md)
+
+## Concepts <a id="key-concepts-1"></a>
+
+* [Key Juicebox concepts](key-concepts-1/key-juicebox-concepts.md)
+* [Telling interactive stories](key-concepts-1/telling-interactive-stories.md)
+* [How data connects to stories](key-concepts-1/how-data-connects-to-stories.md)
 
 ## Reference
 
-* [File Structure Overview](reference/juicebox-file-structure.md)
+* [Configuring Juicebox](reference/juicebox-file-structure.md)
 * [app.yaml](reference/app.yaml.md)
 * [Slices](reference/slices/README.md)
   * [Common Slice Configurations](reference/slices/slices-and-common-configuration.md)
@@ -19,8 +29,16 @@
     * [Grouping Slices](reference/stacks/stack.yaml/slice-groups.md)
 * [theme.yaml](reference/theme_yaml.md)
 
-## Advanced topics
+## Data Services
 
+* [Connecting data to Juicebox](data-services/connecting-data-to-juicebox.md)
+* [Tables and Views](data-services/tables-and-views.md)
+* [Data Services](data-services/data-services.md)
+* [Recipes](data-services/recipes.md)
+
+## Topics <a id="advanced-topics"></a>
+
+* [Topics](advanced-topics/topics.md)
 * [Writing custom app commands](advanced-topics/writing-custom-app-commands.md)
 * [Customizing slice templates](advanced-topics/customizing-slice-templates.md)
 * [Styling and Formatting](advanced-topics/styling-and-formatting/README.md)
@@ -33,17 +51,4 @@
   * [Help in Juicebox](advanced-topics/providing-help-and-guidance/help-pages.md)
   * [Adding Tours](advanced-topics/providing-help-and-guidance/adding-tours.md)
 * [Adding Interactivity](advanced-topics/adding-interactivity.md)
-* [Tutorial: Building your first Juicebox story](tutorial-building-your-first-juicebox-story/README.md)
-  * [Tutorial Part 1](tutorial-building-your-first-juicebox-story/tutorial-part-1.md)
-  * [Tutorial Part 2](tutorial-building-your-first-juicebox-story/tutorial-part-2.md)
-  * [Tutorial Part 3](tutorial-building-your-first-juicebox-story/tutorial-part-3.md)
-
-## Key Concepts <a id="key-concepts-1"></a>
-
-* [Telling Interactive Stories](key-concepts-1/telling-interactive-stories.md)
-* [How Data Connects to Stories](key-concepts-1/how-data-connects-to-stories.md)
-
-## Data Services
-
-* [Recipes](data-services/recipes.md)
 
