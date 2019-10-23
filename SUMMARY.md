@@ -36,19 +36,19 @@
 * [Data Services](data-services/data-services.md)
 * [Recipes](data-services/recipes.md)
 
-## Topics <a id="advanced-topics"></a>
+## Enhancements
 
-* [Topics](advanced-topics/topics.md)
-* [Writing custom app commands](advanced-topics/writing-custom-app-commands.md)
-* [Customizing slice templates](advanced-topics/customizing-slice-templates.md)
-* [Styling and Formatting](advanced-topics/styling-and-formatting/README.md)
-  * [Getting started with styling and formatting](advanced-topics/styling-and-formatting/index.md)
-  * [backgrounds](advanced-topics/styling-and-formatting/untitled-1.md)
-  * [Number Formatting](advanced-topics/styling-and-formatting/number-formatting.md)
-  * [Styling Slices](advanced-topics/styling-and-formatting/styling_slices.md)
-  * [Theming](advanced-topics/styling-and-formatting/themes.md)
-* [Providing Help and Guidance](advanced-topics/providing-help-and-guidance/README.md)
-  * [Help in Juicebox](advanced-topics/providing-help-and-guidance/help-pages.md)
-  * [Adding Tours](advanced-topics/providing-help-and-guidance/adding-tours.md)
-* [Adding Interactivity](advanced-topics/adding-interactivity.md)
+* [Adding features to your app](enhancements/topics.md)
+* [Writing custom app commands](enhancements/writing-custom-app-commands.md)
+* [Customizing slice templates](enhancements/customizing-slice-templates.md)
+* [Styling and Formatting](enhancements/styling-and-formatting/README.md)
+  * [Getting started with styling and formatting](enhancements/styling-and-formatting/index.md)
+  * [backgrounds](enhancements/styling-and-formatting/untitled-1.md)
+  * [Number Formatting](enhancements/styling-and-formatting/number-formatting.md)
+  * [Styling Slices](enhancements/styling-and-formatting/styling_slices.md)
+  * [Theming](enhancements/styling-and-formatting/themes.md)
+* [Providing Help and Guidance](enhancements/providing-help-and-guidance/README.md)
+  * [Help in Juicebox](enhancements/providing-help-and-guidance/help-pages.md)
+  * [Adding Tours](enhancements/providing-help-and-guidance/adding-tours.md)
+* [Adding Interactivity](enhancements/adding-interactivity.md)
 
