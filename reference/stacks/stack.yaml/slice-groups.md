@@ -136,7 +136,7 @@ slices:
 
 ### Backgrounds[¶]()
 
-Slice groups can be given a `background` as defined in [Styling Backgrounds](../../../styling-and-formatting/untitled-1.md#styling-backgrounds).
+Slice groups can be given a `background` as defined in [Styling Backgrounds](../../../advanced-topics/styling-and-formatting/untitled-1.md#styling-backgrounds).
 
 ```text
 label: "My story"

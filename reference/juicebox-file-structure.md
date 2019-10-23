@@ -1,9 +1,9 @@
-# Juicebox file structure
+# File Structure Overview
 
 ## Python and Yaml
 
 * [app.yaml](app.yaml.md)
-* [theme.yaml](theme.yaml.md)
+* [theme.yaml]()
 * help/
 * public/
 * stacks/

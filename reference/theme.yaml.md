@@ -1,4 +1,0 @@
-# theme.yaml
-
-the
-
