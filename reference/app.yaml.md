@@ -26,7 +26,9 @@ stacks:
 - "basic"
 ```
 
-## id
+## app.yaml Options
+
+### id
 
 A globally unique id across all Juicebox apps. This will be assigned for you automatically when you run `jb create {appname}`
 
@@ -34,7 +36,7 @@ A globally unique id across all Juicebox apps. This will be assigned for you aut
 | :--- | :--- | :--- | :--- |
 | string | An automatically assigned 8-32 character id | None | No |
 
-## label
+### label
 
 The name of your new app. This can be anything you want up to 70 characters.
 
@@ -42,7 +44,7 @@ The name of your new app. This can be anything you want up to 70 characters.
 | :--- | :--- | :--- | :--- |
 | string | Up to 70 character string | None | No |
 
-## description
+### description
 
 An extended description of your app. This will appear on the app home page.
 
@@ -54,7 +56,7 @@ The label and description appear on the home page like this.
 
 [![../../../\_images/Your\_Apps1.png](https://docs.juiceboxdata.com/projects/juicebox/_images/Your_Apps1.png)](https://docs.juiceboxdata.com/projects/juicebox/_images/Your_Apps1.png)
 
-## slug
+### slug
 
 Appears in the url for the stack like `http://www.juiceboxdata.com/{appslug}/{stackslug}/`. This should be unique among all apps.
 
@@ -62,7 +64,7 @@ Appears in the url for the stack like `http://www.juiceboxdata.com/{appslug}/{st
 | :--- | :--- | :--- | :--- |
 | string | Up to 70 character string with no spaces | None | No |
 
-## show\_help
+### show\_help
 
 Should a help link be displayed for this app. For more about help see Building help.
 
@@ -72,7 +74,7 @@ Should a help link be displayed for this app. For more about help see Building h
 | :--- | :--- | :--- | :--- |
 | boolean | true or false | false | No |
 
-## use\_discussions
+### use\_discussions
 
 Are discussions enabled in this app?
 
@@ -80,7 +82,7 @@ Are discussions enabled in this app?
 | :--- | :--- | :--- | :--- |
 | boolean | true or false | false | No |
 
-## discussions\_group\_property
+### discussions\_group\_property
 
 A property of `user.extra` that controls who users can talk to in discussions. If blank, everyone with access to the app can discuss together. Only users who share the same `discussions_group_property`value in their `user.extra` can share discussions.
 
@@ -94,7 +96,7 @@ If you change this it resets all discussions users are following.
 | :--- | :--- | :--- | :--- |
 | string | A property that should exist on user.extra. If an empty string, all users that can access an app share discussions with each other. | "changeme" | No |
 
-## juicebox\_version
+### juicebox\_version
 
 What file layout and engine does this Juicebox application run against.
 
@@ -104,7 +106,7 @@ What file layout and engine does this Juicebox application run against.
 
 For more details see [Juicebox file structure](juicebox-file-structure.md).
 
-## is\_public
+### is\_public
 
 {% hint style="warning" %}
 Public apps **do not** support discussions or `user.extra` based data permissions.
@@ -116,7 +118,7 @@ Is this app **public**. This makes it available to anyone who hits the url witho
 | :--- | :--- | :--- | :--- |
 | boolean | true or false | false | Yes |
 
-## footer
+### footer
 
 | Type | Allowed values | Default | Optional |
 | :--- | :--- | :--- | :--- |
@@ -128,9 +130,7 @@ A footer is added at the bottom of every app that shows both the version of Juic
 When the footer is customized,  “Powered by Juicebox” disappears. 
 {% endhint %}
 
-## stacks
-
-
+### stacks
 
 | Type | Allowed values | Default | Optional |
 | :--- | :--- | :--- | :--- |
