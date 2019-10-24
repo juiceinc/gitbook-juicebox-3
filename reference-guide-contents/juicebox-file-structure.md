@@ -1,35 +1,31 @@
-# Configuring Juicebox
+---
+description: Let's take a look at how Juicebox 3 apps handle the file structure.
+---
 
-## Python and Yaml
+# Juicebox 3 File Layout
 
-* [app.yaml](app.yaml.md)
-* [theme.yaml]()
-* help/
-* public/
-* stacks/
-  * {stackname}
-    * [stack.yaml](stacks/stack.yaml/)
-    * template.html
-    * dataservices.py
-    * help/
-      * tour.yaml
+## Layout
 
-Becoming a super hero is a fairly straight forward process:
+Version 3 is designed so that each stack directory contains all resources needed for that stack.
 
-```
-$ give me super-powers
+```text
+// Subsequent pages will get into more detail about each directory, 
+// but this will give you a general idea about each one.
+
+app.yaml                   App details, list of stacks to display
+theme.yaml                 Defines logo, css
+help/                      Markdown or html help
+public/                    Contains images used in the app
+stacks/
+    {stack_name}/
+        stack.yaml         Stack and slice definitions.
+        templates.html     Custom templates used by this stack.
+        dataservice.py     Dynamic data services for this stack.
+        fixtures/
+        help/              Stack specific help and tour definition files.
 ```
 
 {% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+Juicebox 4 is handled quite a bit differently. To see how they are laid out and to learn how to convert Juicebox 3 apps, hop on over to the Juicebox 4 documentation \(Juicebox 4 documentation needs to be link when JB4 docs are done\)
 {% endhint %}
-
-Once you're strong enough, save the world:
-
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-
-
 
