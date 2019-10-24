@@ -1,2 +1,2 @@
-# Tutorial Part 2
+# Part 1 - Getting to Know Juicebox
 

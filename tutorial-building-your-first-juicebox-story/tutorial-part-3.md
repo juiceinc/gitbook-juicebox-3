@@ -1,2 +1,2 @@
-# Tutorial Part 3
+# Part 2 - Folder Structure and App Configuration
 
