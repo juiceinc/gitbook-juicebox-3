@@ -9,7 +9,7 @@
 
 ## Concepts <a id="key-concepts-1"></a>
 
-* [Key Juicebox concepts](key-concepts-1/key-juicebox-concepts.md)
+* [Getting Oriented](key-concepts-1/key-juicebox-concepts.md)
 * [Telling interactive stories](key-concepts-1/telling-interactive-stories.md)
 * [How data connects to stories](key-concepts-1/how-data-connects-to-stories.md)
 
