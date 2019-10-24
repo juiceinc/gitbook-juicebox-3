@@ -40,7 +40,7 @@ style:
 
 **Free-form example**
 
-![image](../../.gitbook/assets/styling-cover-freeform.png)
+![image](../../../.gitbook/assets/styling-cover-freeform.png)
 
 ```yaml
 style:
@@ -53,7 +53,7 @@ While most slice will center their content, some slices look good with their con
 
 **Map example**
 
-![image](../../.gitbook/assets/styling-cover-map%20%281%29.png)
+![image](../../../.gitbook/assets/styling-cover-map%20%281%29.png)
 
 ```yaml
 style:
@@ -67,7 +67,7 @@ A Juicebox stack can be thought of as an interactive short-story, with scenes or
 
 Here's a picture of the meaningful parts, and some styling configuration hints:
 
-![image](../../.gitbook/assets/jbdoc-styling-sections.png)
+![image](../../../.gitbook/assets/jbdoc-styling-sections.png)
 
 ### Creating a section
 

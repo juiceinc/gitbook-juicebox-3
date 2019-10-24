@@ -157,7 +157,7 @@ What commands should be included on this slice. Commands allow users to perform 
 | :--- | :--- | :--- | :--- |
 | list \(of strings\) | Valid command names | \[\] |  |
 
-To create custom app commands and learn more about built-in commands, see [Writing app command](../../enhancements/writing-custom-app-commands.md)
+To create custom app commands and learn more about built-in commands, see [Writing app command](../../enhancements-contents/writing-custom-app-commands.md)
 
 ```text
 slices:
@@ -241,5 +241,5 @@ A boolean flag that indicates if a slice should notify all the slices below it \
 
 ## Additional template options
 
-Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../enhancements/customizing-slice-templates.md)
+Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../enhancements-contents/customizing-slice-templates/)
 

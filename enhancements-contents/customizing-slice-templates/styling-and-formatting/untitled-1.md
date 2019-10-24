@@ -45,7 +45,7 @@ background:
 
 The first image is blurred with a width of 1920 pixels. The second image is sepia toned with a width of 1920 pixels. It uses the extra to move that image down 250px. In the app, this looks like:
 
-![image](../../.gitbook/assets/header_background%20%281%29.jpg)
+![image](../../../.gitbook/assets/header_background%20%281%29.jpg)
 
 ### Improving Readability
 
@@ -118,7 +118,7 @@ background:
 
 The first image is a relatively small plus\_sign pattern using the accent color. The second image is a larger ring pattern using the primary color.
 
-![image](../../.gitbook/assets/pattern_header_background%20%281%29.jpg)
+![image](../../../.gitbook/assets/pattern_header_background%20%281%29.jpg)
 
 This table shows examples of all patterns at small, medium, and large scales.
 
@@ -151,7 +151,7 @@ background:
   gradient: 'linear-gradient(to left, #7b4397 , #dc2430)'
 ```
 
-![image](../../.gitbook/assets/gradient_header_background%20%281%29.jpg)
+![image](../../../.gitbook/assets/gradient_header_background%20%281%29.jpg)
 
 ### Color Background
 
@@ -171,7 +171,7 @@ background:
 
 The header uses the accent color and the body background uses the primary color.
 
-![image](../../.gitbook/assets/color_header_background.jpg)
+![image](../../../.gitbook/assets/color_header_background.jpg)
 
 ## Layering multiple backgrounds
 
@@ -201,5 +201,5 @@ The header has a background grey pattern image from [http://subtlepatterns.com](
 
 Here's what it looks like together.
 
-![image](../../.gitbook/assets/layers_header_background%20%281%29.jpg)
+![image](../../../.gitbook/assets/layers_header_background%20%281%29.jpg)
 
