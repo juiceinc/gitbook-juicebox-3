@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Welcome to Juicebox](README.md)
-* [Getting Started](getting-started.md)
+* [Getting Started](getting-started/README.md)
+  * [Setup & Running on Mac & Linux](getting-started/setup-and-running-on-mac-and-linux.md)
 * [Tutorial: Building your first Juicebox story](tutorial-building-your-first-juicebox-story/README.md)
   * [Tutorial Part 1](tutorial-building-your-first-juicebox-story/tutorial-part-1.md)
   * [Tutorial Part 2](tutorial-building-your-first-juicebox-story/tutorial-part-2.md)
