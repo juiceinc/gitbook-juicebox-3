@@ -12,6 +12,7 @@
   * [Part 4 - Building the Slices](tutorial-building-your-first-juicebox-story/part-4-building-the-slices.md)
   * [Advanced Tutorials](tutorial-building-your-first-juicebox-story/advanced-tutorials.md)
 * [Concepts](concepts/README.md)
+  * [The Juicebox File Layout](concepts/the-juicebox-file-layout.md)
   * [Key Juicebox concepts](concepts/key-juicebox-concepts.md)
   * [Telling interactive stories](concepts/telling-interactive-stories.md)
   * [How data connects to stories](concepts/how-data-connects-to-stories.md)
