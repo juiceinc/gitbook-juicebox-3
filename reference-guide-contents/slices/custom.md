@@ -4,7 +4,7 @@ A custom slice allows you to create a slice using any d3 code.
 
 ## Custom Config
 
-Custom slices support the common configuration options for all slices. Additional options are: None right now.
+Custom slices support the [common configuration options for all slices](slices-and-common-configuration.md). Additional options are: None right now.
 
 ## Plugin
 
