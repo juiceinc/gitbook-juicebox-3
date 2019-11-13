@@ -32,6 +32,7 @@
     * [Slice Side Panel](reference-guide-contents/slices/slice-side-panel.md)
     * [Templates](reference-guide-contents/slices/templates.md)
     * [Custom](reference-guide-contents/slices/custom.md)
+    * [Grouping Slices](reference-guide-contents/slices/grouping-slices.md)
   * [Slice Reference](reference-guide-contents/slice-reference/README.md)
     * [Bubble Slice](reference-guide-contents/slice-reference/bubble-slice.md)
     * [Card Slice](reference-guide-contents/slice-reference/card-slice.md)
