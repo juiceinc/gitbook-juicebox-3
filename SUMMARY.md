@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome to Juicebox](README.md)
+* [Pages that still need monster love](pages-that-still-need-monster-love.md)
 * [Getting Started](getting-started/README.md)
   * [Setup & Running on Mac & Linux](getting-started/setup-and-running-on-mac-and-linux.md)
   * [Setting up Devlandia on Windows](getting-started/setting-up-devlandia-on-windows.md)
@@ -28,6 +29,9 @@
   * [Slices](reference-guide-contents/slices/README.md)
     * [Defining Slices](reference-guide-contents/slices/defining-slices.md)
     * [Common Slice Configurations](reference-guide-contents/slices/slices-and-common-configuration.md)
+    * [Slice Side Panel](reference-guide-contents/slices/slice-side-panel.md)
+    * [Templates](reference-guide-contents/slices/templates.md)
+    * [Custom](reference-guide-contents/slices/custom.md)
   * [Slice Reference](reference-guide-contents/slice-reference/README.md)
     * [Bubble Slice](reference-guide-contents/slice-reference/bubble-slice.md)
     * [Card Slice](reference-guide-contents/slice-reference/card-slice.md)
