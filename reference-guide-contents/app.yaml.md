@@ -1,4 +1,4 @@
-# Apps
+# app.yaml
 
 The `app.yaml` file defines application-level settings for a Juicebox app. Here is what a sample app.yaml file looks like.
 
@@ -147,7 +147,7 @@ What file layout and engine does this Juicebox run against.
       <td style="text-align:left"></td>
     </tr>
   </tbody>
-</table>For more details see [The Juicebox File Layout](../juicebox-file-structure.md)
+</table>For more details see [The Juicebox File Layout](juicebox-file-structure.md)
 
 ### is\_public
 
@@ -177,10 +177,17 @@ The code to support this has not been maintained and iOS and Android have been m
 
 ### stacks \(app.yaml\)
 
-A list of directories containing stack definitions that you want to appear in this app. See more: [Stacks](../stacks/).
+A list of directories containing stack definitions that you want to appear in this app. See more: [Stacks](stacks/).
 
 | Optional: | No |
 | :--- | :--- |
 | Values: | A YAML list of stacks |
 | Example: |  |
+
+## Footers
+
+A footer is added at the bottom of every app that shows both the version of Juicebox being run, as well as an app version if it has been set up in the `app.yaml` metadata config.
+
+The footer may also be customized in the app Django admin view. Check “Show footer” at the bottom of that page to show your customized footer.  
+
 

@@ -46,7 +46,7 @@ story_theme:
 
 ## Auto enable the story chooser
 
-The story chooser can be auto-enabled on every stack by setting the `auto_inject_story_chooser` flag to `True` in the app’s metadata. It then shows up automatically at the bottom of every story. See how[ here](../apps/#metadata).
+The story chooser can be auto-enabled on every stack by setting the `auto_inject_story_chooser` flag to `True` in the app’s metadata. It then shows up automatically at the bottom of every story. See how[ here](../app.yaml.md#metadata).
 
 ## Manually add the story chooser
 
