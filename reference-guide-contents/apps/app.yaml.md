@@ -104,7 +104,7 @@ What file layout and engine does this Juicebox application run against.
 | :--- | :--- | :--- | :--- |
 | string | "3", "4" | None | No |
 
-For more details see [Juicebox file structure](juicebox-file-structure.md).
+For more details see [Juicebox file structure](../juicebox-file-structure.md).
 
 ### is\_public
 
