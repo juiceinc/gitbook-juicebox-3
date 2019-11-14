@@ -2,7 +2,7 @@
 
 You can define a format for Metrics and Dimensions that define how numbers are displayed. Juicebox’s number formatting is an extension of D3 Formats \([https://github.com/d3/d3-format/blob/master/README.md\#format](https://github.com/d3/d3-format/blob/master/README.md#format)\). Juicebox’s extensions support prefixes and suffixes, separate positive, negative, and zero formatting, ordinal formatting, and better formatting for business numbers.
 
-## Format options[¶](number-formatting.md#format-options)
+## Format options
 
 Number formats in juicebox have the following parts
 
@@ -12,7 +12,7 @@ Number formats in juicebox have the following parts
 
 Every part of the number format is optional except for the positive\_format . If only the positive\_format is given, it will be used for all numbers.
 
-### prefix and suffix[¶](number-formatting.md#prefix-and-suffix)
+### prefix and suffix
 
 `Prefix` can be any text that appears before the number, while `suffix` will appear after the number. They must be between double quotes. Prefix and suffix support a special command `pluralize(singular, plural)` which choses between two strings. If the number being formatted is one, the singular value will be displayed, otherwise the plural value will be displayed.
 
@@ -25,7 +25,7 @@ Every part of the number format is optional except for the positive\_format . If
 | `,.0f"pluralize( student, students)"` | 4 | `4 students` |
 | `,.0f"pluralize( student, students)"` | 1 | `1 student` |
 
-### formats[¶](number-formatting.md#formats)
+### formats
 
 This format documentation is adapted from [https://github.com/d3/d3-format/blob/master/README.md\#format](https://github.com/d3/d3-format/blob/master/README.md#format)
 
@@ -37,7 +37,7 @@ Formats have the following parts
 
 You can optionally provide extra formats for negative, zero, or null values. The `positive_format` will be used when other formats aren’t provided.
 
-#### \[fill\[align\]\][¶](number-formatting.md#fill-align)
+#### \[fill\[align\]\]
 
 The fill can be any character. The presence of a fill character is signaled by the align character following it, which must be one of the following:
 
@@ -48,7 +48,7 @@ The fill can be any character. The presence of a fill character is signaled by t
 | `^` | Forces the field to be centered within the available space. |
 | `=` | like `>`, but with any sign and symbol to the left of any padding. |
 
-#### \[sign\][¶](number-formatting.md#sign)
+#### \[sign\]
 
 The sign can be:
 
@@ -59,7 +59,7 @@ The sign can be:
 | `(` | nothing for positive and parentheses for negative. |
 | `SPACE` | a space for positive and a minus sign for negative. |
 
-#### \[symbol\][¶](number-formatting.md#symbol)
+#### \[symbol\]
 
 The symbol can be
 
@@ -68,11 +68,11 @@ The symbol can be
 | `$` | apply currency symbols per the locale definition. |
 | `#` | for binary, octal, or hexadecimal notation, prefix by 0b, 0o, or 0x, respectively. |
 
-#### \[0\][¶](number-formatting.md#id1)
+#### \[0\]
 
 The zero `(0)` option enables zero-padding; this implicitly sets fill to 0 and align to =. The width defines the minimum field width; if not specified, then the width will be determined by the content. The comma \(,\) option enables the use of a group separator, such as a comma for thousands.
 
-#### \[width\] and \[precision\][¶](number-formatting.md#width-and-precision)
+#### \[width\] and \[precision\]
 
 Depending on the type, the precision either indicates the number of digits that follow the decimal point \(types f and %\), or the number of significant digits \(types ​, e, g, r, s and p\). If the precision is not specified, it defaults to 6 for all types except ​\(none\), which defaults to 12. Precision is ignored for integer formats \(types b, o, d, x, X and c\). See precisionFixed and precisionRound for help picking an appropriate precision.
 
@@ -167,11 +167,11 @@ The available type values are:
       <td style="text-align:left">like g, but trim insignificant trailing zeros.</td>
     </tr>
   </tbody>
-</table>## Examples[¶](number-formatting.md#examples)
+</table>## Examples
 
 This format will show a certain number of digits. If the number is in the thousands, it wil be
 
-### s, f, $, and % formats[¶](number-formatting.md#s-f-and-formats)
+### s, f, $, and % formats
 
 * `.Ns` formats display numbers with `N` digits of precisions. This is a good way to display numbers that differ greatly in size.
 * `.Nf` displays numbers with a `N` digits after the decimal place.
@@ -581,7 +581,7 @@ This format will show a certain number of digits. If the number is in the thousa
       <td style="text-align:left">12,345.00%</td>
     </tr>
   </tbody>
-</table>### Prefixes and suffixes[¶](number-formatting.md#prefixes-and-suffixes)
+</table>### Prefixes and suffixes
 
 * Use double quotes to add prefixes or suffixes to your format.
 
@@ -683,7 +683,7 @@ This format will show a certain number of digits. If the number is in the thousa
       <td style="text-align:left">There are 2.00 cows</td>
     </tr>
   </tbody>
-</table>### Missing formats[¶](number-formatting.md#missing-formats)
+</table>### Missing formats
 
 * If the format is missing the raw number or value will be displayed.
 
@@ -695,7 +695,7 @@ This format will show a certain number of digits. If the number is in the thousa
 | `(nothing)` | null | null |
 | `(nothing)` | abcd | abcd |
 
-### Positive, negative, zero and null formats[¶](number-formatting.md#positive-negative-zero-and-null-formats)
+### Positive, negative, zero and null formats
 
 | Format | Number | Result |
 | :--- | :--- | :--- |
@@ -707,7 +707,7 @@ This format will show a certain number of digits. If the number is in the thousa
 | `,.0f" days from now";|,.0f|" days ago";"today";"--unknown--"` | 0 | today |
 | `,.0f" days from now";|,.0f|" days ago";"today";"--unknown--"` | null | –unknown– |
 
-### Absolute values[¶](number-formatting.md#absolute-values)
+### Absolute values
 
 <table>
   <thead>
@@ -747,7 +747,7 @@ This format will show a certain number of digits. If the number is in the thousa
       <td style="text-align:left">1.2K</td>
     </tr>
   </tbody>
-</table>### Dates and times[¶](number-formatting.md#dates-and-times)
+</table>### Dates and times
 
 * Dates and times are formatted using [http://strftime.org/](http://strftime.org/) options.
 
@@ -763,7 +763,7 @@ This format will show a certain number of digits. If the number is in the thousa
 | `"The "<%Y-%m-%d>" Conundrum"` | dt | The 2014-01-01 Conundrum |
 | `<%Y-%m-%d>"suffix"` | dt | 2014-01-01suffix |
 
-### Ordinal values[¶](number-formatting.md#ordinal-values)
+### Ordinal values
 
 | Format | Number | Result |
 | :--- | :--- | :--- |

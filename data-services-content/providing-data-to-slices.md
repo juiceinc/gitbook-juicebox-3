@@ -8,7 +8,7 @@ These Python modules all follow the same basic structure as shown here:
 
 The setup section is where we import all the needed components and establish database connections. Next, we define all the tables that hold the data we will be using in our slices. With our tables defined, we can build a Recipe Service that houses all our data “ingredients”. \(Don’t worry about all these new words, we will define and explore them all in future sections.\) Finally, we build classes based off our Recipe Service that provide the data for each slice.
 
-## Setup[¶](providing-data-to-slices.md#setup)
+## Setup
 
 In the setup section, we need to import all the data types and functions we use in our Tables and slices. You will always need `Table` and `Column`. If you are going to sum or count things, you will need `func` as well. After that you will need to import the data types present in your table, a full list of these is available in the [SQLAlchemy Docs](http://docs.sqlalchemy.org/en/rel_1_0/core/type_basics.html)
 
@@ -52,7 +52,7 @@ Next, we initialize a Base to use as the foundation of our data tables. This bas
 Base = declarative_base()
 ```
 
-## Data Tables[¶](providing-data-to-slices.md#data-tables)
+## Data Tables
 
 We begin the main part of our application by defining the data tables that will be used. The data tables are represented by classes, and those classes must inherit from the Base we created in the previous step in order to have access to all the query features available in the platform.
 
@@ -71,7 +71,7 @@ Tables are defined and assigned to the `__table__` attribute of the class. The `
 
 Column objects are defined by a name, type, and other attributes. You can learn more about Column object types in the [SQLAlchemy docs for types](http://docs.sqlalchemy.org/en/rel_1_0/core/types.html). At least one of the Column objects just be marked as a `primary_key`, and is used by the metadata and other Juicebox features.
 
-## Ingredients[¶](providing-data-to-slices.md#ingredients)
+## Ingredients
 
 Ingredients represent the data we will be using later in data services for our slices. There are three main types of ingredients: Metrics, Dimensions, and Filters. Metrics are values, which are often numeric calculations. Dimensions are typically categorical values that represent a grouping or aggregation. For example, if you wanted to know the average height by gender, “average height” would be a Metric, and “gender” would be a Dimension. It’s important to note that multiple columns from a table can be used to compute a Metric or Dimension. A Filter is used to limit the results of a recipe based on some metric or dimension.
 
@@ -91,7 +91,7 @@ Dimension(Census.state, singular='State', plural='States',
           format="")
 ```
 
-## Recipe Service[¶](providing-data-to-slices.md#recipe-service)
+## Recipe Service
 
 Recipe services are the core elements of a Juicebox application. They are made up of collections of Metrics and Dimensions coupled with additional configuration settings. All Juicebox 3 recipe services inherit from the `RecipeServiceBaseV3` we imported earlier, and define a `metric_shelf` and a `dimension_shelf` which contain the Ingredients we wish to use in our data services. Here is an example of a basic service.
 

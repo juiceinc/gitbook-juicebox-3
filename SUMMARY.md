@@ -2,6 +2,7 @@
 
 * [Welcome to Juicebox](README.md)
 * [Pages that still need monster love](pages-that-still-need-monster-love.md)
+* [Untitled](untitled.md)
 * [Getting Started](getting-started/README.md)
   * [Setup & Running on Mac & Linux](getting-started/setup-and-running-on-mac-and-linux.md)
   * [Setting up Devlandia on Windows](getting-started/setting-up-devlandia-on-windows.md)
@@ -54,6 +55,7 @@
     * [Global Filters](reference-guide-contents/slice-reference/global-filters.md)
   * [Ingredients](reference-guide-contents/ingredients.md)
 * [Data Services](data-services-content/README.md)
+  * [Getting Started](data-services-content/getting-started.md)
   * [Connecting data to Juicebox](data-services-content/connecting-data-to-juicebox.md)
   * [Tables and Views](data-services-content/tables-and-views.md)
   * [Renderers](data-services-content/renderers.md)
