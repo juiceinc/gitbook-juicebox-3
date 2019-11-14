@@ -40,6 +40,7 @@
     * [Distribution](reference-guide-contents/slice-reference/distribution-slice.md)
     * [Flower](reference-guide-contents/slice-reference/untitled.md)
     * [Free Form](reference-guide-contents/slice-reference/free-form.md)
+    * [Key Metrics Hierarchy](reference-guide-contents/slice-reference/key-metrics-hierarchy.md)
 * [Data Services](data-services-content/README.md)
   * [Connecting data to Juicebox](data-services-content/connecting-data-to-juicebox.md)
   * [Tables and Views](data-services-content/tables-and-views.md)
