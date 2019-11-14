@@ -1,12 +1,12 @@
+---
+description: A card slice is used to display record details in a searchable sortable way.
+---
+
 # Card Slice
-
-A card slice is used to display record details in a searchable sortable way.
-
-![layout/look of basic card slice](../../.gitbook/assets/common-card.png)
 
 ## Card config
 
-Card slices support the [Common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
+Card slices support the [Common configuration options for all slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html). Additional options are:
 
 ### cardTemplateName
 
@@ -48,9 +48,29 @@ The data attributes to be used for sorting, can specify {field, label, sortDirec
 | Values: | An array of objects as described above |
 | Example: |  |
 
-## Yaml/HTML example of a Card Slice
+## Flavors of Card
 
-A basic card slice example in stack.yaml:
+### Default \(card\)
+
+The default flavor renders the first supplied dimension as the card label, and returns all the metrics and dimensions by name in the response to be used in the template.
+
+![](../../.gitbook/assets/card-default.png)
+
+The code for the default card flavor looks as follows:
+
+```text
+class CardV3Service2(CensusService):
+    def build_response(self):
+        self.metrics = ('popdiff',)
+        self.dimensions = ('state',)
+
+        recipe1 = self.recipe().metrics(*self.metrics).dimensions(
+            *self.dimensions)
+
+        self.response['responses'].append(recipe.render())
+```
+
+The slice in stack.yaml:
 
 ```text
 - slice_type: "card"
@@ -61,13 +81,29 @@ A basic card slice example in stack.yaml:
   data_service: "censusv2service.CardV3Service2"
 ```
 
-And the template for the individual cards:
+And finally the template for the individual cards:
 
 ```text
 <script type="text/template" id="jam-card-template">
   <div class="fr-body2"><%= datum.label %></div>
   <div class="fr-caption"><%= datum.format("popdiff", ',.0f') %> change in population</div>
 </script>
+```
+
+## Mixins
+
+### CardActionPlannerViewMixin
+
+This is a mixin that is and will only be used by HSTM apps. The data service for the slice that uses this mixin should pass additional context in the response like this:
+
+```text
+response['templateContext']['defaultItem'] = {'questions': selected_question,
+                                    'title': ' ',
+                                    'description': description,
+                                    'clientident': ci,
+                                    'unitident': ui,
+                                    'due_date': datetime.now().date(),
+                                    'created_by': self.request.user.get_full_name()}
 ```
 
 ## Linking to websites or files
