@@ -2,7 +2,7 @@
 description: A card slice is used to display record details in a searchable sortable way.
 ---
 
-# Card Slice
+# Card
 
 ## Card config
 
