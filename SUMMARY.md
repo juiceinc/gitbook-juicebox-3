@@ -51,6 +51,7 @@
     * [Sankey](reference-guide-contents/slice-reference/sankey.md)
     * [Table](reference-guide-contents/slice-reference/table.md)
     * [Trend Another import that didn't work](reference-guide-contents/slice-reference/trend-another-import-that-didnt-work.md)
+    * [Global Filters](reference-guide-contents/slice-reference/global-filters.md)
 * [Data Services](data-services-content/README.md)
   * [Connecting data to Juicebox](data-services-content/connecting-data-to-juicebox.md)
   * [Tables and Views](data-services-content/tables-and-views.md)
