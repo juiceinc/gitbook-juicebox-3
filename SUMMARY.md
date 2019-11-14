@@ -49,6 +49,7 @@
     * [Option Chooser](reference-guide-contents/slice-reference/option-chooser.md)
     * [Ranked List v2 Work on me. Love me.](reference-guide-contents/slice-reference/ranked-list-v2-work-on-me.-love-me..md)
     * [Sankey](reference-guide-contents/slice-reference/sankey.md)
+    * [Table](reference-guide-contents/slice-reference/table.md)
 * [Data Services](data-services-content/README.md)
   * [Connecting data to Juicebox](data-services-content/connecting-data-to-juicebox.md)
   * [Tables and Views](data-services-content/tables-and-views.md)
