@@ -42,6 +42,7 @@
     * [Free Form](reference-guide-contents/slice-reference/free-form.md)
     * [Key Metrics Hierarchy](reference-guide-contents/slice-reference/key-metrics-hierarchy.md)
     * [Leaderboard](reference-guide-contents/slice-reference/leaderboard.md)
+    * [Lollipop](reference-guide-contents/slice-reference/lollipop.md)
 * [Data Services](data-services-content/README.md)
   * [Connecting data to Juicebox](data-services-content/connecting-data-to-juicebox.md)
   * [Tables and Views](data-services-content/tables-and-views.md)
