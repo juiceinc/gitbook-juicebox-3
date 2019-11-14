@@ -1,3 +1,7 @@
+---
+description: 'What is Juicebox, and how do I set it up on my computer?'
+---
+
 # Getting Started
 
 ## What is Juicebox?
