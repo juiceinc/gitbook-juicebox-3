@@ -6,7 +6,7 @@ Slices can be grouped together and visually presented as a group in a story. Gro
 > * slices to be laid out visually together \(vertically or horizontally\) within a story
 > * sharing of common config across slices
 
-## Defining a Group[¶]()
+## Defining a Group
 
 Groups are defined in `stack.yaml` using the `slice_group` and `slices` attributes, like so:
 
@@ -24,7 +24,7 @@ slices:
         title: "What cities would you like to look at?"
 ```
 
-## Cross-filtering slices in a group[¶]()
+## Cross-filtering slices in a group
 
 To allow all the slices in a group to filter each other in addition to being filtered by slices above them, set up the group with the `filtering: crossfilter` option.
 
@@ -45,7 +45,7 @@ slices:
 
 Cross-filtering updates each slice’s `eventmap` to listen to each other. However, each slice data service will still need to be configured to perform proper filtering. If any of the slices in a cross-filtering group have their `eventmap` explicitly defined then its value will take precedence over the `filtering: crossfilter` option.
 
-## Sharing common slice config[¶]()
+## Sharing common slice config
 
 Properties common across all slices in a group can be specified in one place instead of repeating it for each slice in the group.
 
@@ -70,11 +70,11 @@ slices:
 
 A property defined on an individual slice in a group will be overwritten by the value of that property defined under `shared`.
 
-## Styling Slice Groups[¶]()
+## Styling Slice Groups
 
 You can change the layout, width and backgrounds of slice groups.
 
-### Layouts[¶]()
+### Layouts
 
 Slices in a group can be laid out in the following ways:
 
@@ -114,7 +114,7 @@ slices:
 
 `stack`: This is the default layout and is the current layout of the slices where they are stacked one below the other.
 
-### Wide Slice Groups[¶]()
+### Wide Slice Groups
 
 Slice groups can take up the full width of the browser window. Use the `group_style` config to define them as `wide`. Each slice inside a group still controls its own width.
 
@@ -134,7 +134,7 @@ slices:
         title: "What cities would you like to look at?"
 ```
 
-### Backgrounds[¶]()
+### Backgrounds
 
 Slice groups can be given a `background` as defined in [Styling Backgrounds](../../../enhancements-contents/customizing-slice-templates/styling-and-formatting/untitled-1.md#styling-backgrounds).
 

@@ -76,11 +76,11 @@ slices:
 
 
 
-## stack.yaml options[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#stack-yaml-options)
+## stack.yaml options
 
 Let’s talk about what’s in the stack.yaml file.
 
-### label[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#label-stack)
+### label
 
 The name of this stack. This can be anything you want up to 70 characters.
 
@@ -89,7 +89,7 @@ The name of this stack. This can be anything you want up to 70 characters.
 | Values: | An up to 70 character string |
 | Example: | `label: "Knoweldge"` |
 
-### description[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#description-stack)
+### description
 
 Description of this story, appears below the label on story choosers.
 
@@ -98,7 +98,7 @@ Description of this story, appears below the label on story choosers.
 | Values: | A string |
 | Example: | `description: "An overview of the Knowledge survey data"` |
 
-### icon[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#icon-stack)
+### icon
 
 A font-awesome icon that represents this stack.
 
@@ -107,7 +107,7 @@ A font-awesome icon that represents this stack.
 | Values: | An up to 70 character string |
 | Example: | `icon: "close"` |
 
-### story\_theme[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#story-theme-stack)
+### story\_theme
 
 A json object that controls story specific theming.
 
@@ -139,7 +139,7 @@ A json object that controls story specific theming.
       </td>
     </tr>
   </tbody>
-</table>### has\_tour[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#has-tour)
+</table>### has\_tour
 
 Does this stack have tours in the help directory? These are yaml files that in the help directory. If so, they will be loaded and will display for this stack.
 
@@ -148,7 +148,7 @@ Does this stack have tours in the help directory? These are yaml files that in t
 | Values: | true\|false |
 | Example: | `has_tour: false` |
 
-### background[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#background-stack)
+### background
 
 A background or backgrounds for this stack.
 
@@ -191,7 +191,7 @@ A background or backgrounds for this stack.
       </td>
     </tr>
   </tbody>
-</table>### global\_filters\_service[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#global-filters-service)
+</table>### global\_filters\_service
 
 A data\_service definition for the global filters. If this is missing, no global filters will appear.
 
@@ -200,7 +200,7 @@ A data\_service definition for the global filters. If this is missing, no global
 | Values: | A package and class name for the global filters data service |
 | Example: | `global_filters_service: basicservice.FilterService` |
 
-### initial\_hash[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#initial-hash)
+### initial\_hash
 
 A “getting started” hashr hash that defines what people should see the very first time they open this stack. If an initial\_hash value is set, the Reset button will appear next to the global filters pill.
 
@@ -209,7 +209,7 @@ A “getting started” hashr hash that defines what people should see the very 
 | Values: | A hash for this stack. |
 | Example: | `initial_hash: ""` |
 
-### slices[¶](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#slices-stack)
+### slices
 
 A list of slice definitions, see [Defining Slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/creating_slices.html#defining-slices)
 
