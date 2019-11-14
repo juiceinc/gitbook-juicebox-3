@@ -8,7 +8,7 @@ description: >-
 
 ## Flower config
 
-Flower slices support the [Common configuration options for all slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html). Additional options are:
+Flower slices support the [Common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
 ### zoom
 
