@@ -6,8 +6,10 @@ description: 'What you''ll find in the app.yaml file, and what kind of options y
 
 ## app.yaml Options
 
-The `app.yaml` file defines application-level settings for a Juicebox app. Here is what a sample app.yaml file looks like.
+The `app.yaml` file defines application-level settings for a Juicebox app. Here is what a sample app.yaml file looks like, and then on the table below it you can see what each piece is doing.
 
+{% tabs %}
+{% tab title="app.yaml Example" %}
 ```text
 id: "ABCDEFGH"
 label: "My New App"
@@ -35,6 +37,8 @@ stacks:
 - "B"
 - "The Rest"
 ```
+{% endtab %}
+{% endtabs %}
 
 | Key | Optional | Value | Description |
 | :--- | :--- | :--- | :--- |
