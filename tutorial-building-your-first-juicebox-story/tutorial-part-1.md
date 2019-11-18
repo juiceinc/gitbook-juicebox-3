@@ -24,7 +24,7 @@ Here we will go over how to create a Juicebox app, what the different options me
 
 ### [Part 3 - Building Data Services](part-3-building-data-services.md)
 
-In Part 3, we'll look at how to build out data services, how to interact with the database, and dive into how picking the right ingredients and recipe can be crucial when creating an app. We'll also talk about how the frontend and backend are connected and how seamlessly you can move from one to the other. This will easily be the meatiest section of the tutorial, so make sure you're ready to dive in deep when you get here.
+In Part 3, we'll look at how to build out data services, how to interact with the database, and dive into how picking the right ingredients and recipe can be crucial when creating an app. We'll also talk about how the frontend and backend are connected and how seamlessly you can move from one to the other. **This will easily be the meatiest section of the tutorial, so make sure you're ready to dive in deep when you get here.**
 
 ### [Part 4 - Building the Slices](part-4-building-the-slices.md)
 
