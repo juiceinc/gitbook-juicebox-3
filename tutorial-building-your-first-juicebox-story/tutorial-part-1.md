@@ -6,7 +6,7 @@ description: Let's look at what you'll find in the tutorial and what you're goin
 
 ## Overview
 
-In this tutorial, we are going to be looking at what Juicebox is, how to use it, and build something using a lot of the core features you are likely to encounter in a great number of Juicebox apps you will build here. This tutorial is meant to be a guide that teaches you to think like a Juice developer and give you the tools necessary to help you solve issues as they arise, and while the base tutorial won't get into a lot that the product can do, we will be creating advanced tutorials that build off of what you will build here that will help lay out a more exhaustive base for you to build on.
+In this tutorial, we are going to be looking at what Juicebox is and how to use it, and then we are going to build something using a lot of the core features you are likely to encounter in the Juicebox apps you will build here. This tutorial is meant to be a guide that teaches you to think like a Juice developer and give you the tools necessary to help you solve issues as they arise, and while the base tutorial won't get into a lot of things that the platform can do, we will be creating advanced tutorials that will help lay out a more exhaustive base for you to build on.
 
 {% hint style="info" %}
 If you have any ideas on advanced topics that you'd love to see covered in the advanced tutorials, feel free to reach out to Seth about making that. No promises, but depending on time constraints, he would love to help out.
