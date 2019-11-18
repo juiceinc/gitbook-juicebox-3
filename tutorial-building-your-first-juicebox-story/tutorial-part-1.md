@@ -6,10 +6,10 @@ description: Let's look at what you'll find in the tutorial and what you're goin
 
 ## Overview
 
-In this tutorial, we are going to be looking at what Juicebox is and how to use it, and then we are going to build something using a lot of the core features you are likely to encounter in the Juicebox apps you will build here. This tutorial is meant to be a guide that teaches you to think like a Juice developer and give you the tools necessary to help you solve issues as they arise, and while the base tutorial won't get into a lot of things that the platform can do, we will be creating advanced tutorials that will help lay out a more exhaustive base for you to build on.
+In this tutorial, we are going to be looking at what Juicebox is and how to use it, and then we are going to build something using a lot of the core features you are likely to encounter in the Juicebox apps you will build here. This tutorial is a guide that teaches you to think like a Juicebox developer and give you the tools necessary to help you solve issues as they arise. While the base tutorial won't get into all of things that the platform can do, we will be creating advanced tutorials that will help lay out a more exhaustive base for you to build on.
 
 {% hint style="info" %}
-If you have any ideas on advanced topics that you'd love to see covered in the advanced tutorials, feel free to reach out to Seth about making that. No promises, but depending on time constraints, he would love to help out.
+If you have any ideas on advanced topics that you'd love to see covered in the advanced tutorials, feel free to reach out to Seth \(seth@juiceanalytics.com\) about making that. We'll see what we can do.
 {% endhint %}
 
 ## Section Breakdown
@@ -24,11 +24,11 @@ Here we will go over how to create a Juicebox app, what the different options me
 
 ### [Part 3 - Building Data Services](part-3-building-data-services.md)
 
-In Part 3, we'll look at how to build out data services, how to interact with the database, and dive into how picking the right ingredients and recipe can be crucial when creating an app. We'll also talk about how the frontend and backend are connected and how seamlessly you can move from one to the other. **This will easily be the meatiest section of the tutorial, so make sure you're ready to dive in deep when you get here.**
+In Part 3, we'll look at how to build out data services, how to interact with the database, and dive into how picking the right ingredients and recipe can be crucial when creating an app. We'll also talk about how the frontend and backend are connected and how seamlessly you can move from one to the other. **This will be the meatiest section of the tutorial, so make sure you're ready to dive in deep when you get here.**
 
 ### [Part 4 - Building the Slices](part-4-building-the-slices.md)
 
-Part 4 is going to teach you how to work with some common slice types, what their configurations look like, and how you can manipulate them to do what you want.
+Part 4 is going to teach you how to work with several common types of slice, what their configurations look like, and how you can manipulate them to do what you want.
 
 ### [Advanced Tutorials](advanced-tutorials.md)
 
@@ -42,7 +42,7 @@ Each advanced tutorial, unless noted, will build off of your base finished produ
 
 In this tutorial we will be building an app that uses [this dataset](https://www.kaggle.com/pavanraj159/olympics-history-1896-2016) to look at the history of The Olympics to see which countries are the most dominant in the winter and summer games, and which countries are trending up/down in medal counts. 
 
-One of the hardest parts about working with data is ingesting and cleaning it. Usually intricate systems are built to take data from its source and transform it into something we can use. Luckily, in the Olympics app the data is already in our database and ready to be used. One of the [advanced tutorials](advanced-tutorials.md) will look at how to clean the data and things to look out for in that regard, but we'll cross that bridge later.
+One of the hardest parts about working with data is ingesting and cleaning it. Usually intricate systems are built to take data from its source and transform it into something we can use. Luckily, in the Olympics app the data is already in our database and ready to be used. One of the [advanced tutorials](advanced-tutorials.md) will look at how to clean and structure data and things to look out for in that regard, but we'll cross that bridge later.
 
 ## Prerequisites
 
