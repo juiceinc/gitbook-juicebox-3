@@ -40,5 +40,17 @@ Each advanced tutorial, unless noted, will build off of your base finished produ
 
 ## What Are We Building?
 
+In this tutorial we will be building an app that uses [this dataset](https://www.kaggle.com/pavanraj159/olympics-history-1896-2016) to look at the history of The Olympics to see which countries are the most dominant in the winter and summer games, and which countries are trending up/down in medal counts. 
+
+One of the hardest parts about working with data is ingesting and cleaning it. Usually intricate systems are built to take data from its source and transform it into something we can use. Luckily, in the Olympics app the data is already in our database and ready to be used. One of the [advanced tutorials](advanced-tutorials.md) will look at how to clean the data and things to look out for in that regard, but we'll cross that bridge later.
+
 ## Prerequisites
+
+There are a few tools you will need access to and basic familiarity with in order to effectively follow this tutorial and begin developing with Juicebox:
+
+* **git** and/or [**GitHub Desktop**](https://desktop.github.com/) for managing your app’s code repository.
+* An **IDE** for writing and editing code. ****[**PyCharm**](https://www.jetbrains.com/pycharm/) ****is widely used for application development at Juice. While it isn’t a requirement for building Juicebox apps, using PyCharm may help our team support you in troubleshooting should any troubles arise.
+* \*\*\*\*[**Devlandia**](http://devlandia.net/en/), the Juicebox development environment that will allow you to host, manage and test your app locally. Getting into Devlandia will be part of your initial computer setup, but if you haven't done that for some reason, reach out to the Ops team.
+
+Alright, so now that we've got all of that out of the way, let's dig in a bit.
 
