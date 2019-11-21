@@ -14,5 +14,7 @@ Included, but not limited to:
 
 {% page-ref page="reference-guide-contents/slice-reference/trend-another-import-that-didnt-work.md" %}
 
+{% page-ref page="enhancements-contents/adding-interactivity/commands.md" %}
+
 
 
