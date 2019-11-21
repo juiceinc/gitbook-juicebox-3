@@ -4,6 +4,7 @@
 * [Pages that still need monster love](pages-that-still-need-monster-love.md)
 * [Where Should I live?](where-should-i-live/README.md)
   * [Applying Backgrounds to Stacks and Slices](where-should-i-live/applying-backgrounds-to-stacks-and-slices.md)
+  * [Styling Slices & Sections](where-should-i-live/styling-slices-and-sections.md)
 * [Getting Started](getting-started/README.md)
   * [Setup & Running on Mac & Linux](getting-started/setup-and-running-on-mac-and-linux.md)
   * [Setting up Devlandia on Windows](getting-started/setting-up-devlandia-on-windows.md)
