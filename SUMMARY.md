@@ -74,6 +74,7 @@
     * [Creating Views](data-services-content/advanced-topics/creating-views.md)
     * [Data, Users, and Permissions](data-services-content/advanced-topics/data-services.md)
     * [Sharing Code Across Stories](data-services-content/advanced-topics/sharing-code-across-stories.md)
+* [API](api.md)
 * [Enhancements](enhancements-contents/README.md)
   * [Adding features to your app](enhancements-contents/topics.md)
   * [Writing custom app commands](enhancements-contents/writing-custom-app-commands.md)
