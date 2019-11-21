@@ -1,18 +1,20 @@
-# Templates
+---
+description: Templates turn data into html. Juicebox has many templates built-in.
+---
 
-Templates turn data into html. Juicebox has many templates built-in.
+# Templates
 
 Juicebox uses Juice’s open-source [Dunderscore Templates](https://github.com/juiceinc/dunderscore) library. Dunderscore combines the flexibility of using plain javascript Underscore templates \(see [http://underscorejs.org/\#template](http://underscorejs.org/#template)\) with filters inspired by Vega Datalib \([https://github.com/vega/datalib/wiki/Formatting\#dl\_template](https://github.com/vega/datalib/wiki/Formatting#dl_template)\).
 
 ## Two types of templates
 
-Templates have global access to all data in any slice by referring to other slugs. Some templates are bound to an data object called `datum`.
+Templates have global access to all data in any slice by referring to other slugs. Some templates are bound to a data object called `datum`.
 
 ## Built-in template functions
 
 All the built-in functions are called by referencing the slug for the slice you’re interested in followed by the function name.
 
-```text
+```markup
 <%= <slug>.<functionName>() %>
 ```
 
@@ -20,7 +22,7 @@ All the built-in functions are called by referencing the slug for the slice you�
 
 Provides the list of selected items in the slice with slug &lt;slug&gt;. Each item will have an `id`, a `label`, and a `group_by_type`.
 
-```text
+```markup
 optionchooser.selection()
 // Returns: [{id: 'expenditures', 'label': 'Expenditures', 'group_by_type': 'sel_type'}]
 ```
@@ -35,7 +37,7 @@ Provides a string of the selected items of the slice with slug &lt;slug&gt; for 
 
 This is a shortcut way of referring to the following template.
 
-```text
+```markup
 //ranked_list.selectionDisplay() is the same as
 
 <% if (ranked_list.selection().length == 1) { %>
