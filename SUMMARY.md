@@ -98,4 +98,7 @@
 * [Housekeeping](housekeeping/README.md)
   * [Juicebox on HIPAA](housekeeping/juicebox-on-hipaa.md)
   * [Releases and Upgrading](housekeeping/releases-and-upgrading.md)
+  * [Operating Juicebox](housekeeping/operating-juicebox/README.md)
+    * [Building AMIs](housekeeping/operating-juicebox/building-amis.md)
+    * [Browser Support](housekeeping/operating-juicebox/browser-support.md)
 
