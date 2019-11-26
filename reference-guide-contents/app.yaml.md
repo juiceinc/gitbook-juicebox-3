@@ -47,7 +47,7 @@ stacks:
 | slug | No | An up to 70 character string with no spaces \(better if its short\) | Appears in the url for the stack like `www.juiceboxdata.com/{appslug}/{stackslug}/.` This should be unique among all apps. |
 | description | No | A string that is a short description of app | An extended description of your app. This will appear on the app home page. |
 | metadata | Yes | An object containing configuration. | Metadata provides extra configuration for this application. The following options are supported. More info and options are [here](app.yaml.md#metadata). |
-| show\_help | No | true\|false | Should a help link be displayed for this app. For more about help see [Building help](https://docs.juiceboxdata.com/projects/juicebox/topics/guidance/help.html#building-help). \(this sections isn't done yet\) |
+| show\_help | No | true\|false | Should a help link be displayed for this app. For more about help, go [here](../where-should-i-live/help-in-juicebox.md). \(this sections isn't done yet\) |
 | use\_discussions | No | true\|false | Are discussions enabled in this app? \(in app commenting\) |
 | discussions\_group\_property \([WARNING](app.yaml.md#warnings)\) | Yes - Not needed if use\_discussions is false | A property  on user.extra. If an empty string, all users that can access an app share discussions with each other. | A property of `user.extra` that controls who users can talk to in discussions. If blank, everyone with access to the app can discuss together. Only users who share the same `discussions_group_property` value in their user.extra can share discussions. |
 | juicebox\_versions | No | '3'\|'4' | The file layout and engine this Juicebox app runs against. [Juicebox File Layout](juicebox-file-structure.md) |
