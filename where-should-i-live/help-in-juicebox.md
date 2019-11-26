@@ -1,4 +1,4 @@
-# Help in Juicebox
+# Help in Juicebox \(done\)
 
 ## Enabling help
 
