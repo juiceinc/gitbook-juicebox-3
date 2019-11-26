@@ -3,7 +3,6 @@
 * [Welcome to Juicebox](README.md)
 * [Pages that still need monster love](pages-that-still-need-monster-love.md)
 * [Where Should I live?](where-should-i-live/README.md)
-  * [Juicebox on HIPAA](where-should-i-live/juicebox-on-hipaa.md)
   * [Downloading Slice Content](where-should-i-live/downloading-slice-content.md)
   * [Applying Backgrounds to Stacks and Slices](where-should-i-live/applying-backgrounds-to-stacks-and-slices.md)
   * [Styling Slices & Sections](where-should-i-live/styling-slices-and-sections.md)
@@ -96,4 +95,7 @@
   * [Hashes](enhancements-contents/hashes.md)
   * [Running Gabbi Tests](enhancements-contents/running-gabbi-tests.md)
   * [Pagination in Slices](enhancements-contents/pagination-in-slices.md)
+* [Housekeeping](housekeeping/README.md)
+  * [Juicebox on HIPAA](housekeeping/juicebox-on-hipaa.md)
+  * [Releases and Upgrading](housekeeping/releases-and-upgrading.md)
 
