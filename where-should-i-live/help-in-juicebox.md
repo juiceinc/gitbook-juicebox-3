@@ -2,7 +2,7 @@
 
 ## Enabling help
 
-For help to be displayed [show\_help](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/apps/index.html#show-help) needs to be `true` in [Apps](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/apps/index.html).
+For help to be displayed[ show\_help](../reference-guide-contents/app.yaml.md#app-yaml-options) needs to be `true` in the [app.yaml](../reference-guide-contents/app.yaml.md).
 
 ## Building help
 
