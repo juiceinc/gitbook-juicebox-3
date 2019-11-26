@@ -93,4 +93,5 @@
     * [Help in Juicebox](enhancements-contents/providing-help-and-guidance/help-pages.md)
     * [Adding Tours](enhancements-contents/providing-help-and-guidance/adding-tours.md)
   * [Hashes](enhancements-contents/hashes.md)
+  * [Running Gabbi Tests](enhancements-contents/running-gabbi-tests.md)
 
