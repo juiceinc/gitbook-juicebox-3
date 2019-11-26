@@ -12,9 +12,11 @@ Stacks and slices can define backgrounds using a `background` property in yaml. 
 | extra: | Optional extra css properties for your image that are supported by the css background property. For instance, you can set an image to be centered, fixed and no-repeating with `no-repeat fixed center` |
 | config: | A key/value list of modifications supported by the imgix url api. See [https://docs.imgix.com/apis/url](https://docs.imgix.com/apis/url) |
 
-Here’s an example of a stack.yaml `header` and `background` using images.
+Checkout this example:
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 header:
   image: 'http://www.cookandsonbats.com/panoramas/wrigley/wrigley-404-504.jpg'
   config:
@@ -28,6 +30,8 @@ background:
       w: 1920
       sepia: 100
 ```
+{% endtab %}
+{% endtabs %}
 
 The first image is blurred with a width of 1920 pixels. The second image is sepia toned with a width of 1920 pixels. It uses the extra to move that image down 250px. In the app, this looks like:
 
@@ -37,7 +41,9 @@ The first image is blurred with a width of 1920 pixels. The second image is sepi
 
 If there is an image used in the header where the contrast doesn’t seem strong enough, try tinting your image with another color through the config. In the following example, the blend color is chosen, the blend mode `bm` is set to normal, and it is made slightly transparent with `balph`.
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
   background:
 # Set the story image:
 - image: APA_image.jpg
@@ -50,6 +56,8 @@ If there is an image used in the header where the contrast doesn’t seem strong
     h: 540
   extra: "0/cover no-repeat"
 ```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 If you use blend, surround the color by quotes so it’s not treated as an integer.
@@ -96,7 +104,9 @@ If you use blend, surround the color by quotes so it’s not treated as an integ
   </tbody>
 </table>Here’s an example of a stack.yaml `header` and `background` using patterns.
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 header:
   pattern: 'plus_signs'
   config:
@@ -108,20 +118,14 @@ background:
     color: '#0E3286'
     scale: 12
 ```
+{% endtab %}
+{% endtabs %}
 
 The first image is a relatively small plus\_sign pattern using the accent color. The second image is a larger ring pattern using the primary color.
 
 ![](../.gitbook/assets/pattern_header_background.jpg)
 
 This table shows examples of all patterns at small, medium, and large scales.
-
-```text
-background:
-  - pattern: {pattern}
-    config:
-      color: "#F05C5E"
-      scale: {scale}
-```
 
 ## I Can't Pull These Images From the Old Docs
 
@@ -141,6 +145,20 @@ background:
 | xes |  |  |  |
 | triangles |  |  |  |
 
+You can integrate any of these very easily by following this template:
+
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
+background:
+  - pattern: {pattern}
+    config:
+      color: "#F05C5E"
+      scale: {scale}
+```
+{% endtab %}
+{% endtabs %}
+
 ### Gradient Background
 
 | key | value/definition |
@@ -150,12 +168,16 @@ background:
 
 Here’s an example of a stack.yaml `header` and `background` using gradients. A good source of visually interesting gradients is [http://uigradients.com/](http://uigradients.com/)
 
-```text
+{% tabs %}
+{% tab title="First Tab" %}
+```yaml
 header:
   gradient: 'linear-gradient(to bottom, #7b4397 , #dc2430)'
 background:
   gradient: 'linear-gradient(to left, #7b4397 , #dc2430)'
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Color Background
 
@@ -175,12 +197,16 @@ background:
 
 Here’s an example of a stack.yaml `header` and `background` using colors.
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 header:
   color: '#CC3433'
 background:
   color: '#0E3286'
 ```
+{% endtab %}
+{% endtabs %}
 
 The header uses the accent color and the body background uses the primary color.
 
@@ -190,7 +216,9 @@ The header uses the accent color and the body background uses the primary color.
 
 You can combine images, gradients, colors and patterns to create sophisticated effects. The background property can take a list of backgrounds as defined above. The first item in the list will be on top and the others will appear as layers below it. Here’s an example:
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 header:
   - gradient: 'linear-gradient(to right, rgba(0, 0, 0, 0.5) , rgba(0, 0,
    0, 1))'
@@ -209,6 +237,8 @@ background:
       w: 1920
       sepia: 100
 ```
+{% endtab %}
+{% endtabs %}
 
 The header has a background grey pattern image from [http://subtlepatterns](http://subtlepatterns/) .com\_ with a gradient fading to full black on the right on top of the pattern. The background has an image with a dark squares pattern on top and a final fade to black gradient on top of that.
 
