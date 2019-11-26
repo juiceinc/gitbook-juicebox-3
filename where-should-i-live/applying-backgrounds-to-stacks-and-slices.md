@@ -1,4 +1,4 @@
-# Applying Backgrounds to Stacks and Slices
+# Applying Backgrounds to Stacks and Slices \(needs small amount of work that I can't do\)
 
 ## Styling Backgrounds
 
@@ -6,8 +6,9 @@ Stacks and slices can define backgrounds using a `background` property in yaml. 
 
 ### Image Background
 
-| image: | A url or an image in your app’s public/img directory |
+| key | value |
 | :--- | :--- |
+| image: | A url or an image in your app’s public/img directory |
 | extra: | Optional extra css properties for your image that are supported by the css background property. For instance, you can set an image to be centered, fixed and no-repeating with `no-repeat fixed center` |
 | config: | A key/value list of modifications supported by the imgix url api. See [https://docs.imgix.com/apis/url](https://docs.imgix.com/apis/url) |
 
@@ -30,7 +31,9 @@ background:
 
 The first image is blurred with a width of 1920 pixels. The second image is sepia toned with a width of 1920 pixels. It uses the extra to move that image down 250px. In the app, this looks like:
 
-#### Improving Readability
+![](../.gitbook/assets/header_background%20%282%29.jpg)
+
+### Improving Readability
 
 If there is an image used in the header where the contrast doesn’t seem strong enough, try tinting your image with another color through the config. In the following example, the blend color is chosen, the blend mode `bm` is set to normal, and it is made slightly transparent with `balph`.
 
@@ -48,7 +51,7 @@ If there is an image used in the header where the contrast doesn’t seem strong
   extra: "0/cover no-repeat"
 ```
 
-{% hint style="info" %}
+{% hint style="warning" %}
 If you use blend, surround the color by quotes so it’s not treated as an integer.
 {% endhint %}
 
@@ -57,9 +60,15 @@ If you use blend, surround the color by quotes so it’s not treated as an integ
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">pattern:</th>
-      <th style="text-align:left">
-        <p>A pattern name. Possible values are:</p>
+      <th style="text-align:left">key</th>
+      <th style="text-align:left">description/value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">pattern:</td>
+      <td style="text-align:left">
+        <p></p>
         <ul>
           <li>bricks</li>
           <li>hexagons</li>
@@ -73,10 +82,8 @@ If you use blend, surround the color by quotes so it’s not treated as an integ
           <li>triangles</li>
           <li>xes</li>
         </ul>
-      </th>
+      </td>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <td style="text-align:left">extra:</td>
       <td style="text-align:left">Optional extra css properties for your image that are supported by the
@@ -104,6 +111,8 @@ background:
 
 The first image is a relatively small plus\_sign pattern using the accent color. The second image is a larger ring pattern using the primary color.
 
+![](../.gitbook/assets/pattern_header_background.jpg)
+
 This table shows examples of all patterns at small, medium, and large scales.
 
 ```text
@@ -114,12 +123,12 @@ background:
       scale: {scale}
 ```
 
-#### Pattern Examples
+## I Can't Pull These Images From the Old Docs
 
-| Supported patterns |  |  |  |
-| :--- | :--- | :--- | :--- |
-|  |  |  |  |
+### Pattern Examples
+
 | Pattern | scale: 2 | scale: 7 | scale: 13 |
+| :--- | :--- | :--- | :--- |
 | bricks |  |  |  |
 | hexagons |  |  |  |
 | overlapping\_circles |  |  |  |
@@ -134,8 +143,9 @@ background:
 
 ### Gradient Background
 
-| gradient: | A css3 gradient to use. You only need to specify the linear-gradient or radial-gradient. |
+| key | value/definition |
 | :--- | :--- |
+| gradient: | A css3 gradient to use. You only need to specify the linear-gradient or radial-gradient. |
 | extra: | Optional extra css properties for your gradient that are supported by the css background property. For instance, you can set an pattern to be centered, fixed and no-repeating with `no-repeat fixed center` |
 
 Here’s an example of a stack.yaml `header` and `background` using gradients. A good source of visually interesting gradients is [http://uigradients.com/](http://uigradients.com/)
@@ -149,18 +159,19 @@ background:
 
 ### Color Background
 
-| color: | A hex, rgb, rgba, or css named color to use. |
+| key | value |
 | :--- | :--- |
+| color:  | A hex, rgb, rgba, or css named color to use |
 | extra: | Optional extra css properties for your color that are supported by the css background property. For instance, you can set an pattern to be centered, fixed and no-repeating with `no-repeat fixed center` |
 
-| Supported color options |  |
-| :--- | :--- |
-|  |  |
-| Color | Example |
-| hex color `color: '#CC3433'` |  |
-| rgb color `color: 'rgb(255, 90, 0)'` |  |
-| rgba color `color: 'rgba(255, 90, 0, 0.5)'` |  |
-| Named color `color: 'goldenrod'` |  |
+## Need pics for this one too
+
+| Color Type | Key/Value | Result |
+| :--- | :--- | :--- |
+| hex color | color: '\#CC3433' |  |
+| rgb color | color: 'rgb\(255, 90, 0\)' |  |
+| rgba color | color: 'rgba\(255, 90, 0, 0.5\)' |  |
+| named color | color: 'goldenrod' |  |
 
 Here’s an example of a stack.yaml `header` and `background` using colors.
 
@@ -172,6 +183,8 @@ background:
 ```
 
 The header uses the accent color and the body background uses the primary color.
+
+![](../.gitbook/assets/color_header_background%20%281%29.jpg)
 
 ## Layering multiple backgrounds
 
@@ -200,4 +213,6 @@ background:
 The header has a background grey pattern image from [http://subtlepatterns](http://subtlepatterns/) .com\_ with a gradient fading to full black on the right on top of the pattern. The background has an image with a dark squares pattern on top and a final fade to black gradient on top of that.
 
 Here’s what it looks like together.
+
+![](../.gitbook/assets/layers_header_background.jpg)
 
