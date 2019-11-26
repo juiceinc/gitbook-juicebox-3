@@ -5,7 +5,7 @@ Slices are created using templates. These templates can be overridden on a slice
 {% hint style="warning" %}
 While templates can be used to customize your slice's appearance, it is better to use builtin configuration options.
 
-Consider using [slice.layout](../../reference-guide-contents/slices/slices-and-common-configuration.md#layout), [slice.config.layout](../../reference-guide-contents/slices/slices-and-common-configuration.md) or [slice.config.layoutFlags](../../reference-guide-contents/slices/slices-and-common-configuration.md#config-layoutflags) to get the appearance you need.
+Consider using [slice.layout](../reference-guide-contents/slices/slices-and-common-configuration.md#layout), [slice.config.layout](../reference-guide-contents/slices/slices-and-common-configuration.md) or [slice.config.layoutFlags](../reference-guide-contents/slices/slices-and-common-configuration.md#config-layoutflags) to get the appearance you need.
 {% endhint %}
 
 Here are the slice.config templates you can customize. Check with your Juicebox representative to see what a starting template would look like.

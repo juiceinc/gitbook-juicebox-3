@@ -241,5 +241,5 @@ A boolean flag that indicates if a slice should notify all the slices below it \
 
 ## Additional template options
 
-Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../enhancements-contents/customizing-slice-templates/)
+Slice appearance can also be heavily customized with custom templates. See [Customizing slice templates](../../enhancements-contents/customizing-slice-templates.md)
 

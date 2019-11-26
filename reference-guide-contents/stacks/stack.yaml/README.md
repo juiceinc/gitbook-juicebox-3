@@ -162,7 +162,7 @@ A background or backgrounds for this stack.
   <tbody>
     <tr>
       <td style="text-align:left">Values:</td>
-      <td style="text-align:left">A background as defined in <a href="../../../enhancements-contents/customizing-slice-templates/styling-and-formatting/untitled-1.md#styling-backgrounds">Styling Backgrounds</a>
+      <td style="text-align:left">A background as defined in <a href="../../../enhancements-contents/styling-and-formatting/untitled-1.md#styling-backgrounds">Styling Backgrounds</a>
       </td>
     </tr>
     <tr>
