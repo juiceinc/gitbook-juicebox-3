@@ -1,53 +1,67 @@
-# Styling Slices & Sections
+# Styling Slices & Sections \(done\)
 
 ## Styling Slices
 
-You can vary the look of a slice through its `style` config. For example, the following `title-large` attribute is often use on an introductory slice to make the slice title of a slice large and centered:
+You can vary the look of a slice through its `style` config. For example, the following `title-large` attribute is often use on an introductory slice to make the slice title of a slice large and centered:\
+
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
+style:
+- "title-large"
+```
+{% endtab %}
+{% endtabs %}
 
 Here are all the available attributes:
 
-`section-header`: Use on a freeform slice to make a section header.
+| value | description |
+| :--- | :--- |
+| `section-header:` | Use on a [freeform slice](../reference-guide-contents/slice-reference/free-form.md) to make a section header. |
+| `section-content:` | Apply to all slices of a section except the header. |
+| `section-last:` | Apply to the last slice in a section. |
+| `title-large:` | Makes the slice [title](../reference-guide-contents/slices/slices-and-common-configuration.md#title) bold, centered, and large. |
+| `background-transparent:` | Makes the slice background transparent. |
+| `alignment-center:` | Centers the visualization slice content. |
+| `card:` | Makes the slice feel like a card standing alone. Note, this doesn’t work with sections styling. |
+| `wide:` | Take up the full width of the browser window. |
+| `no-snapshot:` | Remove the snapshot button on a slice. Note: This should only be done if the slice doesn’t have live data that someone may want to share or discuss. |
+| `cover:` | Makes the slice large and take up the entire screen. |
 
-`section-content`: Apply to all slices of a section except the header.
+### cover details
 
-`section-last`: Apply to the last slice in a section.
-
-`title-large`: Makes the slice [title](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html#title) bold, centered, and large.
-
-`background-transparent`: Makes the slice background transparent.
-
-`alignment-center`: Centers the visualization slice content.
-
-`card`: Makes the slice feel like a card standing alone. Note, this doesn’t work with sections styling.
-
-`wide`: Take up the full width of the browser window.
-
-`no-snapshot`: Remove the snapshot button on a slice. Note: This should only be done if the slice doesn’t have live data that someone may want to share or discuss.
-
-`cover`: Makes the slice large and take up the entire screen.
-
-### cover
-
-Makes the slice large and take up the entire screen. This is great for highlighting important content without getting distracted by other slices. This is great for large statements, or places you’d like users to focus on content without getting distracted by content from other slices.
+Makes the slice large and take up the entire screen. This is great for highlighting important content without getting distracted by other slices. This is great for large statements, or places you’d like users to focus on content without getting distracted by content from other slices. Let's look at two common use cases for `cover`.
 
 **Free-form example**
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 style:
   - "no-snapshot"
   - "alignment-center"
   - "cover"
 ```
+{% endtab %}
+{% endtabs %}
 
-While most slice will center their content, some slices look good with their content filling the entire screen
+![](../.gitbook/assets/styling-cover-freeform%20%281%29.png)
 
 **Map example**
 
-```text
+While most slices will center their content, some slices look good with their content filling the entire screen
+
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 style:
 - "alignment-center"
 - "cover"
 ```
+{% endtab %}
+{% endtabs %}
+
+![](../.gitbook/assets/styling-cover-map%20%282%29.png)
 
 ## Grouping Slices into Sections
 
@@ -55,13 +69,17 @@ A Juicebox stack can be thought of as an interactive short-story, with scenes or
 
 Here’s a picture of the meaningful parts, and some styling configuration hints:
 
+![](../.gitbook/assets/jbdoc-styling-sections.png)
+
 ### Creating a section
 
 The above image has a section made of two slices: a header slice, and another slice.
 
 The header is created from a freeform slice and text for the `title` and `section-header` in the `style` config:
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 # Section Header
 - slice_type: "free-form"
   title: "First, let’s see how that [metric] is performing for [13.1k Viewers]."
@@ -73,12 +91,18 @@ The header is created from a freeform slice and text for the `title` and `sectio
     "target": "view"
   data_service: "blank.json"
 ```
+{% endtab %}
+{% endtabs %}
 
 All additional slices all should have the `section-content` attribute. The last slice in a section gets both the `section-last` attribute and the `section-content` attribute:
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 style:
 - "section-content"
 - "section-last"
 ```
+{% endtab %}
+{% endtabs %}
 

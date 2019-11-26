@@ -67,7 +67,7 @@ A Juicebox stack can be thought of as an interactive short-story, with scenes or
 
 Here's a picture of the meaningful parts, and some styling configuration hints:
 
-![image](../../.gitbook/assets/jbdoc-styling-sections.png)
+![image](../../.gitbook/assets/jbdoc-styling-sections%20%281%29.png)
 
 ### Creating a section
 

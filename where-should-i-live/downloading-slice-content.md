@@ -2,7 +2,7 @@
 description: Any slice can make its content available as a downloadable file
 ---
 
-# Downloading Slice Content
+# Downloading Slice Content \(done\)
 
 ## Supporting downloads in the data service
 
