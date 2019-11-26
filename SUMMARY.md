@@ -25,7 +25,7 @@
   * [How data connects to stories](concepts/how-data-connects-to-stories.md)
 * [Reference](reference-guide-contents/README.md)
   * [Juicebox 3 File Layout](reference-guide-contents/juicebox-file-structure.md)
-  * [app.yaml](reference-guide-contents/app.yaml.md)
+  * [app.yaml \(done\)](reference-guide-contents/app.yaml.md)
   * [theme.yaml](reference-guide-contents/theme_yaml.md)
   * [stacks/](reference-guide-contents/stacks/README.md)
     * [templates.html](reference-guide-contents/stacks/templates.html.md)
