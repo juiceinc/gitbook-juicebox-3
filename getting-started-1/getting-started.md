@@ -1,10 +1,10 @@
 ---
-description: 'What is Juicebox, and how do I set it up on my computer?'
+description: A brief overview of Juicebox
 ---
 
-# Getting Started
+# What is Juicebox? \(done\)
 
-## What is Juicebox?
+## The Basics
 
 Juicebox lets you build and share data stories. These stories are built using Python code and YAML configuration.
 
