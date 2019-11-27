@@ -1,4 +1,4 @@
-# Setup & Running on Mac & Linux
+# Setup & Running on Mac & Linux \(done\)
 
 ## Setup
 
@@ -11,31 +11,46 @@ As developers and implementors, you will need AWS keys to access certain parts o
 1. Create an OPS ticket to get an AWS account. OPS will send you credentials.
 2. Add the keys to a file called `~/.boto`.
 
+{% tabs %}
+{% tab title="~/.boto" %}
 ```text
 [Credentials]
 aws_access_key_id = YOUR_ACCESS_KEY_HERE
 aws_secret_access_key = YOUR_SECRET_KEY_HERE
 ```
+{% endtab %}
+{% endtabs %}
 
 3. You will also need to have your credentials in the `~/.aws/credentials` file \(for use with the AWS cli, it doesn’t seem to pull credentials from ~/.boto\). It is in the following format:
 
+{% tabs %}
+{% tab title="~/.aws/credentials" %}
 ```text
 [default]
 aws_access_key_id = YOUR_ACCESS_KEY_HERE
 aws_secret_access_key = YOUR_SECRET_KEY_HERE
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Installing Homebrew \(Mac only\)
 
 Homebrew is used to provide both the Python and Node.js programming languages. You may be prompted to install the Xcode CLI tools when you run this command as they are required.
 
+{% tabs %}
+{% tab title="homebrew install" %}
 ```text
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Installing Python
 
 Almost all of the work on developing data services is done via Python. While Macs ship with Python installed, it’s easier to use Python from Homebrew to avoid many pitfalls.
+
+## Need install for py3, not 2.7
 
 Run the following command and you should see different files that’ve been installed. As of this writing it should show Python 2.7.16. The patch version is subject to change, but as long as you have a 2.7.x release everything should be ok. If not contact a member of OPS for troubleshooting steps.
 
@@ -45,6 +60,8 @@ First, follow the Github guide on checking any existing keys you might have, and
 
 In your ~/.ssh/config file, add a block like the one below:
 
+{% tabs %}
+{% tab title="~/.ssh/config" %}
 ```text
 Host github.com
     Hostname ssh.github.com
@@ -52,6 +69,8 @@ Host github.com
     user <githubusername>
     IdentityFile ~/.ssh/<ssh_key>
 ```
+{% endtab %}
+{% endtabs %}
 
 The 443 port is needed because of an issue we discovered where users were unable to interact with Github while on the Juice VPN.
 
@@ -61,9 +80,13 @@ For the sake of an example and clarity we’ll assume everything starts from the
 
 To get started, either use the terminal and git commands or use Github desktop to clone the repository:
 
+{% tabs %}
+{% tab title="~/Desktop" %}
 ```text
 $ git clone git@github.com:juiceinc/devlandia.git
 ```
+{% endtab %}
+{% endtabs %}
 
 We should now have Devlandia in a directory at `~/Desktop/devlandia`. Change into the Devlandia directory with `cd devlandia`. So far so good!
 
@@ -79,9 +102,9 @@ If you have any issues running this script please contact a member of OPS.
 
 We use Docker containers to have a consistent setup for all users. If you don’t have it installed yet and are on a Mac, install Docker by downloading the .dmg from the following link. Once downloaded install it like you would any other application on your system.
 
-Important
-
+{% hint style="info" %}
 After Docker is installed, be sure to open it from your Applications directory. You’ll get a warning about running downloaded software and then Docker’s whale icon will show up in your toolbar. If you don’t start up docker yourself it won’t be able to start because it won’t have permissions.
+{% endhint %}
 
 ## Running
 
@@ -89,8 +112,30 @@ After Docker is installed, be sure to open it from your Applications directory. 
 
 Now with everything installed and set up, you are ready to start the Juicebox development environment. If you’re not in your Devlandia directory yet, run `workon devlandia` as before. There are several environments to choose from. `cd environments` and you can see that we have `stable`, `dev`, and `test`.
 
+{% hint style="info" %}
+Sidebar: What do the different environments mean?
+
+**stable**
+
+This is the latest release of Juicebox including all patches. This is what is on the staging and production servers. It corresponds to the `release/3.X` branch in our Juicebox source code. This is almost always the right environment to be using for implementations.
+
+**dev**
+
+This is the upcoming release of juicebox that is being worked on. It contains everything that’s in stable and new features that have been worked on and code reviewed. It corresponds to the `develop` branch in our Juicebox source code. Use this environment to test if a new feature is working for your app.
+
+**test**
+
+This will be used to test out new features that haven’t yet been merged to dev.
+
+**hstm-stable** **hstm-dev** **hstm-test**
+
+These have the same meaning as **stable**, **dev**, and **test** above but use the HealthStream version of our code.
+{% endhint %}
+
 The best place to get started is the stable environment so `cd stable` and to start the Juicebox Development environment, use the `jb start` command. If it’s your first time starting up Devlandia you’ll have roughly a 1.5 GB download ahead for the Docker images. Once the download finishes you should see a large amount of output go by, and it should mostly be green with no red. If it worked you should see the following:
 
+{% tabs %}
+{% tab title="jb start output" %}
 ```text
 Starting the Django dev server...
 Performing system checks...
@@ -101,6 +146,8 @@ Django version 1.8.8, using settings 'fruition.settings.docker'
 Starting development server at http://0.0.0.0:8000/
 Quit the server with CONTROL-C.
 ```
+{% endtab %}
+{% endtabs %}
 
 You should now be able to open up a web browser to http://localhost:8000/ and be prompted for login credentials. Contact a member of Juice for the username and password.
 
@@ -108,12 +155,14 @@ New Docker images will be deployed regularly as part of our Continuous Integrati
 
 ### Juice Commands
 
-Note
-
+{% hint style="info" %}
 For all jb commands, make sure you are in the same virtual environment that we setup above.
+{% endhint %}
 
 Current Commands
 
+{% tabs %}
+{% tab title="jb --help" %}
 ```text
 add          Checkout a Juicebox app (or list of apps) and load it
 clear_cache  Clears cache
@@ -133,6 +182,8 @@ upgrade      Attempt to upgrade jb command line and yo juicebox
 watch        Run the Juicebox project watcher
 yo_upgrade   Attempt to upgrade yo juicebox to the current version
 ```
+{% endtab %}
+{% endtabs %}
 
 To see a summary of commands and what they do simply run `jb` and you’ll get a list. Below are the most common.
 
@@ -148,6 +199,8 @@ The Docker images are built with SSH enabled so that we can setup a remote inter
 
 Once Juicebox is running, go to the PyCharm menu and click preferences. Select Project: devlandia and Project interpreter. Click the gear icon and Add Remote. Set your settings as listed in the image below.
 
+![](../.gitbook/assets/debug.png)
+
 PyCharm will complain if we don’t enable Django Support. To do this go to `PyCharm -> Preferences -> Languages & Frameworks -> Django`. Click Enable Django Support. For Django Project root just find and choose your Devlandia project folder and you’re done.
 
 If you work only in one environment in Devlandia, you should be good to go. Devlandia includes a Juicebox run configuration that should work with the settings we’ve setup to this point. You should be able to set break points in your app. Click `Run -> Debug - 'Juicebox'`. It will create a new debug server running on port 8888. Go to http://localhost:8888 to interact with this debugging instance. It should now break on your break points.
@@ -158,6 +211,8 @@ If you work only in one environment in Devlandia, you should be good to go. Devl
 
 If you’re trying to SSH into Devlandia, you may receive the following warning:
 
+{% tabs %}
+{% tab title="SSH warning" %}
 ```text
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
@@ -173,12 +228,14 @@ Offending ECDSA key in /Users/<username>/.ssh/known_hosts:16
 ECDSA host key for [localhost]:2222 has changed and you have requested strict checking.
 Host key verification failed.
 ```
+{% endtab %}
+{% endtabs %}
 
 You will need to edit your `~/.ssh/known_hosts` file. You can either update it to the correct key value if you know it, or you may remove the line that begins with \[localhost\]:2222 altogether and the key will be set correctly again when you try to SSH in again. If you’re not comfortable doing this please contact a member of Ops and they can help you out.
 
-Warning
-
+{% hint style="warning" %}
 It’s fine in the case of Devlandia to make this change as it’s just running locally and we trust it. If you encounter this warning on any other servers, please contact a member of Ops for assistance as it may be a security issue.
+{% endhint %}
 
 ### Port Already Allocated
 
@@ -188,15 +245,23 @@ In some cases you may encounter some variation of the following error: `Error st
 
 The following error seems to come up if you’ve started Juicebox and left it running for quite a while. The credential session expires after 12 hours in most cases. Normally a restart of Docker fixes this issue, but if not try a full reboot. We have seen a couple of variations of the message, listed below, but the fix is the same.
 
+{% tabs %}
+{% tab title="signature\_expired message" %}
 ```text
 botocore.exceptions.ClientError: An error occurred (InvalidSignatureException) when calling the Query
 operation: Signature expired: 20170519T122830Z is now earlier than 20170519T124310Z (20170519T125810Z - 15 min.)
 ```
+{% endtab %}
+{% endtabs %}
 
+{% tabs %}
+{% tab title="signature\_expired message variant" %}
 ```text
 credstash.KmsError: KMS ERROR: Decryption error An error occurred (InvalidSignatureException) when calling the
 Decrypt operation: Signature expired: 20171010T195804Z is now earlier than 20171010T200613Z (20171010T201113Z - 5 min.)
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Debugging Not Working
 
