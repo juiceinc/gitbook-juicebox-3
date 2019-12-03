@@ -4,10 +4,14 @@
 
 To get started, you'll need a Github account and Juicebox AWS credentials. The Juicebox AWS credentials look like this and will be provided by Juice.
 
+{% tabs %}
+{% tab title="aws\_credentials" %}
 ```text
 aws_access_key_id = XXX
 aws_secret_access_key = YYY
 ```
+{% endtab %}
+{% endtabs %}
 
 Just hold on to them for now, you'll be entering them later.
 
@@ -37,11 +41,15 @@ We need to upgrade pip, Python's package manager to the most recent version and 
 
 Start Powershell then run the commands that come after the `>` prompt.
 
+{% tabs %}
+{% tab title="pip and virtualenv upgrade" %}
 ```text
 > python.exe -m pip install --upgrade pip
 > pip.exe install virtualenv
 > pip.exe install virtualenvwrapper-win
 ```
+{% endtab %}
+{% endtabs %}
 
 We also need to enable the ability to run scripts in PowerShell, for virtualenv to properly work \(Read [About Execution Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)\).
 
@@ -81,19 +89,27 @@ I'm going to assume that you cloned devlandia to the `Documents\Github\devlandia
 
 Now let's create a virtualenv for Devlandia. Go to a Powershell terminal.
 
+{% tabs %}
+{% tab title="virtualenv creation" %}
 ```text
 > mkvirtualenv devlandia
 > ~\Envs\devlandia\Scripts\activate.ps1
 ```
+{% endtab %}
+{% endtabs %}
 
 When you see the `(devlandia)` at the beginning of the prompt, you have the virtualenv activated. Success!
 
 Let's install the devlandia dependencies into this environment:
 
+{% tabs %}
+{% tab title="devlandia install" %}
 ```text
 (devlandia) > cd ~\Documents\Github\devlandia
 (devlandia) > pip install -r requirements.txt
 ```
+{% endtab %}
+{% endtabs %}
 
 You will be prompted to log in with your github account to download the juiceinc/jbcli package.
 
@@ -107,8 +123,8 @@ Enter your AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY that was provided b
 
 After running AWS configure, edit the `.aws/config` file. Duplicate the `[default]` block and name it `hstm`, like this
 
--- .aws/config
-
+{% tabs %}
+{% tab title="--.aws/config" %}
 ```text
 [default]
 output = json
@@ -118,11 +134,13 @@ region = us-east-1
 output = json
 region = us-east-1
 ```
+{% endtab %}
+{% endtabs %}
 
 Now edit the `.aws/credentials` file and do the same thing to create a `hstm` credentials block.
 
--- .aws/credentials
-
+{% tabs %}
+{% tab title="-- .aws/credentials" %}
 ```text
 [default]
 aws_access_key_id = ********
@@ -134,9 +152,13 @@ aws_access_key_id = ********
 aws_secret_access_key = *******
 region = us-east-1
 ```
+{% endtab %}
+{% endtabs %}
 
 Finally create a file called `.config/juicebox/secrets.toml`. This file stores your database connection string. Several secrets currently need to exist but aren't used. They have the value of "dummy" below. The one secret that is crucial is your database connection string. Fill in the username, password, domain, and database name using information you got from your team.
 
+{% tabs %}
+{% tab title=".config/juicebox/secrets.toml" %}
 ```text
 [juicebox.laerdal_connection_string]
 docker = "dummy"
@@ -159,21 +181,31 @@ docker = "redshift+psycopg2://{username}:{password}@{redshift-domain}:5439/{reds
 [control_center.redshift.hstm]
 docker = "redshift+psycopg2://{username}:{password}@{redshift-domain}:5439/{redshift-database}"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Logging in and getting a Juicebox docker container
 
-The first time you start you'll have to make sure you get a Juicebox docker container. To do this you have to get a login. After you get the login, copy the docker login comand and enter it at your command line.
+The first time you start you'll have to make sure you get a Juicebox docker container. To do this you have to get a login. After you get the login, copy the docker login command and enter it at your command line.
 
+{% tabs %}
+{% tab title="jb docker container command" %}
 ```text
 > aws ecr get-login --registry-ids 423681189101 --no-include-email
 docker login -u AWS -p KEYHERE https://423681189101.dkr.ecr.us-east-1.amazonaws.com
 ```
+{% endtab %}
+{% endtabs %}
 
 This will give you an output that looks like
 
+{% tabs %}
+{% tab title="container command output" %}
 ```text
 docker login -u AWS -p ...
 ```
+{% endtab %}
+{% endtabs %}
 
 Copy that full output and run it on the command line. You should see
 
@@ -181,10 +213,14 @@ Copy that full output and run it on the command line. You should see
 
 Once the secrets are stored and you're logged into docker, let's try to actually start juicebox! Talk to your Juice rep to see what environment you should use. In this case we're using hstm-dev.
 
+{% tabs %}
+{% tab title="jb hstm-dev start" %}
 ```text
 > cd environments/hstm-test
 > jb start --noupgrade --noupdate
 ```
+{% endtab %}
+{% endtabs %}
 
 If you receive an error like:
 
@@ -196,11 +232,15 @@ then Docker for Windows isn't running. Make sure you have it installed and runni
 
 Now that Juicebox is running, we need to add an application. Open another terminal, navigate to the `~/Juice/devlandia` directory, and activate your virtual environment again. Then run the command to add a demo app or two:
 
+{% tabs %}
+{% tab title="jb add commands" %}
 ```text
 > ~\Envs\devlandia\Scripts\activate.ps1
 > jb add demo_api_starwars
 > jb add datademo
 ```
+{% endtab %}
+{% endtabs %}
 
 You should now be able to navigate to http://localhost:8000/ and view an app!
 
