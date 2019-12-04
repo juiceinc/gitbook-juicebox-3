@@ -17,6 +17,8 @@ _juicebox\_version: '4' \(or\) '3'_
 
 Version 3 is designed so that each stack directory contains all resources needed for that stack.
 
+{% tabs %}
+{% tab title="JB 3 Layout" %}
 ```text
 app.yaml                   App details, list of stacks to display
 theme.yaml                 Defines logo, css
@@ -30,11 +32,15 @@ stacks/
         fixtures/
         help/              Stack specific help and tour definition files.
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Version 4
 
 With version 4, “stacks” have been renamed to “stories”. The file structure has been simplified to allow visual theming reuse and to consolidate all data service code in a single place.
 
+{% tabs %}
+{% tab title="JB 4 Layout" %}
 ```text
 app.yaml                  App details and list of stories to display
 help.md or help.html      Application help
@@ -50,6 +56,8 @@ public/                   Additional public assets that the app may rely
                           on. For instance, custom javascript code.
 data_services/            Dynamic data service code for all stories
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Converting from version 3 to version 4
 

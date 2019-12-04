@@ -1,4 +1,4 @@
-# Setting up Devlandia on Windows
+# Setting up Devlandia on Windows \(done\)
 
 ## What you'll need
 

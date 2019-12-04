@@ -11,7 +11,7 @@
 * [Getting Started](getting-started-1/README.md)
   * [What is Juicebox? \(done\)](getting-started-1/getting-started.md)
   * [Setup & Running on Mac & Linux \(done\)](getting-started-1/setup-and-running-on-mac-and-linux.md)
-  * [Setting up Devlandia on Windows](getting-started-1/setting-up-devlandia-on-windows.md)
+  * [Setting up Devlandia on Windows \(done\)](getting-started-1/setting-up-devlandia-on-windows.md)
 * [Tutorial: Building your first Juicebox story](tutorial-building-your-first-juicebox-story/README.md)
   * [Before We Begin](tutorial-building-your-first-juicebox-story/tutorial-part-1.md)
   * [Part 1 - Getting to Know Juicebox](tutorial-building-your-first-juicebox-story/tutorial-part-2.md)
