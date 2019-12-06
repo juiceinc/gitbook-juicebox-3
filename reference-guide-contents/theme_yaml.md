@@ -2,7 +2,7 @@
 description: Options for theming
 ---
 
-# theme.yaml
+# theme.yaml \(done\)
 
 **Theme.yaml** defines the visual look and feel of the application.
 
