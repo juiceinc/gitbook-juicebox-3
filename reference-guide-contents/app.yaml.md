@@ -50,7 +50,7 @@ stacks:
 | show\_help | No | true\|false | Should a help link be displayed for this app. For more about help, go [here](../where-should-i-live/help-in-juicebox.md). |
 | use\_discussions | No | true\|false | Are discussions enabled in this app? \(in app commenting\) |
 | discussions\_group\_property \([WARNING](app.yaml.md#warnings)\) | Yes - Not needed if use\_discussions is false | A property  on user.extra. If an empty string, all users that can access an app share discussions with each other. | A property of `user.extra` that controls who users can talk to in discussions. If blank, everyone with access to the app can discuss together. Only users who share the same `discussions_group_property` value in their user.extra can share discussions. |
-| juicebox\_versions | No | '3'\|'4' | The file layout and engine this Juicebox app runs against. [Juicebox File Layout](juicebox-file-structure.md) |
+| juicebox\_versions | No | '3'\|'4' | The file layout and engine this Juicebox app runs against. [Juicebox File Layout]() |
 | is\_public \([WARNING](app.yaml.md#warnings)\) | Yes - default is false | true\|false | This makes an app available to anyone who hits the url without requiring them to be logged in. |
 | is\_mobile \([WARNING](app.yaml.md#warnings)\) **Also, is this even used?**  | Yes - default is false | true\|false | Enables an application to be tagged as “mobile”. In this case an extra popup will appear prompting users to save the app to their home screen on a iOS or Android device. |
 | stacks | No | A YAML list of stacks | A list of directories containing stack definitions that you want to appear in this app. More details: [Stacks](stacks/). |

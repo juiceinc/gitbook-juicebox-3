@@ -2,7 +2,7 @@
 description: Juicebox 3 and 4 file structure and layout
 ---
 
-# The Juicebox File Layout
+# The Juicebox File Layout \(done\)
 
 There are currently two versions of Juicebox in production, version 3 and version 4. While they use the same kernel code, they have different layouts and core concepts on structure. This section shows the difference between the two.
 
