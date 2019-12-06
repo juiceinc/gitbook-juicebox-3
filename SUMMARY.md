@@ -89,7 +89,7 @@
     * [Theming](enhancements-contents/styling-and-formatting/themes.md)
   * [Adding Interactivity](enhancements-contents/adding-interactivity/README.md)
     * [Commands](enhancements-contents/adding-interactivity/commands.md)
-    * [Discussions \(almost done. just needs some screenshots\)](enhancements-contents/adding-interactivity/discussions.md)
+    * [Discussions \(not done. wrapping back after talk w/ people\)](enhancements-contents/adding-interactivity/discussions.md)
   * [Providing Help and Guidance](enhancements-contents/providing-help-and-guidance/README.md)
     * [Help in Juicebox](enhancements-contents/providing-help-and-guidance/help-pages.md)
     * [Adding Tours](enhancements-contents/providing-help-and-guidance/adding-tours.md)
