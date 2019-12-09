@@ -12,3 +12,5 @@ The stacks/ directory contains one or more stack definitions. A stack definition
 
 Each stack tells a self-contained data story. When the user reaches the end of the story, a Story Chooser allows them to decide what they want to see next.
 
+Keep going to the next page to 
+
