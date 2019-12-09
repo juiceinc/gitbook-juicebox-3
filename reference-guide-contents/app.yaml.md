@@ -53,7 +53,7 @@ stacks:
 | juicebox\_versions | No | '3'\|'4' | The file layout and engine this Juicebox app runs against. [Juicebox File Layout]() |
 | is\_public \([WARNING](app.yaml.md#warnings)\) | Yes - default is false | true\|false | This makes an app available to anyone who hits the url without requiring them to be logged in. |
 | is\_mobile \([WARNING](app.yaml.md#warnings)\) **Also, is this even used?**  | Yes - default is false | true\|false | Enables an application to be tagged as “mobile”. In this case an extra popup will appear prompting users to save the app to their home screen on a iOS or Android device. |
-| stacks | No | A YAML list of stacks | A list of directories containing stack definitions that you want to appear in this app. More details: [Stacks](stacks/). |
+| stacks | No | A YAML list of stacks | A list of directories containing stack definitions that you want to appear in this app. More details: [Stacks](). |
 
 ![This is how your label and description appear on your home page](../.gitbook/assets/your_apps1.png)
 

@@ -2,7 +2,7 @@
 
 Many computer things are called "hash," but in a Juicebox context the term usually refers to a **Hashr `UserHash`**.
 
-Hashr is a mechanism in Juicebox responsible for storing snapshots of the state of the user interface of a [Stack](../reference-guide-contents/stacks/). On GitHub: [juiceinc/fruition/hashr](https://github.com/juiceinc/fruition/tree/develop/hashr)
+Hashr is a mechanism in Juicebox responsible for storing snapshots of the state of the user interface of a [Stack](). On GitHub: [juiceinc/fruition/hashr](https://github.com/juiceinc/fruition/tree/develop/hashr)
 
 This helps us to improve the platform usability, as a user can leave and return to a Stack at a later time, even using a different browser, to find it just how they left it.
 

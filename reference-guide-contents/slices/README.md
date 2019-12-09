@@ -2,7 +2,7 @@
 
 ## Defining Slices
 
-Slices are defined in a list the `stack.yaml` \(see: [stack.yaml slices](../stacks/stack.yaml/#slices)\). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml`.
+Slices are defined in a list the `stack.yaml` \(see: [stack.yaml slices](../stack.yaml/#slices)\). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml`.
 
 Slices are powered by either a data service or a JSON file found in the stack’s `fixtures` directory. 
 
