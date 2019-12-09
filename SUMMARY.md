@@ -29,7 +29,7 @@
   * [theme.yaml \(done\)](reference-guide-contents/theme_yaml.md)
   * [Stacks \(done\)](reference-guide-contents/stack.yaml/README.md)
     * [Defining and Configuring Global Filters-not done. waiting on response from Kayla a/b custom widgets](reference-guide-contents/stack.yaml/global-filters.md)
-    * [Grouping Slices](reference-guide-contents/stack.yaml/slice-groups.md)
+    * [Grouping Slices \(done\)](reference-guide-contents/stack.yaml/slice-groups.md)
   * [Slices](reference-guide-contents/slices/README.md)
     * [Defining Slices](reference-guide-contents/slices/defining-slices.md)
     * [Common Slice Configurations](reference-guide-contents/slices/slices-and-common-configuration.md)
