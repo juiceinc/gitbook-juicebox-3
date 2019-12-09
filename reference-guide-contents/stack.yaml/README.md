@@ -20,6 +20,8 @@ The stack.yaml file defines stack-level settings for a Juicebox app.
 
 Here is what a sample stack.yaml file looks like.
 
+{% tabs %}
+{% tab title="stack.yaml" %}
 ```text
 label: "Knowledge"
 
@@ -75,6 +77,8 @@ slices:
     # or a json file in the fixtures directory (e.g. 'rankedlist.json')
     data_service: basicservice.RankedListService
 ```
+{% endtab %}
+{% endtabs %}
 
 | Key | Optional | Value | Definition |
 | :--- | :--- | :--- | :--- |
