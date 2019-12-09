@@ -28,7 +28,7 @@
   * [app.yaml \(done\)](reference-guide-contents/app.yaml.md)
   * [theme.yaml \(done\)](reference-guide-contents/theme_yaml.md)
   * [Stacks \(done\)](reference-guide-contents/stack.yaml/README.md)
-    * [Defining and Configuring Global Filters](reference-guide-contents/stack.yaml/global-filters.md)
+    * [Defining and Configuring Global Filters-not done. waiting on response from Kayla a/b custom widgets](reference-guide-contents/stack.yaml/global-filters.md)
     * [Grouping Slices](reference-guide-contents/stack.yaml/slice-groups.md)
   * [Slices](reference-guide-contents/slices/README.md)
     * [Defining Slices](reference-guide-contents/slices/defining-slices.md)

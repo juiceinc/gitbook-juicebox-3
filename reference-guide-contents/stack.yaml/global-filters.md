@@ -1,4 +1,4 @@
-# Defining and Configuring Global Filters
+# Defining and Configuring Global Filters-not done. waiting on response from Kayla a/b custom widgets
 
 A `FilterService` is used to define the filters that will be applied globally, and is a special type of data service. It is visible in the upper right hand corner of the Juicebox stack UI. FilterServices should inherit from the RecipeService you created in the prior section. Also, FilterServices should always use the `self.automatic_filter_keys` in their implementations. FilterServices are often implemented differently from a slice data service. We start by defining them in the `stack.yaml` file.
 
