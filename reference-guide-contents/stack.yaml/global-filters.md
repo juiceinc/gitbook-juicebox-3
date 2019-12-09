@@ -1,4 +1,8 @@
-# Defining and Configuring Global Filters-not done. waiting on response from Kayla a/b custom widgets
+---
+description: current mess they're in.
+---
+
+# Defining and Configuring Global Filters \(not done. don't know enough about custom widgets to fix the
 
 A `FilterService` is used to define the filters that will be applied globally, and is a special type of data service. It is visible in the upper right hand corner of the Juicebox stack UI. FilterServices should inherit from the RecipeService you created in the prior section. Also, FilterServices should always use the `self.automatic_filter_keys` in their implementations. FilterServices are often implemented differently from a slice data service. We start by defining them in the `stack.yaml` file.
 
@@ -167,4 +171,88 @@ An example:
 ```
 {% endtab %}
 {% endtabs %}
+
+## Custom Widgets
+
+It is possible to render individual filter items using a custom widget. **The only custom widget that is currently supported is a date picker.** Custom widgets require custom backbone views to be built so instead of going down this path, you might want to check if just a custom template might work for you \(`filterTemplateName`\).
+
+Custom Widgets are specified on an individual filter item \(so the data service would have to supply this\) via the `widget` property. You can also supply any options for that widget using the `widgetOptions` property.
+
+For example, consider you have a “Date” global filter with the following items: “This Year”, “Last 3 months”, “Last month”. It’s data response would look like:
+
+{% tabs %}
+{% tab title="date global filter example" %}
+```text
+"items": [
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "thisyear",
+    "name": "This Year",
+    "subtitle": "Jan 1, 2014 - Dec 31, 2014"
+  },
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "last3",
+    "name": "Last three months",
+    "subtitle": "Jan 1, 2015 - March 31, 2015"
+  },
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "lastmonth",
+    "name": "Last month",
+    "subtitle": "March 1, 2015 - March 31, 2015"
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+If you wanted to add a fourth item - a custom date picker - you would be able to do it by adding a new item and giving it an attribute called `widget` which indicates the widget used to render it. Like so:
+
+{% tabs %}
+{% tab title="custom date picker example" %}
+```text
+{
+  "count": 1,
+  "group_by_type": "date",
+  "id": "custom",
+  "name": "custom",
+  "widget": "CustomDatePicker",
+  "widgetOptions":  {},   // Potential widget options.
+}
+```
+{% endtab %}
+{% endtabs %}
+
+The selection from this filter will look like `mm/dd/yyyy-mm/dd/yyyy`. So, the example above would generate `date = mm/dd/yyyy-mm/dd/yyyy`.
+
+### Custom Widget Caveats
+
+{% hint style="info" %}
+> * The global filters will switch to using the SlickGrid component to render a list of filter items if the number of items &gt; 50. The date picker widget is setup to work with the SlickGrid component, but due to SlickGrid’s re-rendering it causes a bunch of flicker. Please avoid using a custom widget for a filter item if the filter has &gt; 50 items.
+> * In the future, the code might be updated to not use the SlickGrid component for a filter if any of its items are using a custom widget.
+{% endhint %}
+
+Three custom widgets currently exist
+
+![](../../.gitbook/assets/screen-shot-2019-12-09-at-4.30.21-pm.png)
+
+## Handling Dates
+
+## Custom Templates
+
+```text
+{
+    "{group_by_type}": {
+        "filterTemplateName": "#mooTemplate"
+    }
+}
+```
+
+## Filter Widgets
+
+[https://github.com/juiceinc/fruition/pull/50](https://github.com/juiceinc/fruition/pull/50)
 
