@@ -1,4 +1,4 @@
-# Defining Slices \(done\)
+# Defining Slices
 
 A stack is comprised of many slice visualization that provide different parts of the story the data is trying to tell. There are many types of slice visualizations that one can build. You can see a list of all the slices types in our [Slice Reference](../slice-reference/) section. Slices are defined in the `stack.yaml` file in a list as described in the [stack.yaml options](../stack.yaml/#stack-yaml-options). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml` file. By default, slice data services “listen” to all the slices above them and filter their data accordingly.
 
