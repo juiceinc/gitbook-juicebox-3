@@ -1,11 +1,13 @@
-# Defining Slices
+# Defining Slices \(done\)
 
-A stack is comprised of many slice visualization that provide different parts of the story the data is trying to tell. There are many types of slice visualizations that one can build. You can see a list of all the slices types in our [Built-in slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/slice_reference.html#built-in-slices). Slices are defined in the `stack.yaml` file in a list as described in the [stack.yaml options](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#stack-yaml-options). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml` file. By default, slice data services “listen” to all the slices above them and filter their data accordingly.
+A stack is comprised of many slice visualization that provide different parts of the story the data is trying to tell. There are many types of slice visualizations that one can build. You can see a list of all the slices types in our [Slice Reference](../slice-reference/) section. Slices are defined in the `stack.yaml` file in a list as described in the [stack.yaml options](../stack.yaml/#stack-yaml-options). Slices are displayed on the stack’s web page in top-down order based on their position in the `stack.yaml` file. By default, slice data services “listen” to all the slices above them and filter their data accordingly.
 
 ## Defining a Slice
 
-They must inherit from our RecipeService just like our FilterService. They must have a build\_reponse method and optionally they can other method for setting specific options. Depending on your needs. Slices are powered by either a data service or a JSON file found in the stack’s `fixtures` directory. Many slices support configuration options that change the visual appearance and function of the slice. The `config` of each slice varies by the slice type and more details can be found in the [slice docs](http://dev.fruitiondata.com/static/docs/slices.html). Let’s take a look at a slice definition in `stack.yaml` that is powered by a data service.
+They must inherit from our RecipeService just like our FilterService. They must have a build\_reponse method and optionally they can other method for setting specific options. Depending on your needs. Slices are powered by either a data service or a JSON file found in the stack’s `fixtures` directory. Many slices support configuration options that change the visual appearance and function of the slice. The `config` of each slice varies by the slice type and more details can be found in the [slice docs](../slice-reference/). Let’s take a look at a slice definition in `stack.yaml` that is powered by a data service.
 
+{% tabs %}
+{% tab title="stack.yaml slice example" %}
 ```text
 - slice_type: "option-chooser"
   slug: "foo"
@@ -13,6 +15,8 @@ They must inherit from our RecipeService just like our FilterService. They must 
   config: {}
   data_service: "basicservice.FirstChooserV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Providing Data to a Slice
 
@@ -24,7 +28,9 @@ When building a slice service, we prefer to use the `self.metrics` and `self.dim
 
 Here is an example of an OptionChooser slice. We don’t use any dimensions in this slice because we’re not grouping the data in anyway. We’re just looking for summary records.
 
-```text
+{% tabs %}
+{% tab title="option\_chooser\_example.py" %}
+```python
 class OptionChooserService(BasicService):
     def build_response(self):
         self.metrics = ('pop2000', 'pop2008', 'popdiff', 'avgage',
@@ -32,6 +38,8 @@ class OptionChooserService(BasicService):
         recipe = self.recipe().metrics(*self.metrics)
         self.response['responses'].append(recipe.render(flavor='metric'))
 ```
+{% endtab %}
+{% endtabs %}
 
 There will be more on slice types and flavors in the cookbook section of the Guide. Next, we’ll learn about performing comparisons and blending recipes.
 
