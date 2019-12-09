@@ -1,4 +1,4 @@
-# Tours \(done\)
+# Tours
 
 ## Enabling stack tours
 
@@ -10,8 +10,6 @@ Tours are defined in yaml files in a stack’s `help/` directory. These tours ge
 
 A Tour yaml file holds a definition for a Hopscotch tour. Hopscotch is a framework created by LinkedIn to help create tours \([http://linkedin.github](http://linkedin.github/) .io/hopscotch/\).
 
-{% tabs %}
-{% tab title="help/tour.yaml" %}
 ```text
 id: "stack-ranked-list-2-guide-me"
 name: "Welcome to the new Ranked List slice"
@@ -24,8 +22,6 @@ definition:
   "target": ".slug-rl2"
   "title": "Ranked List Tour"
 ```
-{% endtab %}
-{% endtabs %}
 
 | Key | Optional | Value | Description |
 | :--- | :--- | :--- | :--- |

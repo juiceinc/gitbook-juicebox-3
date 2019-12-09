@@ -7,7 +7,7 @@
   * [Applying Backgrounds to Stacks and Slices \(needs small amount of work that I can't do\)](where-should-i-live/applying-backgrounds-to-stacks-and-slices.md)
   * [Styling Slices & Sections \(done\)](where-should-i-live/styling-slices-and-sections.md)
   * [Help in Juicebox \(done\)](where-should-i-live/help-in-juicebox.md)
-  * [Tours \(done\)](where-should-i-live/tours.md)
+  * [Tours](where-should-i-live/tours.md)
 * [Getting Started](getting-started-1/README.md)
   * [What is Juicebox? \(done\)](getting-started-1/getting-started.md)
   * [Setup & Running on Mac & Linux \(done\)](getting-started-1/setup-and-running-on-mac-and-linux.md)
