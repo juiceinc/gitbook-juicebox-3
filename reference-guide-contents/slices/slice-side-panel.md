@@ -1,16 +1,18 @@
-# Slice Side Panel
+# Slice Side Panel \(done\)
+
+## Side Panel Overview
 
 Slices that use the [display\_slice\_as](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html#display-slice-as) configuration option gain use of a pop-out side panel for browsing, searching, sorting and selecting a given slice’s data. The side panel can toggled on/off by clicking the associated slice’s filter pill.
 
 ![](../../.gitbook/assets/side-panel-main.png)
 
-**Quick Selects**
+### **Quick Selects**
 
 ![](../../.gitbook/assets/side-panel-quick-selects-detail.png)
 
 ‘Quick Selects’ are named filters defined at the `ingredient` level that allow batch-selection of items that meet a certain criteria. If any exist on a currently used ingredient, they will be displayed here.
 
-**Searching**
+### **Searching**
 
 ![](../../.gitbook/assets/side-panel-search-detail.png)
 
@@ -19,7 +21,7 @@ Users may search slice data in the side panel.
 * Searches will always be on an item’s **label** property.
 * If slice data is hierarchical, search will be performed on each level of the hierarchy and results will be displayed as a flat list.
 
-**Select All / Deselect All**
+### **Select All / Deselect All**
 
 ![](../../.gitbook/assets/side-panel-select-detail.png)
 
@@ -27,7 +29,7 @@ Users may easily select/deselect all slice items in a given list. Once one of th
 
 If slice data is hierarchical, only the current level of hierarchy will be selected/deselected.
 
-**Sorting**
+### **Sorting**
 
 ![](../../.gitbook/assets/side-panel-sort-detail.png)
 
@@ -43,7 +45,7 @@ _Slices without metric values…_
 * are sorted alphanumerically by each item’s label value
 * are sorted in **ascending** order by default
 
-**Slice data**
+### **Slice data**
 
 The side panel displays the associated slice’s data in a list structure.
 
