@@ -35,7 +35,7 @@
     * [Common Slice Configurations \(close to being done. waiting on chris' response a/b imports\)](reference-guide-contents/slices/slices-and-common-configuration.md)
     * [Slice Side Panel \(done\)](reference-guide-contents/slices/slice-side-panel.md)
     * [Templates](reference-guide-contents/slices/templates.md)
-    * [Custom](reference-guide-contents/slices/custom.md)
+    * [Custom Slices \(sort of done. would love to develop this more. i just don't know enough.\)](reference-guide-contents/slices/custom.md)
     * [Grouping Slices](reference-guide-contents/slices/grouping-slices.md)
     * [Moving easily between stories, aka The Story Chooser Slice](reference-guide-contents/slices/moving-easily-between-stories-aka-the-story-chooser-slice.md)
   * [Slice Reference](reference-guide-contents/slice-reference/README.md)

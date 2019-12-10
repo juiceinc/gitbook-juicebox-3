@@ -1,6 +1,6 @@
-# Custom
+# Custom Slices \(sort of done. would love to develop this more. i just don't know enough.\)
 
-A custom slice allows you to create a slice using any d3 code.
+A custom slice allows you to create a slice using any [d3 code.](https://d3js.org/)
 
 ## Custom Config
 
@@ -10,7 +10,9 @@ Custom slices support the [common configuration options for all slices](slices-a
 
 The plugin code must be wrapped in a `function(){}` that provides a namespace and returns a “chart”. This “chart” object must provide an interface for allowing the view to give it the current list of selections and for updating the visual appearance of the selected items.
 
-```text
+{% tabs %}
+{% tab title="Plugin Code" %}
+```javascript
 // Manage our own namespace to avoid polluting the global
 // one.
 function module() {
@@ -48,6 +50,8 @@ function module() {
   return chart;
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 The `chart` object will receive 3 arguments:
 
@@ -55,9 +59,13 @@ The `chart` object will receive 3 arguments:
 * The data
 * A callback to call when it needs to perform any selection.
 
+{% tabs %}
+{% tab title="Container, Data, and Callback" %}
 ```text
 function chart(container, data, selectionChangedCallback) {}
 ```
+{% endtab %}
+{% endtabs %}
 
 The plugin will never update any selection attribute of any data item. When it needs to perform a selection, it will use the callback provided to it and pass it a list of items whose selections will be toggled.
 
