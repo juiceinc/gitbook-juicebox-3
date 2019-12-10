@@ -1,67 +1,63 @@
 # Common Slice Configurations
 
+## Common Slice Options: Example and Table
+
 {% hint style="info" %}
-The following configuration options can be applied to all slices
+The following configuration options can be applied to all slices.
+
+Use the code block example as reference for the table.
 {% endhint %}
 
-## slice\_type
-
-The type of slice to display
-
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | Any valid slice type | None | No |
-
-```yaml
-slices:
-- slice_type: card
-  ...
-```
-
-## title
-
-A dynamic title to display on the top or side of the slice. The title position depends on the `layout`.
-
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | A valid Juicebox template | "" \(an empty string\) | Yes |
-
-```yaml
+{% tabs %}
+{% tab title="Common Slice Example" %}
+```text
 slices:
 - slice_type: card
   title: "What is the <%= lollipop.selectionDisplay() %> by <%= lollipop.metadata(lollipop.selectionType(), 'plural') %>?"
-  ...
-```
-
-## subtitle
-
-A dynamic subtitle to display. The subtitle position depends on the `layout`.
-
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | A valid Juicebox template | "" \(an empty string\) | Yes |
-
-```yaml
-slices:
-- slice_type: card
   subtitle: "My selection is <%= lollipop.selectionDisplay() %>"
-  ...
-```
-
-## layout
-
-Layout changes the organization, sizing, and placement of slice components
-
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | default, bare, twocolumns, twocolumns-twothirds | default | Yes |
-
-```yaml
-slices:
-- slice_type: card
   layout: twocolumns
-  ...
+  display_slice_as: default
+  config:
+    maxSelections: 1
+    minSelections: 1
+    noDataMessage: "Nothing to display"
+    layout:
+      top-left: []
+    layoutFlags:
+      "showLegend": true
+    collapsable: false
+    notifyOnDataSetChange: true
+  data_service: services.CardService
+  include_commands: 
+  - download-data
+  - download-image
 ```
+{% endtab %}
+{% endtabs %}
+
+| Key | Optional | Type | Value | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| slice\_type | No | String | Any valid slice type | The type of slice to display |
+| title | Yes | String | A valid Juicebox template | A dynamic title to display on the top or side of the slice. The title position depends on the `layout`. |
+| subtitle | Yes | String | A valid Juicebox template | A dynamic subtitle to display. The subtitle position depends on the `layout`. |
+| layout | Yes | String | [default](slices-and-common-configuration.md#layout-default), [bare](slices-and-common-configuration.md#layout-bare), [twocolumns](slices-and-common-configuration.md#layout-twocolumns), [twocolumns-twothirds](slices-and-common-configuration.md#layout-twocolumns-twothirds) | Layout changes the organization, sizing, and placement of slice components. [Check out a more detailed description of the values here](slices-and-common-configuration.md#layout). |
+| display\_slice\_as | Yes | String | [default](slices-and-common-configuration.md#display_slice_as_details-default), [vis](slices-and-common-configuration.md#display_slice_as_details-viz),[ pil](slices-and-common-configuration.md#display_slice_as_details-pill) | Determines how the slice displays in relation to the pill.  [Check out descriptions of the values here.](slices-and-common-configuration.md#display_slice_as-details) |
+| data\_service | Yes | String | A python data service reference _or_ a json filename in the stack's fixtures directory | Provides data to the slice. While technically optional, free-form slices are the only slices that don't require a data service to function. |
+| include\_commands | Yes | List\(of strings\) | Valid command names | What commands should be included on this slice. Commands allow users to perform actions using the data on the slice.  |
+| config | Yes | Object | valid Juicebox Key: Value combinations |  |
+| **OPTIONS IN CONFIG** |  |  |  |  |
+| noSelectionTextTemplate | Yes | String | The name of the template to render | This allows slices to customize the text that displays in the pill when there are no selections. Only activated when `display_slice_as` is set to `pill` or `default .`  |
+| minSelections | Yes \(Default is 0\) | Integer | Number | The minimum number of selections allowed in this slice. Any number bigger than 0 will disable `clear selections` option in the slice header \(local filters/slice selections\). |
+| maxSelections | Yes | Integer | Number | The maximum number of selections allowed in this slice. |
+| noDataMessage | Yes | String | Any text you want to display | A message to display when when no data is retrieved from the server. |
+| layout | Yes | Object | An object that defines the layout of all widgets in the slice. Contains layout locations \(eg. top-left\) with widget names \(eg. controls\) in them. | JS Object with in this form: `{top-left: [], top-right: [], bottom-left: [], bottom-right: [], bottom-center: []}`, where each array is a list of widgets \(body\|notes\|commands\|controls\|legend\|search\) in that location on the page |
+| layoutFlags | Yes | Object | An object with `show{WidgetName}` as property name and show/no-show flags as their values | Sets show/hide state for slice widgets \(search, etc…\). Note: To show the legend widget, in addition to setting the `showLegend` flag to `true`, you also need to have a non-empty `legend` object inside `templateContext` in the response. |
+| collapsable | Yes \(Default is true\) | Boolean | true\|false | A boolean flag that indicates if a slice is collapsable \(would expand/collapse when clicked on the header\). By default all slices are collapsable \(no need to define collapsed=true\). Useful when a slice needs to stay expanded no matter what \(collapsable = false\). |
+| notifyOnDataSetChange | Yes \(Default is false\) | Boolean | true\|false | A boolean flag that indicates if a slice should notify all the slices below it \(that are listening to it\) when its data set changes so they can fetch their data. |
+
+## layout details
+
+As you saw on the table above, the layout can change the organization, sizing, and placement of slice components. We also saw the four possible values that you would use to cause these changes to take affect. The real question is, what do they each really mean? Let's take a look at it now.
 
 ### layout: default
 
@@ -85,23 +81,29 @@ This layout is good when you would like to use more text to describe what the us
 
 The `subtitle` component is available in this layout, and sits below the `title` and above the filter pill.
 
+{% hint style="info" %}
+Depending on the slice type, the components may have different default layout locations to best support the reading and use of the visualization. Also, some slices may scroll horizontally to see the full visualization.
+{% endhint %}
+
 ### layout: twocolumns-twothirds
 
 `twocolumns-twothirds`: This two column variation makes the left side one third and the right visualization side into two thirds.
 
 ![layout: twocolumns-twothirds](../../.gitbook/assets/image%20%285%29.png)
 
-## display\_slice\_as
+## display\_slice\_as\_details
 
-Determines how the slice displays in relation to the pill. 
+We know from the table above that `display_slice_as` determines how the slice displays in relation to the pill. We also know that there are three allowed values: `default`, `vis`, and `pill`. What we don't know yet is what they do. Let's take a look at that now. 
 
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | default, vis, pill | default | Yes |
+### display\_slice\_as\_details: default
 
 `default` displays the slice in its default state - with its visualization and pill.
 
+### display\_slice\_as\_details: viz
+
 `viz` prevents the pill from showing up in the slice but still allows the pill to show up in the filter bar at the top of the story. 
+
+### display\_slice\_as\_details: pill
 
 `pill` hides the slice visualization from being displayed, and only shows the pill as if it were the entire slice. This behavior can be beneficial for having functionality similar to the `option-chooser` slice but with a more compact design. Unlike the pill’s standard behavior, this pill displays even when there is no selection made, substituting the selection for a summary of the slice’s options. 
 
