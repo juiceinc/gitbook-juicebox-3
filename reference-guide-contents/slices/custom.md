@@ -1,3 +1,7 @@
+---
+description: questions about it - where does the plugin code go?
+---
+
 # Custom Slices \(sort of done. would love to develop this more. i just don't know enough.\)
 
 A custom slice allows you to create a slice using any [d3 code.](https://d3js.org/)
