@@ -136,6 +136,8 @@ This renderer works by gathering data from a recipe at each level of the hierarc
 
 ### sizeField \(bubble\)
 
+
+
 | Optional: | yes, \(uses config.sizeField if not provided\). This metric must be used in the recipe\(s\) |
 | :--- | :--- |
 | Values: | string |
