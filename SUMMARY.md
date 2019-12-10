@@ -36,7 +36,7 @@
     * [Templates](reference-guide-contents/slices/templates.md)
     * [Custom Slices \(sort of done. would love to develop this more. i just don't know enough.\)](reference-guide-contents/slices/custom.md)
     * [Grouping Slices \(done\)](reference-guide-contents/slices/slice-groups.md)
-    * [Moving easily between stories, aka The Story Chooser Slice](reference-guide-contents/slices/moving-easily-between-stories-aka-the-story-chooser-slice.md)
+    * [Moving easily between stories, aka The Story Chooser Slice \(done\)](reference-guide-contents/slices/moving-easily-between-stories-aka-the-story-chooser-slice.md)
   * [Slice Reference](reference-guide-contents/slice-reference/README.md)
     * [Bubble](reference-guide-contents/slice-reference/bubble-slice.md)
     * [Card](reference-guide-contents/slice-reference/card-slice.md)

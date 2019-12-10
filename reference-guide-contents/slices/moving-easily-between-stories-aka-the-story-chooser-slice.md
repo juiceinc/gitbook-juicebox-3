@@ -1,4 +1,4 @@
-# Moving easily between stories, aka The Story Chooser Slice
+# Moving easily between stories, aka The Story Chooser Slice \(done\)
 
 The story chooser slice provides better previews of what stories a user can explore next while effortlessly carrying forward filters with matching selections.
 
@@ -14,9 +14,13 @@ Each story can be customized by setting its `label`, `description`, `icon` or `s
 
 An optional[ ](https://fontawesome.com/)[Font Awesome](https://fontawesome.com/) icon to use with the label.
 
+{% tabs %}
+{% tab title="FA Icon Example" %}
 ```text
 icon: "bluetooth"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### story\_theme
 
@@ -26,6 +30,8 @@ You can use background images and customize any parameters for cropping or color
 
 Set a background image like this:
 
+{% tabs %}
+{% tab title="Story Theme Image Example" %}
 ```text
 story_theme:
     background:
@@ -34,15 +40,21 @@ story_theme:
             exp: -10
     text_color: light
 ```
+{% endtab %}
+{% endtabs %}
 
 Set a background color like this:
 
+{% tabs %}
+{% tab title="Story Theme Color Example" %}
 ```text
 story_theme:
     background:
         color: #e6d1f9
     text_color: dark
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Auto enable the story chooser
 
@@ -52,6 +64,8 @@ The story chooser can be auto-enabled on every stack by setting the `auto_inject
 
 The story chooser can also be manually added to every story by defining a slice with a type of `story-chooser` in `stack.yaml`. A data service will be automatically provided for it.
 
+{% tabs %}
+{% tab title="Add Story Chooser Example" %}
 ```text
 - slice_type: "story-chooser"
   title: "Where do you <strong>really</strong> want to go next?"
@@ -65,9 +79,13 @@ The story chooser can also be manually added to every story by defining a slice 
   extra_css: |-
     padding: 50px 0 100px;
 ```
+{% endtab %}
+{% endtabs %}
 
-It’s possible to control which story\(ies\) shows up in the story chooser:
+It’s possible to control which stories show up in the story chooser:
 
+{% tabs %}
+{% tab title="Story Chooser Customization" %}
 ```text
 - slice_type: "story-chooser"
   config:
@@ -76,6 +94,8 @@ It’s possible to control which story\(ies\) shows up in the story chooser:
     - story: stack_slug_1
     - story: stack_slug_3
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Carrying forward filters
 
@@ -88,9 +108,13 @@ These carried forward filters will then be applied on slices that have been enab
 
 Here is an example that shows a slice that has been configured to apply any matching `group_by_type`’s that have been carried over when switching to a story with this slice in it.
 
+{% tabs %}
+{% tab title="Story Filter Carryover Example" %}
 ```text
 - slice_type: option-chooser
   config:
     story_filter_carryover: true
 ```
+{% endtab %}
+{% endtabs %}
 
