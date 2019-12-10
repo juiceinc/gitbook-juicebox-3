@@ -5,128 +5,34 @@ description: >-
   hierarchy.
 ---
 
-# Bubble
+# Bubble \(done. could definitely be better written, but i don't know a/b bubbles\)
 
 ## Bubble config
 
 Bubble slices support the [Common configuration options for all slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html). Additional options are:
 
-### descriptionTemplateName
+{% tabs %}
+{% tab title="Bubble Config Options" %}
+```text
+config:
+  descriptionTemplateName: "#bubble-description-template"
+  colorFieldRange: "[0, 100]"
+  colorField: "myColorField"
+  sizeField: "mySizeField"
+  popSound: "popsoundurl.com"
+  height: 250
+```
+{% endtab %}
+{% endtabs %}
 
-CSS selector of the template that is supposed to render selected node’s details/description in the breadcrumb,
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Optional:</th>
-      <th style="text-align:left">Yes, there is a default template that renders the label</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Values:</td>
-      <td style="text-align:left">CSS selector</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Example:</td>
-      <td style="text-align:left">
-        <p>config:</p>
-        <p>descriptionTemplateName: &#x201C;#bubble-description-template&#x201D;</p>
-      </td>
-    </tr>
-  </tbody>
-</table>### colorFieldRange
-
-Min/max values of a color field. This range defines the bubble’s circle fill color. The text label color \(on top of that circle\) is determined by the front-end dynamically. The app tries to use complimentary/inverse color for text for easier readability \(eg. dark text on light circle\).
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Optional:</th>
-      <th style="text-align:left">yes, by default the app will dynamically calculate the range of the colorField
-        values in the data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Values:</td>
-      <td style="text-align:left">array of two numeric values</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Example:</td>
-      <td style="text-align:left">
-        <p>config:</p>
-        <p>colorFieldRange: &#x201C;[0, 100]&#x201D;</p>
-      </td>
-    </tr>
-  </tbody>
-</table>### colorField
-
-Name of the field in the data item that will be used to map to the color of a bubble. This field defines the bubble’s circle fill color. The text label color \(on top of that circle\) is determined by the front-end dynamically. The app tries to use complimentary/inverse color for text for easier readability \(eg. dark text on light circle\).
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Optional:</th>
-      <th style="text-align:left">yes, default is <code>value</code>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Values:</td>
-      <td style="text-align:left">string</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Example:</td>
-      <td style="text-align:left">
-        <p>config:</p>
-        <p>colorField: &#x201C;myColorField&#x201D;</p>
-      </td>
-    </tr>
-  </tbody>
-</table>### sizeField
-
-Name of the field in the data item that will be used to map to the size of a bubble
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Optional:</th>
-      <th style="text-align:left">yes, default is <code>value</code>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Values:</td>
-      <td style="text-align:left">string</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Example:</td>
-      <td style="text-align:left">
-        <p>config:</p>
-        <p>sizeField: &#x201C;mySizeField&#x201D;</p>
-      </td>
-    </tr>
-  </tbody>
-</table>### popSound
-
-A URL to the sound that should play when a bubble is “popped”
-
-| Optional: | yes, by default there is no sound |
-| :--- | :--- |
-| Values: | URL string |
-| Example: |  |
-
-### height \(bubble\)
-
-The height \(in px\) of the chart
-
-| Optional: | yes, default is 400 |
-| :--- | :--- |
-| Values: | number |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| descriptionTemplateName | Yes, a default template renders the label | CSS selector | CSS selector of the template that is supposed to render selected node’s details/description in the breadcrumb. |
+| colorFieldRange | Yes | Array of two numeric values | Min/max values of a color field. This range defines the bubble’s circle fill color. The text label color \(on top of that circle\) is determined by the front-end dynamically. The app tries to use complimentary/inverse color for text for easier readability \(eg. dark text on light circle\). |
+| colorField | Yes, default is `value` | String | Name of the field in the data item that will be used to map to the color of a bubble. This field defines the bubble’s circle fill color. The text label color \(on top of that circle\) is determined by the front-end dynamically. The app tries to use complimentary/inverse color for text for easier readability \(eg. dark text on light circle\). |
+| sizeField | Yes, default is `value` | String | Name of the field in the data item that will be used to map to the size of a bubble. |
+| popSound | Yes, default is no sound | URL String | A URL to the sound that should play when a bubble is “popped” |
+| height | Yes, default is 400 | Number | The height \(in px\) of the chart. |
 
 ## Flavors of Bubble
 
@@ -134,30 +40,18 @@ There is a default renderer that can be used. This renderer works for fixed hier
 
 This renderer works by gathering data from a recipe at each level of the hierarchy. The data is then structured into a tree.
 
-### sizeField \(bubble\)
-
-
-
-| Optional: | yes, \(uses config.sizeField if not provided\). This metric must be used in the recipe\(s\) |
-| :--- | :--- |
-| Values: | string |
-
-### colorField \(bubble\)
-
-| Optional: | yes, \(uses config.colorField if not provided\). This metric must be used in the recipe\(s\) |
-| :--- | :--- |
-| Values: | string |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| sizeField | Yes, \(uses config.sizeField if not provided\). This metric must be used in the recipe\(s\) | String | ? |
+| colorField | Yes, \(uses config.colorField if not provided\). This metric must be used in the recipe\(s\) | String | ? |
+| group\_by\_type | Yes, uses the first level if not provided. | String | All selections in a slice must have the same group\_by\_type. If the bubble has more than one level, set a group\_by\_type. [Find out more here.](bubble-slice.md#group_by_type) |
+| levels | No, A list of levels to use in the bubble. Generally the same as the dimensions used in the recipe. These have to be specified explicitly because dimension order is not maintained in recipes. | List of Strings | A list of levels to use in the bubble. Generally the same as the dimensions used in the recipe. These have to be specified explicitly because dimension order is not maintained in recipes. |
+| levelsData | Yes | List of recipe.all\(\) | An optional list of data at each level starting from the root. Must be have length one greater than levels because it includes the root data. [Find out more here.](bubble-slice.md#levelsdata) |
 
 ### group\_by\_type
 
-All selections in a slice must have the same group\_by\_type. If the bubble has more than one level, set a group\_by\_type.
-
-| Optional: | yes, uses the first level if not provided. |
-| :--- | :--- |
-| Values: | string |
-
 {% hint style="info" %}
-group\_by\_type and slice item ids:
+**group\_by\_type and slice item ids:**
 
 Slices must have a single group by type but hierarchical slices support selection at multiple levels of the hierarchy. For instance if the hierarchy were country/region/city, a user can perform selections at multiple levels, like: Canada, United States/Tennessee and Germany/Bavaria/Munich.
 
@@ -177,31 +71,19 @@ country_hierarchy: ['Canada', 'United States~Tennessee', 'Germany~Bavaria~Munich
 Slices receiving this filtering need to use custom filters to decide what to do with these selections.
 {% endhint %}
 
-### levels
-
-A list of levels to use in the bubble. Generally the same as the dimensions used in the recipe. These have to be specified explicitly because dimension order is not maintained in recipes.
-
-| Optional: | no, A list of levels to use in the bubble. Generally the same as the dimensions used in the recipe. These have to be specified explicitly because dimension order is not maintained in recipes. |
-| :--- | :--- |
-| Values: | list of strings |
-
 ### levelsData
 
-An optional list of data at each level starting from the root. Must be have length one greater than levels because it includes the root data.
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | list of recipe.all\(\) |
-
-Note
-
-When to use levelsData
+{% hint style="info" %}
+**When to use levelsData:**
 
 If levelsData isn’t supplied, the renderer will generate recipes for all levels above the rendered recipe. These recipes will be generic, they won’t include any extra filtering that the rendered recipe used. So if the rendered recipe just uses dimensions and metrics you can use this automatic behavior. If the rendered recipe uses filtering, you need to construct a recipe for each level.
+{% endhint %}
 
 Here’s an example of levelsData in action. It’s needed because the recipes use the filter Census.age&gt;60
 
-```text
+{% tabs %}
+{% tab title="levelsData Example" %}
+```python
 def build_response(self):
         metrics = ('avgage', 'pop2000')
         dims = ('first_letter_state', 'state')
@@ -219,6 +101,8 @@ def build_response(self):
                 'levelsData': levelsData
         }))
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Examples of Bubble Renderer
 
@@ -226,7 +110,9 @@ Here are some examples of the bubble slice renderer.
 
 #### One level \(group\_by\_type will be state\)
 
-```text
+{% tabs %}
+{% tab title="One Level Example" %}
+```python
 def build_response(self):
     metrics = ('avgage', 'pop2000')
     dims = ('state',)
@@ -236,6 +122,8 @@ def build_response(self):
             'levels': dims,
         }))
 ```
+{% endtab %}
+{% endtabs %}
 
 ![](../../.gitbook/assets/bubble-renderer-onelevel.png)
 
@@ -243,7 +131,9 @@ def build_response(self):
 
 When using multiple levels it’s recommended to use a custom group\_by\_type
 
-```text
+{% tabs %}
+{% tab title="Three Level w/ group\_by\_type" %}
+```python
 def build_response(self):
     metrics = ('avgage', 'pop2000')
     dims = ('first_letter_state', 'state', 'sex')
@@ -256,14 +146,18 @@ def build_response(self):
             'group_by_type': 'bubble',
         }))
 ```
+{% endtab %}
+{% endtabs %}
 
 ![](../../.gitbook/assets/bubble-renderer-threelevel.png)
 
 #### Two level with custom filtering
 
-Custom filtering means you need to supply levelData. This filtering is limiting data to people with age over 60.
+Custom filtering means you need to supply levelsData. This filtering is limiting data to people with age over 60.
 
-```text
+{% tabs %}
+{% tab title="Two Level w/ Custom Filtering" %}
+```python
 def build_response(self):
     metrics = ('avgage', 'pop2000')
     dims = ('first_letter_state', 'state')
@@ -282,6 +176,8 @@ def build_response(self):
             'levelsData': levelsData
         }))
 ```
+{% endtab %}
+{% endtabs %}
 
 ![](../../.gitbook/assets/bubble-renderer-customfiltering.png)
 

@@ -38,7 +38,7 @@
     * [Grouping Slices \(done\)](reference-guide-contents/slices/slice-groups.md)
     * [Moving easily between stories, aka The Story Chooser Slice \(done\)](reference-guide-contents/slices/moving-easily-between-stories-aka-the-story-chooser-slice.md)
   * [Slice Reference](reference-guide-contents/slice-reference/README.md)
-    * [Bubble](reference-guide-contents/slice-reference/bubble-slice.md)
+    * [Bubble \(done. could definitely be better written, but i don't know a/b bubbles\)](reference-guide-contents/slice-reference/bubble-slice.md)
     * [Card](reference-guide-contents/slice-reference/card-slice.md)
     * [Distribution](reference-guide-contents/slice-reference/distribution-slice.md)
     * [Flower](reference-guide-contents/slice-reference/untitled.md)
