@@ -2,51 +2,52 @@
 description: A card slice is used to display record details in a searchable sortable way.
 ---
 
-# Card
+# Card \(done\)
 
 ## Card config
 
-Card slices support the [Common configuration options for all slices](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/slices/common_configuration.html). Additional options are:
+Card slices support the [Common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### cardTemplateName
+{% tabs %}
+{% tab title="Card config example" %}
+```yaml
+config:
+  cardTemplateName: "#card-template"
+  cardWidth: '50%'
+  // can also be written like this in the yaml
+  // searchFields:
+    // - label
+    // - score
+  searchFields: ['label', 'score']
+  sortFields:
+    - field: "score"
+      label: "Score"
+      default: true
+      sortDirection: "ascending"
+    - field: "count"
+      label: "Count"
+```
+{% endtab %}
+{% endtabs %}
 
-The name of the template that will be used to render the content inside the card. Should start with a \# and be defined in templates.html.
-
-| Optional: | No. If not specified, an empty string is rendered for the card content. |
-| :--- | :--- |
-| Values: | A CSS selector that exists in templates.html |
-| Example: |  |
-
-### cardWidth
-
-The width in pixels/percentage of the card
-
-| Optional: | Yes. The default is 250px |
-| :--- | :--- |
-| Values: | String or number |
-| Example: |  |
-
-### searchFields
-
-The data attributes to be used for searching.
-
-| Optional: | Yes. Default is `["label"]` |
-| :--- | :--- |
-| Values: | An array of strings |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| cardTemplateName | No,  If not specified, an empty string is rendered for the card content. | A CSS selector that exists in templates.html | The name of the template that will be used to render the content inside the card. Should start with a \# and be defined in templates.html. |
+| cardWidth | Yes, default is 250px | String or Number | The width in pixels/percentage of the card |
+| searchFields: | Yes, default is `["label"]` | Array of Strings | The data attributes to be used for searching. |
+| sortFields | Yes | An array of objects [described below](card-slice.md#sortfields) | The data attributes to be used for sorting, can specify [{field, label, sortDirection, default}.](card-slice.md#sortfields) |
 
 ### sortFields
 
-The data attributes to be used for sorting, can specify {field, label, sortDirection, default}.
+We saw in the table above that you can use sortFields to bring in custom fields that will allow the user to sort the cards by any number of fields from your ingredients, but let's get into the various ways you can manipulate the fields. The data attributes to be used for sorting, can specify {field, label, sortDirection, default}. check the [card config above](card-slice.md#card-config) for an example of each of these.
 
-| field: | The field to sort on |
-| :--- | :--- |
-| label: | The displayed name in the sort picker |
-| sortDirection: | optional, can be “ascending”, “descending” or “natural”, default is ascending, natural means no-sorting takes place. |
-| default: | true\|false, should this sort be selected by default. |
-| Optional: | Yes. There is no default |
-| Values: | An array of objects as described above |
-| Example: |  |
+`field`: This is the field that you want to sort on. This isn't optional if you are going to use sortFields.
+
+`label`: This is where you can change the displayed name in the sort picker.
+
+`sortDirection`: This is optional. You can sort using the keywords 'ascending', 'descending', or 'natural'. The default `sortDirection` is ascending. if you use natural, it means that no sorting will take place. 
+
+`default`: This will be a boolean value that you will use to say which field you want to be the default field to sort your cards by. The default value for `default` is false, so you only need to really use this when noting which field is true/will be the default.
 
 ## Flavors of Card
 
@@ -56,9 +57,11 @@ The default flavor renders the first supplied dimension as the card label, and r
 
 ![](../../.gitbook/assets/card-default.png)
 
-The code for the default card flavor looks as follows:
+The code for the default card flavor has three parts to it: python/data service, stack.yaml, and the html template:
 
-```text
+{% tabs %}
+{% tab title="card\_service.py" %}
+```python
 class CardV3Service2(CensusService):
     def build_response(self):
         self.metrics = ('popdiff',)
@@ -69,10 +72,10 @@ class CardV3Service2(CensusService):
 
         self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "card"
   slug: "jam-card1"
   title: "Card"
@@ -80,23 +83,27 @@ The slice in stack.yaml:
     "cardTemplateName": "#jam-card-template"
   data_service: "censusv2service.CardV3Service2"
 ```
+{% endtab %}
 
-And finally the template for the individual cards:
-
-```text
+{% tab title="templates.html" %}
+```markup
 <script type="text/template" id="jam-card-template">
   <div class="fr-body2"><%= datum.label %></div>
   <div class="fr-caption"><%= datum.format("popdiff", ',.0f') %> change in population</div>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Mixins
 
-### CardActionPlannerViewMixin
+### CardActionPlannerViewMixin \(only used in Healthstream apps\)
 
 This is a mixin that is and will only be used by HSTM apps. The data service for the slice that uses this mixin should pass additional context in the response like this:
 
-```text
+{% tabs %}
+{% tab title="HSTM Card Mixin" %}
+```python
 response['templateContext']['defaultItem'] = {'questions': selected_question,
                                     'title': ' ',
                                     'description': description,
@@ -105,12 +112,16 @@ response['templateContext']['defaultItem'] = {'questions': selected_question,
                                     'due_date': datetime.now().date(),
                                     'created_by': self.request.user.get_full_name()}
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Linking to websites or files
 
 You can now add and click on hyperlinks in the card slice and it will not interfere with the selection of the card item.
 
-```text
+{% tabs %}
+{% tab title="Link to Website/File HTML Example" %}
+```markup
 <script type="text/template" id="jam-card-template">
   <div class="fr-body2"><%= datum.label %></div>
   <div class="fr-caption"><%= datum.format("popdiff", ',.0f') %> change in population</div>
@@ -119,4 +130,6 @@ You can now add and click on hyperlinks in the card slice and it will not interf
   </div>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
