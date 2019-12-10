@@ -10,14 +10,22 @@ description: >-
 
 Flower slices support the [Common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### zoom
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| zoom | Yes, by default, zoom is true | true\|false | Turn on/off the zooming of the flowers. |
+| zoomFactor |  |  |  |
+| min |  |  |  |
+| max |  |  |  |
+| useNodeSize |  |  |  |
+| radius \(flower\) |  |  |  |
+| innerRadius \(flower\) |  |  |  |
+| arcPadding |  |  |  |
+| detailsTemplateName |  |  |  |
+| height |  |  |  |
+| width |  |  |  |
+| margin |  |  |  |
 
-Turn on/off the zooming of the flowers.
 
-| Optional: | Yes, by default zoom is set to true. |
-| :--- | :--- |
-| Values: | Boolean |
-| Example: |  |
 
 ### zoomFactor
 
