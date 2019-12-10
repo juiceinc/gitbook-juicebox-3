@@ -1,4 +1,4 @@
-# Common Slice Configurations
+# Common Slice Configurations \(close to being done. waiting on chris' response a/b imports\)
 
 ## Common Slice Options: Example and Table
 
@@ -42,16 +42,16 @@ slices:
 | subtitle | Yes | String | A valid Juicebox template | A dynamic subtitle to display. The subtitle position depends on the `layout`. |
 | layout | Yes | String | [default](slices-and-common-configuration.md#layout-default), [bare](slices-and-common-configuration.md#layout-bare), [twocolumns](slices-and-common-configuration.md#layout-twocolumns), [twocolumns-twothirds](slices-and-common-configuration.md#layout-twocolumns-twothirds) | Layout changes the organization, sizing, and placement of slice components. [Check out a more detailed description of the values here](slices-and-common-configuration.md#layout). |
 | display\_slice\_as | Yes | String | [default](slices-and-common-configuration.md#display_slice_as_details-default), [vis](slices-and-common-configuration.md#display_slice_as_details-viz),[ pil](slices-and-common-configuration.md#display_slice_as_details-pill) | Determines how the slice displays in relation to the pill.  [Check out descriptions of the values here.](slices-and-common-configuration.md#display_slice_as-details) |
-| data\_service | Yes | String | A python data service reference _or_ a json filename in the stack's fixtures directory | Provides data to the slice. While technically optional, free-form slices are the only slices that don't require a data service to function. |
-| include\_commands | Yes | List\(of strings\) | Valid command names | What commands should be included on this slice. Commands allow users to perform actions using the data on the slice.  |
+| data\_service | Yes | String | A[ python data service](slices-and-common-configuration.md#python-data-services) reference _or_ a [json filename](slices-and-common-configuration.md#fixture-data-services) in the stack's fixtures directory | Provides data to the slice. While technically optional, free-form slices are the only slices that don't require a data service to function. [Check out a more detailed description of how to use a python data service and json filename here.](slices-and-common-configuration.md#data_service) |
+| include\_commands | Yes | List\(of strings\) | Valid command names | What commands should be included on this slice. Commands allow users to perform actions using the data on the slice. [Learn more about custom and built-in commands here.](../../enhancements-contents/writing-custom-app-commands.md) |
 | config | Yes | Object | valid Juicebox Key: Value combinations |  |
-| **OPTIONS IN CONFIG** |  |  |  |  |
+| **OPTIONS IN CONFIG** |  |  |  | The following options appear within the config object. |
 | noSelectionTextTemplate | Yes | String | The name of the template to render | This allows slices to customize the text that displays in the pill when there are no selections. Only activated when `display_slice_as` is set to `pill` or `default .`  |
 | minSelections | Yes \(Default is 0\) | Integer | Number | The minimum number of selections allowed in this slice. Any number bigger than 0 will disable `clear selections` option in the slice header \(local filters/slice selections\). |
 | maxSelections | Yes | Integer | Number | The maximum number of selections allowed in this slice. |
 | noDataMessage | Yes | String | Any text you want to display | A message to display when when no data is retrieved from the server. |
-| layout | Yes | Object | An object that defines the layout of all widgets in the slice. Contains layout locations \(eg. top-left\) with widget names \(eg. controls\) in them. | JS Object with in this form: `{top-left: [], top-right: [], bottom-left: [], bottom-right: [], bottom-center: []}`, where each array is a list of widgets \(body\|notes\|commands\|controls\|legend\|search\) in that location on the page |
-| layoutFlags | Yes | Object | An object with `show{WidgetName}` as property name and show/no-show flags as their values | Sets show/hide state for slice widgets \(search, etc…\). Note: To show the legend widget, in addition to setting the `showLegend` flag to `true`, you also need to have a non-empty `legend` object inside `templateContext` in the response. |
+| layout | Yes | Object | JS Object with in this form: `{top-left: [], top-right: [], bottom-left: [], bottom-right: [], bottom-center: []}`, where each array is a list of widgets \(body\|notes\|commands\|controls\|legend\|search\) in that location on the page.  | An object that defines the layout of all widgets in the slice. Contains layout locations \(eg. top-left\) with widget names \(eg. controls\) in them. |
+| layoutFlags | Yes | Object | An object with `show{WidgetName}` as property name and show/no-show flags as their values | Sets show/hide state for slice widgets \(search, etc…\). Find out more information about widget options here. |
 | collapsable | Yes \(Default is true\) | Boolean | true\|false | A boolean flag that indicates if a slice is collapsable \(would expand/collapse when clicked on the header\). By default all slices are collapsable \(no need to define collapsed=true\). Useful when a slice needs to stay expanded no matter what \(collapsable = false\). |
 | notifyOnDataSetChange | Yes \(Default is false\) | Boolean | true\|false | A boolean flag that indicates if a slice should notify all the slices below it \(that are listening to it\) when its data set changes so they can fetch their data. |
 
@@ -113,133 +113,43 @@ Provides data to the slice.
 
 {% hint style="warning" %}
 While data services are optional, a data service should be provided for all slices except for `free-form`slices.
-{% endhint %}
 
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| string | A python data service reference _or_ a json filename in the stack's fixtures directory | null | Yes |
+If the slice doesn't have a data service, an empty response will be generated, and the `WithNoData` mixin will be applied.
+{% endhint %}
 
 ### Python data services
 
 Python data services are referenced by supplying a python filename and data service class name relative to the stack location.
 
+{% tabs %}
+{% tab title="Python Data Service Example" %}
 ```text
 slices:
 - slice_type: card
   data_service: services.CardService
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Fixture data services
 
-Alternately, a json file containing valid juicebox response data located in the stack’s `fixtures/` directory. The json filename must end in `.json`. 
+Alternately, a json file containing valid Juicebox response data located in the stack’s `fixtures/` directory. The json filename must end in `.json`. 
 
 The fixture directory is relative to the stack location.  If a `fixtures/` directory is not present, create it.
 
+{% tabs %}
+{% tab title="Json Fixture Example" %}
 ```text
 slices:
 - slice_type: card
   data_service: card.json
 ```
-
-### Providing no data service
-
-If the `data_service` property is missing for a slice, an empty response will be generated and the `WithNoData` **mixin** will be applied. `data_service` should only be omitted for free-form slices.
-
-```text
-slices:
-- slice_type: card
-  data_service: null
-```
-
-## include\_commands
-
-What commands should be included on this slice. Commands allow users to perform actions using the data on the slice. 
-
-| Type | Allowed values | Default | Optional |
-| :--- | :--- | :--- | :--- |
-| list \(of strings\) | Valid command names | \[\] |  |
-
-To create custom app commands and learn more about built-in commands, see [Writing app command](../../enhancements-contents/writing-custom-app-commands.md)
-
-```text
-slices:
-- slice_type: card
-  include_commands: 
-  - download-data
-  - download-image
-```
-
-## config.noSelectionTextTemplate
-
-This allows slices to customize the text that displays in the pill when there are no selections.
-
-| Optional: | Yes, only activated when `display_slice_as` is set to `pill` or `default` |
-| :--- | :--- |
-| Values: | The name of the template to render |
-| Example: |  |
-
-## config.minSelections
-
-The minimum number of selections allowed in this slice. Any number bigger than 0 will disable `clear selections` option in the slice header \(local filters/slice selections\).
-
-| Optional: | yes, default is 0 |
-| :--- | :--- |
-| Values: | numbers |
-| Example: |  |
-
-## config.maxSelections
-
-The maximum number of selections allowed in this slice.
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | integer |
-| Example: |  |
-
-## config.noDataMessage
-
-A message to display when when no data is retrieved from the server.
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | text |
-| Example: |  |
-
-## config.layout
-
-An object that defines the layout of all widgets in the slice. Contains layout locations \(eg. top-left\) with widget names \(eg. controls\) in them.
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | JS Object with in this form: `{top-left: [], top-right: [], bottom-left: [], bottom-right: [], bottom-center: []}`, where each array is a list of widgets \(body\|notes\|commands\|controls\|legend\|search\) in that location on the page |
-| Example: |  |
+{% endtab %}
+{% endtabs %}
 
 ## config.layoutFlags
 
-Sets show/hide state for slice widgets \(search, etc…\). Note: To show the legend widget, in addition to setting the `showLegend` flag to `true`, you also need to have a non-empty `legend` object inside `templateContext` in the response.
-
-| Optional: | Yes, default is |
-| :--- | :--- |
-| Values: | An object with `show{WidgetName}` as property name and show/no-show flags as their values |
-| Example: |  |
-
-## config.collapsable
-
-A boolean flag that indicates if a slice is collapsable \(would expand/collapse when clicked on the header\). By default all slices are collapsable \(no need to define collapsed=true\). Useful when a slice needs to stay expanded no matter what \(collapsable = false\).
-
-| Optional: | yes, default is `true` |
-| :--- | :--- |
-| Values: | Boolean \(true \| false\) |
-| Example: |  |
-
-## config.notifyOnDataSetChange
-
-A boolean flag that indicates if a slice should notify all the slices below it \(that are listening to it\) when its data set changes so they can fetch their data.
-
-| Optional: | yes, default is `false` |
-| :--- | :--- |
-| Values: | Boolean \(true \| false\) |
-| Example: |  |
+Need to know more about layoutFlags to see if it's necessary to bring some extra stuff over. I think it'll be necessary, but i'll ask chris when i get a response on the import stuff.
 
 ## Additional template options
 
