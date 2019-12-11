@@ -4,24 +4,24 @@ description: >-
   template.
 ---
 
-# Free Form
+# Free Form \(done\)
 
 ## Free Form config
 
 FreeForm slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
+```text
+config:
+  contentTemplate: #free-form-tee-template
+```
+
+| Key | Optional | Value | Description |
+| :--- | :--- | :--- | :--- |
+| contentTemplate | No, without the template the slice would be empty | CSS Selector | Name of the template that will be rendered into the body-slice-template. Free form slice does not have a plugin, this template is the main source of visual in the slice. |
+
 {% hint style="info" %}
-If your Free Form slice doesn’t require any data at all, you can omit the `data_service` config option. An empty data service will be generated and the `WithNoData` mixin will be applied to your slice doesn’t show the no data message.
+If your Free Form slice doesn’t require any data at all, you can omit the `data_service` config option. An empty data service will be generated and the `WithNoData` mixin will be applied to your slice so it doesn’t show the no data message.
 {% endhint %}
-
-### contentTemplate
-
-Name of the template that will be rendered into the body-slice-template. Free form slice does not have a plugin, this template is the main source of visual in the slice.
-
-| Optional: | No, without the template the slice would be empty |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
 
 ## Flavors of Free Form
 
@@ -33,7 +33,9 @@ By their nature free form will only have a default flavor. It creates a response
 
 The code for the default flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="census\_v2\_service.py" %}
+```python
 class FreeFormV3Service1(CensusService):
     def build_response(self):
         self.metrics = ('pctfemale', )
@@ -42,10 +44,10 @@ class FreeFormV3Service1(CensusService):
             *self.dimensions).limit(1).apply_global_filters(False)
         self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "free-form"
   slug: "jam-free-form1"
   style:
@@ -58,12 +60,12 @@ The slice in stack.yaml:
   config:
     baseTemplateName: "#base-slice-bare-template"
     contentTemplate: "#jam-free-form1-template"
-  data_service: "censusv2service.FreeFormV3Service1"
+  data_service: "census_v2_service.FreeFormV3Service1"
 ```
+{% endtab %}
 
-And finally the template:
-
-```text
+{% tab title="templates.html" %}
+```markup
 <script type="text/template" id="jam-free-form1-template">
     <div style="text-align: center; margin-top: 50px; background-color: lightsalmon;">
         <div class="free-form-header">Percent Female Overview</div>
@@ -73,6 +75,8 @@ And finally the template:
     </div>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Free Style \(No Flavor\)
 
@@ -82,7 +86,9 @@ So if you want to go completely custom, you can also build a response completely
 
 The code for the free style flavor could looks as follows:
 
-```text
+{% tabs %}
+{% tab title="census\_v2\_service.py" %}
+```python
 class FreeFormV3Service2(CensusService):
     def build_response(self):
         data = {'name': 'Jason', 'pastry': 'cookies'}
@@ -92,10 +98,10 @@ class FreeFormV3Service2(CensusService):
 
         self.response['responses'].append(response)
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "free-form"
   slug: "jam-free-form2"
   style:
@@ -108,12 +114,12 @@ The slice in stack.yaml:
   config:
     baseTemplateName: "#base-slice-bare-template"
     contentTemplate: "#jam-free-form2-template"
-  data_service: "censusv2service.FreeFormV3Service2"
+  data_service: "census_v2_service.FreeFormV3Service2"
 ```
+{% endtab %}
 
-And finally the template:
-
-```text
+{% tab title="templates.html" %}
+```markup
 <script type="text/template" id="jam-free-form2-template">
     <div style="text-align: center; margin-top: 50px; background-color: lightsalmon;">
         <div class="free-form-header">Detailed Pastry Analysis</div>
@@ -123,6 +129,8 @@ And finally the template:
     </div>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Linking to other stacks with the switch\_stacks flavor
 
@@ -138,9 +146,9 @@ Here’s what it looks like when you click the “The Menfolk” button.
 
 **What does the code look like?**
 
-`stack.yaml`
-
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "free-form"
   slug: "stack_switcher_free_form"
   title: "Check out more details"
@@ -152,8 +160,10 @@ Here’s what it looks like when you click the “The Menfolk” button.
       }
   config:
     "contentTemplate": "#stack-switcher-template"
-  data_service: "exploreservice.StackSwitcherService"
+  data_service: "explore_service.StackSwitcherService"
 ```
+{% endtab %}
+{% endtabs %}
 
 The stack switcher template defines the look of the button.
 
@@ -161,9 +171,9 @@ The stack switcher template defines the look of the button.
 
 `COOKIES` is the slug of the ranked list. We love cookies so much sometimes we have to shout.
 
-`templates.html`
-
-```text
+{% tabs %}
+{% tab title="templates.html" %}
+```markup
 <script type="text/template" id="stack-switcher-template">
   <button type="button" class="fr-btn fr-btn-light" data-widget="action-widget">
     <div class="fr-title"><%= datum.label %></div>
@@ -172,12 +182,14 @@ The stack switcher template defines the look of the button.
   </button>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
 The data service looks like this
 
-exploreservice.StackSwitcherService
-
-```text
+{% tabs %}
+{% tab title="explorer\_service.py" %}
+```python
 def build_response(self):
     # Make a copy of the automatic filters
     menfilters = deepcopy(self.automatic_filters)
@@ -210,6 +222,8 @@ def build_response(self):
     })
     self.response['responses'].append(response)
 ```
+{% endtab %}
+{% endtabs %}
 
 If you’re carrying over selections from global filters that use widgets, you’ll need to tell the renderer which selections are from the widget. This is so that the selections can be formatted appropriately in the hash.
 
@@ -241,9 +255,9 @@ filters['sex'] = {
 
 In addition to carrying over filters, its also possible to carry over selections for slices across stacks. Create a dictionary and for each slice whose selections needs to be set, add it’s `slug` to that dictionary along with the selections. The data service looks like this:
 
-exploreservice.StackSwitcherService
-
-```text
+{% tabs %}
+{% tab title="explore\_service.py" %}
+```python
 def build_response(self):
     # Make a copy of the automatic filters
     menfilters = deepcopy(self.automatic_filters)
@@ -291,12 +305,14 @@ def build_response(self):
     })
     self.response['responses'].append(response)
 ```
+{% endtab %}
+{% endtabs %}
 
 To collapse slices that can be collapsed \(i.e. `collapsable` is `True`\) pass the `collapsed` flag. And to select a response set of a slice, pass the `dataSetName` flag, like this:
 
-exploreservice.StackSwitcherService
-
-```text
+{% tabs %}
+{% tab title="explore\_service.py" %}
+```python
 def build_response(self):
     # Make a copy of the automatic filters
     menfilters = deepcopy(self.automatic_filters)
@@ -346,4 +362,6 @@ def build_response(self):
     })
     self.response['responses'].append(response)
 ```
+{% endtab %}
+{% endtabs %}
 

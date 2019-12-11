@@ -42,7 +42,7 @@
     * [Card \(done\)](reference-guide-contents/slice-reference/card-slice.md)
     * [Distribution \(done\)](reference-guide-contents/slice-reference/distribution-slice.md)
     * [Flower \(done\)](reference-guide-contents/slice-reference/untitled.md)
-    * [Free Form](reference-guide-contents/slice-reference/free-form.md)
+    * [Free Form \(done\)](reference-guide-contents/slice-reference/free-form.md)
     * [Key Metrics Hierarchy](reference-guide-contents/slice-reference/key-metrics-hierarchy.md)
     * [Leaderboard](reference-guide-contents/slice-reference/leaderboard.md)
     * [Lollipop](reference-guide-contents/slice-reference/lollipop.md)
