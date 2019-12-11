@@ -2,7 +2,7 @@
 description: A Map slice displays bubbles on a map.
 ---
 
-# Map
+# Map \(done\)
 
 With the recent addition of a heatmap layer, a map can display the big picture of what data looks like using a translucent color gradient to indicate data item density. The marker layer can be enabled to display specific data items on the map, and easily compare heatmap data with marker data.
 
@@ -10,59 +10,33 @@ With the recent addition of a heatmap layer, a map can display the big picture o
 
 Map slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### colors \(map\)
+{% tabs %}
+{% tab title="Map Config Example" %}
+```yaml
+config:
+  colors: [{"range":["#FFF","#1a8cdb"],"domain":[null,90],"name":"score"}]
+  maxZoom: 7
+  minZoom: 6
+  sizes: [{"range":[20, 50],"domain":[null,90],"name":"score"}]
+  styles: [{...}]
+  tooltipTemplateName: #map-slice-tooltip-compliance-template
+  layers:
+    heatmap:
+      radius: 20
+    markers:
+      selectable: false
+```
+{% endtab %}
+{% endtabs %}
 
-Defines the color \(domain/range\) of the bubbles on the map. It is an array of ```{`name, domain[min,max], range[min,max]}`` objects, where `name` is a data object field used to color the bubble; min/max in domain can be `null`, which makes it dynamic and derive those values from data
-
-| Optional: | Yes |
-| :--- | :--- |
-| Values: | an array of `{name, domain[min,max], range[min,max]}` objects |
-| Example: |  |
-
-### maxZoom
-
-Maximum zoom level in map. Should be a number between 1 and 10 \(from Google Maps API\)
-
-| Optional: | Yes, default is 8 |
-| :--- | :--- |
-| Values: | number between 1 and 10 |
-| Example: |  |
-
-### minZoom
-
-Minimum zoom level in map. Should be a number between 1 and 10 \(from Google Maps API\)
-
-| Optional: | Yes, default is 4 |
-| :--- | :--- |
-| Values: | number between 1 and 10 |
-| Example: |  |
-
-### sizes \(map\)
-
-Defines the sizes \(domain/range\) of the bubbles on the map. It is an array of `{name, domain[min,max], range[min,max]}` objects, where `name` is a data object field used to size the bubble; min/max in domain can be `null`, which makes it dynamic and derive those values from data
-
-| Optional: | Yes |
-| :--- | :--- |
-| Values: | an array of `{name, domain[min,max], range[min,max]}` objects |
-| Example: |  |
-
-### heatmap
-
-If the heatmap is configured, map coloring will show the density of data items in various areas of the map. Heatmaps cannot be filtered. Options are found [here](https://developers.google.com/maps/documentation/javascript/reference/visualization#HeatmapLayerOptions).
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | All options found above in the Google Maps Api linked above can be specified to configure the heatmap, such as `radius`, which can be set to the number of pixels that should be filled in around a data item, shown below. |
-| Example: |  |
-
-### markers
-
-Markers will appear on the map with the provided options. Markers cannot be filtered. Available options specified in the Google Maps API[ here](https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions). 
-
-| Optional: | yes |
-| :--- | :--- |
-| Values: | All options enumerated in the Google Maps API MarkerOptions are available. A common option is `selectable`, displayed below. It defaults to true, but can be set to false to display markers that cannot be interacted with by the user. |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| colors | Yes | an array of `{name, domain[min,max], range[min,max]}` objects | Defines the color \(domain/range\) of the bubbles on the map. It is an array of ```{`name, domain[min,max], range[min,max]}`` objects, where `name` is a data object field used to color the bubble; min/max in domain can be `null`, which makes it dynamic and derive those values from data |
+| maxZoom | Yes, default is 8 | Integer between 1-10 | Maximum zoom level in map. Should be a number between 1 and 10 \(from Google Maps API\) |
+| minZoom | Yes, default is 4 | Integer between 1-10 | Minimum zoom level in map. Should be a number between 1 and 10 \(from Google Maps API\) |
+| sizes | Yes | an array of `{name, domain[min,max], range[min,max]}` objects | Defines the sizes \(domain/range\) of the bubbles on the map. It is an array of `{name, domain[min,max], range[min,max]}` objects, where `name` is a data object field used to size the bubble; min/max in domain can be `null`, which makes it dynamic and derive those values from data |
+| heatmap | Yes | All options found in the Google Maps Api linked above can be specified to configure the heatmap.  | If the heatmap is configured, map coloring will show the density of data items in various areas of the map. Heatmaps cannot be filtered. Options are found [here](https://developers.google.com/maps/documentation/javascript/reference/visualization#HeatmapLayerOptions). In the example above, we use `radius`, which can be set to the number of pixels that should be filled in around a data item, shown below. |
+| markers | Yes | All options enumerated in the Google Maps API MarkerOptions are available.  | Markers will appear on the map with the provided options. Markers cannot be filtered. Available options specified in the Google Maps API[ here](https://developers.google.com/maps/documentation/javascript/reference/marker#MarkerOptions). A common option is `selectable`, displayed in the example above. It defaults to true, but can be set to false to display markers that cannot be interacted with by the user. |
 
 ## Flavors of Map
 
@@ -70,7 +44,7 @@ Markers will appear on the map with the provided options. Markers cannot be filt
 
 Recipes should have three dimensions.
 
-| Dimensions | What should be entered |
+| Dimensions | What's in it |
 | :--- | :--- |
 | Dimension1: | The group\_by\_type and name of the map bubbles. |
 | Dimension2: | The latitude of map bubbles. |
@@ -78,11 +52,31 @@ Recipes should have three dimensions.
 
 Recipes should have at least two metrics.
 
-| Metric1: | The `count` property, typically used to size map bubbles. |
+| Metrics | What's in it |
 | :--- | :--- |
+| Metric1: | The `count` property, typically used to size map bubbles.  |
 | Metric2: | The `score` property, typically used to color map bubbles. |
 
 Any additional metrics provided will appear in each response row.
+
+Here's an example:
+
+{% tabs %}
+{% tab title="map\_service.py" %}
+```python
+class MapService(JuiceboxServiceBase):
+    data_source = 'uscities'
+
+    def build_response(self):
+        metrics = ('ranking', 'population', )
+        dimensions = ('city', 'lat', 'lng')
+
+        recipe = self.recipe().metrics(*metrics).dimensions(*dimensions)
+        response = recipe.render(name="Cities")
+        self.response['responses'].append(response)
+```
+{% endtab %}
+{% endtabs %}
 
 ### Heatmap
 
@@ -102,7 +96,9 @@ This can be accomplished using a series of renders in the data service.
 
 Since this complex map is built out of multiple flavors, the responses are merged using `append_response_item_collections` before return, like so:
 
-```text
+{% tabs %}
+{% tab title="advanced\_map\_service.py" %}
+```python
 def build_response(self):
   recipe = self.recipe().metrics(*metrics)\
       .dimensions(*dimensions)\
@@ -124,4 +120,6 @@ def build_response(self):
                                             'marker')
   self.response['responses'].append(joined)
 ```
+{% endtab %}
+{% endtabs %}
 
