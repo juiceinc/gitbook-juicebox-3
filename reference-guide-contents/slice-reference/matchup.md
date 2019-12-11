@@ -11,59 +11,33 @@ description: >-
 
 Matchup slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### scoreTitleTemplate
+{% tabs %}
+{% tab title="Matchup Config Example" %}
+```yaml
+config:
+  scoreTitleTemplate:"<%= selection(\"lollipop\", {\"dimension\":
+    \"metric\"}) %> score"
+  averageTitle: "Company average"
+  differenceThreshold: 2
+  displayModes: ["summary", "all"]
+  showCount: false
+  relatedItemsTitle: "Related courses"
+  disableSort: true
+```
+{% endtab %}
+{% endtabs %}
 
-The template that will be evaluated to determine the score title
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| scoreTitleTemplate | Yes, default is "score" | Underscore.js template or plain text | The template that will be evaluated to determine the score title. |
+| averageTitle | Yes, default is "industry average" | String | The text that indicated `average`. |
+| differenceThreshold | Yes, default is 1 | Integer | The statistical difference to group the values by. Values within this threshold are considered to be “similar”. |
+| displayModes | Yes, default is \[“summary”, “all”\] | Array of strings/mode names | Togglable display modes \(eg. show summary\|all\) |
+| showCount | Yes, default is true | Boolean | Flag that indicates whether the count within the group should be shown |
+| relatedItemsTitle | Yes, default is empty string | String | Each bar in matchup can have a list of related items. It is a list of strings displayed when a bar is hovered/selected. The title name of this list is defined here. |
+| disableSort | Yes, default is false | Boolean | A boolean that controls if the data should be sorted. If set to `true`, sorting will be disabled and `displayModes` will be automatically set to `["all"]` |
 
-| Optional: | Yes, default is “score” |
-| :--- | :--- |
-| Values: | Underscore.js template or plain text |
-| Example: |  |
 
-### averageTitle
-
-The text that indicates `average`
-
-| Optional: | Yes, default is “industry average” |
-| :--- | :--- |
-| Values: | String |
-| Example: |  |
-
-### differenceThreshold
-
-The statistical difference to group the values by. Values within this threshold are considered to be “similar”.
-
-| Optional: | Yes, default is 1 |
-| :--- | :--- |
-| Values: | number |
-| Example: |  |
-
-### displayModes
-
-Togglable display modes \(eg. show summary\|all\)
-
-| Optional: | Yes, default is \[“summary”, “all”\] |
-| :--- | :--- |
-| Values: | Array of strings/mode names |
-| Example: |  |
-
-### showCount \(matchup\)
-
-Flag that indicates whether the count within the group should be shown
-
-| Optional: | Yes, default is `true` |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### disableSort \(matchup\)
-
-A boolean that controls if the data should be sorted. If set to `true`, sorting will be disabled and `displayModes` will be automatically set to `["all"]`
-
-| Optional: | Yes, default is `false` |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
 
 ## Flavors for Matchup
 
@@ -73,7 +47,9 @@ The first dimension in self.dimensions is the grouping dimension, and the first 
 
 The code for the default matchup flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="matchup\_data\_service.py" %}
+```python
 class MatchupV3Service(CensusService):
     def build_response(self):
         self.metrics = ('popdiff', )
@@ -84,19 +60,21 @@ class MatchupV3Service(CensusService):
 
         self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "matchup"
   slug: "matchup"
   title: "matchup"
-  data_service: "censusv2service.MatchupV3Service"
+  data_service: "matchup_data_service.MatchupV3Service"
   config:
     "differenceThreshold": 0.01
     "scoreTitleTemplate": "Population Change"
     "averageTitle": "Average Change"
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in any way.
 
