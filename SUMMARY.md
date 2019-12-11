@@ -44,7 +44,7 @@
     * [Flower \(done\)](reference-guide-contents/slice-reference/untitled.md)
     * [Free Form \(done\)](reference-guide-contents/slice-reference/free-form.md)
     * [Key Metrics Hierarchy \(done\)](reference-guide-contents/slice-reference/key-metrics-hierarchy.md)
-    * [Leaderboard](reference-guide-contents/slice-reference/leaderboard.md)
+    * [Leaderboard \(done\)](reference-guide-contents/slice-reference/leaderboard.md)
     * [Lollipop](reference-guide-contents/slice-reference/lollipop.md)
     * [Matchup](reference-guide-contents/slice-reference/matchup.md)
     * [Map](reference-guide-contents/slice-reference/map.md)

@@ -5,65 +5,30 @@ description: >-
   Top 10, Bottom 10 and Top and Bottom 5.
 ---
 
-# Leaderboard
+# Leaderboard \(done\)
 
 ## Leaderboard config
 
 Leaderboard slices support the [Common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### columns
+{% tabs %}
+{% tab title="Leaderboard config example" %}
+```yaml
+config:
+  columns: [{“name”: “student_name”,”searchable”: false,”reverse”: false, “format”: “”}, {…}, …]
+  ignoreNulls: false
+  showMode: both
+  numberOfRows: 20
+```
+{% endtab %}
+{% endtabs %}
 
-An array of column descriptions \(in the order they need to be displayed in leaderboard\). Each cell in Leaderboard consists of a Name and a Value of \(eg. \[StudentX 99\] \[StudentZ 23\]\). The name field for each cell should be specified as the first item in columns array. The first column \(name field\) will not be rendered in leaderboard, its field value rather becomes the name part in each cell. Your first column is NOT an ID or a numeric value, it should be a property name in each data item that has a string value. Value fields should be specified next, in the order they need to appear in the leaderboard.
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Optional:</th>
-      <th style="text-align:left">Yes, but results might be unexpected (might pick the wrong name column)
-        if columns not defined</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Values:</td>
-      <td style="text-align:left">An array of <code>{name,searchable,reverse}</code> objects</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Example:</td>
-      <td style="text-align:left">
-        <p>config:</p>
-        <p>columns: [{&#x201C;name&#x201D;: &#x201C;student_name&#x201D;,&#x201D;searchable&#x201D;:
-          false,&#x201D;reverse&#x201D;: false, &#x201C;format&#x201D;: &#x201C;&#x201D;},
-          {&#x2026;}, &#x2026;]</p>
-      </td>
-    </tr>
-  </tbody>
-</table>### ignoreNulls
-
-Should the `null` values be ignored?
-
-| Optional: | Yes, defaults to `true` \(will be ignored\) |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### showMode
-
-Which records should leaderboard initially show? Top X? Bottom X? or Top X/2 and Bottom X/2?
-
-| Optional: | Yes, defaults to `top` |
-| :--- | :--- |
-| Values: | top\|bottom\|both |
-| Example: |  |
-
-### numberOfRows
-
-Number of rows displayed in leaderboard.
-
-| Optional: | Yes, defaults to 10 |
-| :--- | :--- |
-| Values: | integer |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| columns | Yes, but results might be unexpected \(might pick the wrong name column\) if columns not defined | An array of `{name,searchable,reverse}` objects | An array of column descriptions \(in the order they need to be displayed in leaderboard\). Each cell in Leaderboard consists of a Name and a Value of \(eg. \[StudentX 99\] \[StudentZ 23\]\). The name field for each cell should be specified as the first item in columns array. The first column \(name field\) will not be rendered in leaderboard, its field value rather becomes the name part in each cell. Your first column is NOT an ID or a numeric value, it should be a property name in each data item that has a string value. Value fields should be specified next, in the order they need to appear in the leaderboard. |
+| ignoreNulls | Yes, defaults to true \(will be ignored\) | Boolean | Should the `null` values be ignored? |
+| showMode | Yes, defaults to top | top\|bottom\|both | Which records should leaderboard initially show? Top X? Bottom X? or Top X/2 and Bottom X/2? |
+| numberOfRows | Yes, defaults to 10 | Integer | Number of rows displayed in leaderboard. |
 
 ## Flavors of Leaderboard
 
@@ -75,7 +40,9 @@ The default flavor renders a many metrics and dimensions grouped by a single dim
 
 The code for the default Trend flavor looks as follows for rendering multiple datasets:
 
-```text
+{% tabs %}
+{% tab title="some\_service.py" %}
+```python
 class LeaderboardV3Service(CensusService):
     def build_response(self):
         self.metrics = ('pop2000', 'pop2008', 'popdiff')
@@ -91,13 +58,15 @@ class LeaderboardV3Service(CensusService):
         ]).run()
         self.response['responses'] = results
 ```
+{% endtab %}
 
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "leaderboard"
   slug: "leaderboard"
   title: "Leaderboard"
-  data_service: "someService.LeaderboardV3Service"
+  data_service: "some_service.LeaderboardV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
