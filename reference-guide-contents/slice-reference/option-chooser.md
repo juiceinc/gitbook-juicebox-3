@@ -9,9 +9,23 @@ description: >-
 
 ## Option chooser config
 
-Option chooser slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). 
+Option chooser slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-Additional options are:
+```text
+
+```
+
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| groups | Yes | An object with option name as a key and {minSelections,maxSelections} properties | Overrides default option settings for specified chooser |
+| hasFilterText | Yes, default is false | Boolean | Should the slice display its local filter text \(selection\). Typically, this slice does not display filter text, so it is disabled by default. You need to explicitly enable it to display filter/selection text |
+| optionTemplate **DEPRECATED** - **If seen, please convert to optionTemplateName** | N/A | N/A | N/A |
+| optionTemplateName | Yes, will use the default template \(see OptionChooserSliceView.js\) | CSS Selector | The name of the template for the options. **NOTE** This option is ignored when the option chooser is setup with the drop down mixin. |
+| templateField | Yes | String | Name of the field in data item that refers to the template defined in template.html. Useful if data items should render different templates |
+| selectorTemplate **DEPRECATED** - **If seen, please convert to selectorTemplateName** | N/A | N/A | N/A |
+| selectorTemplateName | Yes, will use the default template \(see OptionChooserSliceView.js\) | CSS Selector | The name of the template for the container/selector. **NOTE** This option is ignored when the option chooser is setup with the drop down mixin. |
+| showTitles | Yes, default is true | Boolean | Should the selection names be visible right in front of the selection options? |
+| nonSelectedText | Yes, default is `None selected` | String | The text displayed when no option is selected |
 
 ### groups \(option chooser\)
 
