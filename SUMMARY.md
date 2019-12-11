@@ -45,7 +45,7 @@
     * [Free Form \(done\)](reference-guide-contents/slice-reference/free-form.md)
     * [Key Metrics Hierarchy \(done\)](reference-guide-contents/slice-reference/key-metrics-hierarchy.md)
     * [Leaderboard \(done\)](reference-guide-contents/slice-reference/leaderboard.md)
-    * [Lollipop](reference-guide-contents/slice-reference/lollipop.md)
+    * [Lollipop \(done\)](reference-guide-contents/slice-reference/lollipop.md)
     * [Matchup](reference-guide-contents/slice-reference/matchup.md)
     * [Map](reference-guide-contents/slice-reference/map.md)
     * [Nine Box](reference-guide-contents/slice-reference/nine-box.md)

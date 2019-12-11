@@ -5,56 +5,38 @@ description: >-
   target and optional benchmark comparison recipe.
 ---
 
-# Lollipop
+# Lollipop \(done\)
 
 ## Lollipop config
 
 Lollipop slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### blockWidthRange
+{% tabs %}
+{% tab title="Lollipop Config Example" %}
+```text
+config:
+  blockWidthRange: 50
+  showGroupTitle: false
+  showStick: true
+  groups:
+    group_a:
+      max: 100
+      min: 0
+      showScales: true
+  itemLinks:
+      overall_score: compliance/overall
+      knowledge_score: compliance/knowledge
+```
+{% endtab %}
+{% endtabs %}
 
-Lollipop section \(container of a single lollipop\) preferred width range \(in px\)
-
-| Optional: | Yes, if it is not defined, lollipop section widths become dynamic |
-| :--- | :--- |
-| Values: | An array of two integers: \[min, max\] number \(in pixels\) |
-| Example: |  |
-
-### showGroupTitle
-
-Indicates whether the group title should be displayed
-
-| Optional: | Yes, default is `true` |
-| :--- | :--- |
-| Values: | boolean |
-| Example: |  |
-
-### showStick
-
-Displays/hides the main lollipop’s stick \(the one that connects base line to the point\)
-
-| Optional: | Yes, default is `false` |
-| :--- | :--- |
-| Values: | boolean |
-| Example: |  |
-
-### groups
-
-Defines min\|max\|showScales for each lollipop group \(group name is the `key`\). You can set a default for all groups by specifying `default` as the key.
-
-| Optional: | Yes, default is: min/max are dynamic, showScales is `true` |
-| :--- | :--- |
-| Values: | JS object |
-| Example: |  |
-
-### itemLinks
-
-Use only with `LollipopLinkableItemsViewMixin`, which enables URL navigation on lollipop clicks. `itemLinks` object is a map with the key \(the id of an lollipop item\) and the value \(the url this item links to\)
-
-| Optional: | Yes |
-| :--- | :--- |
-| Values: | JS object |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| blockWidthRange | Yes, if it is not defined, lollipop section widths become dynamic | An array of two integers: \[min, max\] number | Lollipop section \(container of a single lollipop\) preferred width range in pixels |
+| showGroupTitle | Yes, default is true | Boolean | Indicates whether the group title should be displayed |
+| showStick | Yes, default is false | Boolean | Displays/hides the main lollipop’s stick \(the one that connects base line to the point\) |
+| groups | Yes, default is: min/max are dynamic, showScales is `true` | JS Object | Defines min\|max\|showScales for each lollipop group \(group name is the `key`\). You can set a default for all groups by specifying `default` as the key. |
+| itemLinks | Yes | JS Object | Use only with `LollipopLinkableItemsViewMixin`, which enables URL navigation on lollipop clicks. `itemLinks` object is a map with the key \(the id of an lollipop item\) and the value \(the url this item links to\) |
 
 ## Flavors for Lollipop
 
@@ -64,7 +46,9 @@ The default flavor provides the most flexible behavior. The default flavor is us
 
 The default flavor, with no render\_config provided would look something like:
 
-```text
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
+```python
 class LollipopV3Service(CensusService):
     def build_response(self):
         self.metrics = ('pctfemale', 'pctdiff')
@@ -77,19 +61,23 @@ class LollipopV3Service(CensusService):
 
         self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "lollipop"
   slug: "lollipop"
   title: 'How satisfied are your employees in the following areas?'
-  data_service: "EIDataServices.LollipopService"
+  data_service: "lollipop_data_services.LollipopService"
 ```
+{% endtab %}
+{% endtabs %}
 
 It is possible to supply a separate set of comparison metrics for the benchmark. In order to do this, the comparison metrics must be supplied to the benchmark recipe, and the list of metrics and comparison metrics must be supplied via a `render_config` dictionary. Additionally, when supplying comparison metrics, an empty suffix must be passed as an argument in the compare method. For example, in the code block below, the benchmark recipe uses separate national averages.
 
-```text
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
+```python
 class LollipopService(OverviewService):
     def build_response(self):
         self.metrics = ('turnaround_avg', 'stage_1_avg', 'stage_2_avg',
@@ -113,10 +101,14 @@ class LollipopService(OverviewService):
                                    'national_4_avg', 'national_5_avg'],
         }
 ```
+{% endtab %}
+{% endtabs %}
 
 It is also possible to override the default comparison label and target range by supplying a `render_config` dictionary to the `render()` method. For example, the code below will change the shaded target band to range from 3.7 to 4.1 and change the word Benchmark to Cookies in the displayed output.
 
-```text
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
+```python
 class LollipopV3Service(CensusService):
     def build_response(self):
         self.metrics = ('pctfemale', 'pctdiff')
@@ -136,11 +128,15 @@ class LollipopV3Service(CensusService):
                           render_config=render_config)
         )
 ```
+{% endtab %}
+{% endtabs %}
 
 In order to separate the lollipops into groups, a list of groups and the metrics associated with each group must be supplied as a part of the `render_config` dictionary. The renderer expects the groups to be a list of lists, where the first item in the group is the name of the group, and the second item is a list of the metrics in that group. If no groups are supplied in `render_config`, the renderer will create a default group, using all of the metrics in the recipe. For example, the code block below will create three groups \(the two groups listed, and a third group that uses the remaining metrics not used with other groups\).
 
 ![](../../.gitbook/assets/lollipop-separate-groups.png)
 
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
 ```text
 class LollipopV3Service(OverviewService):
     def build_response(self):
@@ -160,6 +156,8 @@ class LollipopV3Service(OverviewService):
             ]
         }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Single Dimension \(lollipop\)
 
@@ -169,7 +167,9 @@ The single dimension flavor is used when you want a lollipop slice for each dist
 
 The code for the single dimension flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
+```python
 class LollipopService(EIService):
     def build_response(self):
         self.metrics = ['c_meanscore', 'c_db_meanscore']
@@ -182,10 +182,10 @@ class LollipopService(EIService):
         self.response['responses'].append(
             recipe.render('Lollipop', flavor='single_dimension'))
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "lollipop"
   slug: "lollipop"
   title: 'How satisfied are your employees in the following areas?'
@@ -202,8 +202,10 @@ The slice in stack.yaml:
       "options": {}
       "target": "view"
       "class": "WithFilterChange"
-  data_service: "EIDataServices.LollipopService"
+  data_service: "lollipop_data_services.LollipopService"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Single Benchmark \(lollipop\)
 
@@ -213,7 +215,9 @@ The single benchmark flavor is used when you have a flat structure with a list o
 
 The code for the single benchmark flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="lollipop\_data\_services.py" %}
+```python
 class LollipopV3Service(CensusService):
     def build_response(self):
         self.metrics = ('pctfemale', 'pctdiff')
@@ -227,10 +231,10 @@ class LollipopV3Service(CensusService):
         self.response['responses'].append(
             recipe.render(flavor='single_benchmark'))
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "lollipop"
   slug: "lollipop-jam1"
   title: "JAM lollipop"
@@ -240,6 +244,8 @@ The slice in stack.yaml:
         "max": 100
     "minSelections": 1
     "showStick": true
-  data_service: "censusv2service.LollipopV3Service"
+  data_service: "lollipop_data_services.LollipopV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
