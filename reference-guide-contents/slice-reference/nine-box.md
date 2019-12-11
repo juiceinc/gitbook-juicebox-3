@@ -5,139 +5,64 @@ description: >-
   flavor.
 ---
 
-# Nine Box
+# Nine Box \(done\)
 
 ## Nine box config
 
 Nine box slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### axisLabels \(nine box\)
+{% tabs %}
+{% tab title="Nine Box Config Example" %}
+```yaml
+config:
+  axisLabels:
+    labels: ["Low", "My X axis", "High"]
+    labels: ["Low", "My Y axis", "High"]
+  boxLabels:
+    position: ne
+    row: 0,
+    col: 2,
+    text: "High traffic, Many bad stops"
+  h_lines: ["50%", "25%"]
+  height: 400
+  invertXAxis: true
+  invertYAxis: true
+  margins:
+    left: 50
+    bottom: 40
+    top: 20
+    right: 20
+  showBoundaryLabels: false
+  sizeMinMax: [5, 10]
+  tooltipTemplateName: #nine-box-custom-tooltip-template
+  v_lines: ["50%", "25%"]
+  width: 810
+  x_bounds: [0,10]
+  y_bounds: [0,10]
+  searchFields: ["label", "score"]
+```
+{% endtab %}
+{% endtabs %}
 
-Name of the X and Y labels
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| axisLabels | Yes | An array of {labels: \[\]} objects. the first object refers to X axis, the second object refers to Y axis | Name of the X and Y label |
+| boxLabels | Yes | An array of {position \(n\|ne\|e\|se\|s\|sw\|w\|nw\),row,col,text} objects | An array of labels that should be displayed inside the box/regions. You can set the position the label should be displayed in the box |
+| h\_lines | Yes, default is \[“33.3333%”, “33.3333%”\] | Array of widths between boundaries \(eg. \[“33.3333%”, “33.3333%”\] will make three equally spaced regions: 0%-33%, 33%-66%, 66%-100% of the width\) | Horizontal line boundaries |
+| height | Yes, default is 500 | Integer | The height of the visual component in pixels |
+| invertXAxis | Yes, default is `false` | Boolean | Should the X axis be inverted? eg. if \[0-100\] is inverted, 100 will appear asthe leftmost point and 0 will be the rightmost |
+| invertYAxis | Yes, default is `false` | Boolean | Should the Y axis be inverted? eg. if \[0-100\] is inverted, 100 will appear at the bottom and 0 will be the topmost point |
+| margins | Yes, default is {left: 40, bottom: 30, top: 10, right: 10} | {left, right, top, bottom}  | Margins of the visual component in pixels |
+| showBoundaryLabels | Yes, default is set to true | Boolean | Should the region boundary labels be shown? |
+| sizeMinMax | Yes, default is \[10, 10\] \(all bubbles have radius of 10px\) | array, \[min, max\] in pixels | Min/max size of the bubble \(radius, in pixels\) |
+| tooltipTemplateName | Yes, default is \#nine-box-tooltip-template | CSS selector | CSS selector of the tooltip template \(displayed when mouse is over the bubble\) |
+| v\_lines | Yes, default is \[“33.3333%”, “33.3333%”\] | Array of heights between boundaries \(eg. \[“33.3333%”, “33.3333%”\] will make three equally spaced regions: 0%-33%, 33%-66%, 66%-100% of the height\) | Vertical line boundaries |
+| width | Yes | Integer | Width of the visual component in pixels |
+| x\_bounds | Yes, by default domain is dynamically derived from X field data | Array of \[min, max\] | Domain \(possible min/max\) values on X axis. Use it if your data does not reflect the full range of points you want to display on the chart \(eg. your data is within 5-20 range, when the chart should be show in 0-100\) |
+| y\_bounds | Yes, by default domain is dynamically derived from Y field data | Array of \[min, max\] | Domain \(possible min/max\) values on Y axis. Use it if your data does not reflect the full range of points you want to display on the chart \(eg. your data is within 5-20 range, when the chart should be show in 0-100\) |
+| searchFields | Yes. Default is \[“label”\] | Array of \[min, max\] | The data attributes to be used for searching |
 
-| Optional: | Yes. |
-| :--- | :--- |
-| Values: | An array of {labels: \[\]} objects. the first object refers to X axis, the second object refers to Y axis |
-| Example: |  |
-
-### boxLabels
-
-An array of labels that should be displayed inside the box/regions. You can set the position the label should be displayed in the box
-
-| Optional: | Yes. |
-| :--- | :--- |
-| Values: | An array of {position \(n\|ne\|e\|se\|s\|sw\|w\|nw\),row,col,text} objects |
-| Example: |  |
-
-### h\_lines \(nine box\)
-
-Horizontal line boundaries
-
-| Optional: | Yes, default is \[“33.3333%”, “33.3333%”\] |
-| :--- | :--- |
-| Values: | Array of widths between boundaries \(eg. \[“33.3333%”, “33.3333%”\] will make three equally spaced regions: 0%-33%, 33%-66%, 66%-100% of the width\) |
-| Example: |  |
-
-### height \(nine box\)
-
-The height of the visual component
-
-| Optional: | Yes, default is 500 |
-| :--- | :--- |
-| Values: | number \(in pixels\) |
-| Example: |  |
-
-### invertXAxis \(nine box\)
-
-Should the X axis be inverted? eg. if \[0-100\] is inverted, 100 will appear asthe leftmost point and 0 will be the rightmost
-
-| Optional: | Yes, default is `false` |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### invertYAxis \(nine box\)
-
-Should the Y axis be inverted? eg. if \[0-100\] is inverted, 100 will appear atthe bottom and 0 will be the topmost point
-
-| Optional: | Yes, default is `false` |
-| :--- | :--- |
-| Values”: | true\|false |
-| Example: |  |
-
-### margins \(nine box\)
-
-Margins of the visual component
-
-| Optional: | Yes, default is {left: 40, bottom: 30, top: 10, right: 10} |
-| :--- | :--- |
-| Values: | {left, right, top, bottom} \(all numbers in px\) |
-| Example: |  |
-
-### showBoundaryLabels
-
-Should the region boundary labels be shown?
-
-| Optional: | Yes, default is `true` |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### sizeMinMax
-
-Min/max size of the bubble \(radius, in pixels\)
-
-| Optional: | Yes, default is \[10, 10\] \(all bubbles have radius of 10px\) |
-| :--- | :--- |
-| Values: | array, \[min, max\] in pixels |
-| Example: |  |
-
-### v\_lines \(nine box\)
-
-Vertical line boundaries
-
-| Optional: | Yes, default is \[“33.3333%”, “33.3333%”\] |
-| :--- | :--- |
-| Values: | Array of heights between boundaries \(eg. \[“33.3333%”, “33.3333%”\] will make three equally spaced regions: 0%-33%, 33%-66%, 66%-100% of the height\) |
-| Example: |  |
-
-### width
-
-Width of the visual component
-
-| Optional: | Yes |
-| :--- | :--- |
-| Values: | number \(in pixels\) |
-| Example: |  |
-
-### x\_bounds \(nine box\)
-
-Domain \(possible min/max\) values on X axis. Use it if your data does not reflect the full range of points you want to display on the chart \(eg. your data is within 5-20 range, when the chart should be show in 0-100\)
-
-| Optional: | Yes, by default domain is dynamically derived from X field data |
-| :--- | :--- |
-| Values: | array of \[min, max\] |
-| Example: |  |
-
-### y\_bounds \(nine box\)
-
-Domain \(possible min/max\) values on Y axis. Use it if your data does not reflect the full range of points you want to display on the chart \(eg. your data is within 5-20 range, when the chart should be show in 0-100\)
-
-| Optional: | Yes, by default domain is dynamically derived from Y field data |
-| :--- | :--- |
-| Values: | array of \[min, max\] |
-| Example: |  |
-
-### searchFields \(nine box\)
-
-The data attributes to be used for searching
-
-| Optional: | Yes. Default is \[“label”\] |
-| :--- | :--- |
-| Values: | array of \[min, max\] |
-| Example: |  |
-
-## Flavors of Ninebox
+## Flavors of Nine Box
 
 ### Default \(nine box\)
 
@@ -151,7 +76,9 @@ The quad dimensions flavor uses the first dimension as the x value and the secon
 
 The code for the quad dimensions flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="EIDataServices.py" %}
+```python
 class NineBoxService(EIService):
 
     def __init__(self, *args, **kwargs):
@@ -167,10 +94,10 @@ class NineBoxService(EIService):
 
     self.response['responses'].append(recipe.render('Ninebox'))
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "nine-box"
   slug: "nine-box"
   title: "Here are all the questions in <strong><%= lollipop.selectionDisplay() %></strong>. Select those you'd like to improve."
@@ -229,10 +156,10 @@ The slice in stack.yaml:
           text: "Low score and impacts overall satisfaction"
   data_service: "EIDataServices.NineBoxService"
 ```
+{% endtab %}
 
-And finally the template for the tooltips:
-
-```text
+{% tab title="templates.html" %}
+```markup
 <script type="text/template" id="nine-box-tooltip-ei-template">
     <div class="nbox-tooltip-content--line1"><%= datum.label %></div>
     <table>
@@ -247,6 +174,8 @@ And finally the template for the tooltips:
     </table>
 </script>
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in anyway.
 
@@ -258,7 +187,9 @@ The dual metric flavor uses the first metric as the x value and the second metri
 
 The code for the dual metrics flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="censusV2service.py" %}
+```python
 class NineBoxV3Service(CensusService):
     def build_response(self):
         self.metrics = ('popdiff', 'pctfemale')
@@ -268,13 +199,13 @@ class NineBoxV3Service(CensusService):
 
         self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "nine-box"
   slug: "ninebox"
-  title: "Nine box"
+  title: "Nine Box"
   config:
     "axisLabels": [{"labels": ["Low", "Medium", "High"]}, {"labels": ["Slow", "Normal", "Fast"]}]
     "boxLabels":
@@ -284,6 +215,8 @@ The slice in stack.yaml:
       "text": "Small exposure, but high conversion rate"
   data_service: "censusv2service.NineBoxV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in anyway.
 
