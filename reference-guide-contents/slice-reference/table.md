@@ -4,13 +4,15 @@ description: >-
   currently only has a default flavor.
 ---
 
-# Table
+# Table \(this is a page that i'm not really sure what to do with\)
+
+## Looking at this, i'm not sure what to do. the old one has a link that doesn't work to get table config options.
 
 ## Setting column widths
 
 After a table response has been rendered, the response will contain a top level property columns that is a list. For each column in that list you can set a width property \(in pixels\).
 
-Under the hood juicebox uses SlickGrid for the table slice. It sets a SlickGrid option `forceFitColumns` to `true`. As a result, the column widths are automatically adjusted and may be different from the value you specified.
+Under the hood Juicebox uses SlickGrid for the table slice. It sets a SlickGrid option `forceFitColumns` to `true`. As a result, the column widths are automatically adjusted and may be different from the value you specified.
 
 To get the desired result, when specifying widths for the columns, it’s better to divide the viewport width \(normally 1120px, could be different when for example the slice has ‘wide’ style\) into the parts that are needed. So if the table is 1120px wide and there are two columns and they should display 60%-40% then one column’s width should be specified as 672 and the other column’s width as 448.
 

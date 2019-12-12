@@ -5,7 +5,7 @@ description: >-
   default render flavor.
 ---
 
-# Sankey
+# Sankey \(done\)
 
 ## Sankey config
 
