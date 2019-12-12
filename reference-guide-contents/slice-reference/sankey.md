@@ -11,59 +11,31 @@ description: >-
 
 Sankey slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
-### colorMap
+{% tabs %}
+{% tab title="Sankey Config Example" %}
+```yaml
+config:
+  colorMap:
+    "better": "#f00"
+    "same": "#00f"
+    "worse": "#fff"
+  colors: ["#f00", "#fff", "#CCC"]
+  linkHoverTextTemplateName: #sankey-link-hover
+  nodeHoverTextTemplateName: #sankey-node-hover
+  nodeTitleTemplateName: #sankey-node-title
+  timePoints: ["Begin", "Finish"]
+```
+{% endtab %}
+{% endtabs %}
 
-Color map for each of the node names \(eg. better\|same\|worse\)
-
-| Optional: | Yes, will generate colors dynamically for each nodes defined in data \(colors are coming from either `config.colors` or will be auto-generated |
-| :--- | :--- |
-| Values: | A map with node names as keys and colors as values |
-| Example: |  |
-
-### colors \(sankey\)
-
-Predefined array of colors to be assigned to the node
-
-| Optional: | Yes, will use `d3.scale.category10().range()` colors |
-| :--- | :--- |
-| Values: | Array of colors |
-| Example: |  |
-
-### linkHoverTextTemplateName
-
-Template name whose content will be rendered when link is hovered
-
-| Optional: | Yes, see SankeySliceView for default |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
-
-### nodeHoverTextTemplateName
-
-Template name whose content will be rendered when node is hovered
-
-| Optional: | Yes, see SankeySliceView for default |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
-
-### nodeTitleTemplateName
-
-Template name whose content is displayed right next to the node \(node title\)
-
-| Optional: | Yes, see SankeySliceView for default |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
-
-### timePoints
-
-The labels used as a title in the Start/End of the the Sankey flow
-
-| Optional: | Yes, default is `["Start", "End"]` |
-| :--- | :--- |
-| Values: | An array of length two, containing strings |
-| Example: |  |
+| Key | Optional | Values | Description |
+| :--- | :--- | :--- | :--- |
+| colorMap | Yes, will generate colors dynamically for each nodes defined in data \(colors are coming from either `config.colors` or will be auto-generated | A map with node names as keys and colors as values | Color map for each of the node names \(eg. better\|same\|worse\) |
+| colors | Yes, will use `d3.scale.category10().range()` colors | Array of Colors | Predefined array of colors to be assigned to the node |
+| linkHoverTextTemplateName | Yes, see SankeySliceView for default | CSS Selector | Template name whose content will be rendered when link is hovered |
+| nodeHoverTextTemplateName | Yes, see SankeySliceView for default | CSS Selector | Template name whose content will be rendered when node is hovered |
+| nodeTitleTemplateName | Yes, see SankeySliceView for default | CSS Selector | Template name whose content is displayed right next to the node \(node title\) |
+| timePoints | Yes, default is `["Start", "End"]` | An array of length two, containing strings | The labels used as a title in the Start/End of the the Sankey flow |
 
 ## Flavors of Sankey
 
@@ -75,7 +47,9 @@ The bi-level flavor requires two dimensions that the values will be mapped betwe
 
 The code for the Sankey bi-level flavor looks as follows \(Note: Lists of keys for the first and second dimensions must be supplied via the render configuration. Also, you can include additional metadata as well.\)
 
-```text
+{% tabs %}
+{% tab title="dataservice.py" %}
+```python
 class SankeyService(NotredameQuarterlyService):
 
     def build_response(self):
@@ -100,10 +74,10 @@ class SankeyService(NotredameQuarterlyService):
             recipe.render('Sankey', flavor='bi-level',
                           render_config=render_config))
 ```
+{% endtab %}
 
-The slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "sankey"
   slug: "sankey"
   title: "What is the flow of <strong><%= optionChooser1.selectionDisplay() %></strong> between\
@@ -114,6 +88,8 @@ The slice in stack.yaml:
     - "Sponsors"
   data_service: "dataservice.SankeyService"
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in any way.
 
