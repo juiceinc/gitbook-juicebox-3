@@ -49,7 +49,7 @@
     * [Matchup \(done\)](reference-guide-contents/slice-reference/matchup.md)
     * [Map \(done\)](reference-guide-contents/slice-reference/map.md)
     * [Nine Box \(done\)](reference-guide-contents/slice-reference/nine-box.md)
-    * [Option Chooser](reference-guide-contents/slice-reference/option-chooser.md)
+    * [Option Chooser \(done\)](reference-guide-contents/slice-reference/option-chooser.md)
     * [Ranked List v2 Work on me. Love me.](reference-guide-contents/slice-reference/ranked-list-v2-work-on-me.-love-me..md)
     * [Sankey](reference-guide-contents/slice-reference/sankey.md)
     * [Table](reference-guide-contents/slice-reference/table.md)

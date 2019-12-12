@@ -5,19 +5,33 @@ description: >-
   types: dropdown and horizontal list.
 ---
 
-# Option Chooser
+# Option Chooser \(done\)
 
-## Option chooser config
+## Option Chooser Config
 
 Option chooser slices support the [common configuration options for all slices](../slices/slices-and-common-configuration.md). Additional options are:
 
 ```text
-
+config:
+  groups:
+    "course":
+        minSelections: 1
+    "patient":
+        minSelections: 0
+        maxSelections: 4
+  containerExtraClass: my-custom-option-container
+  hasFilterText: true
+  optionTemplateName: #my-custom-option-template
+  templateField: "templateName"
+  selectorTemplateName: #my-custom-selector-template"
+  showTitles: false
+  nonSelectedText: "Please select something"
 ```
 
 | Key | Optional | Values | Description |
 | :--- | :--- | :--- | :--- |
 | groups | Yes | An object with option name as a key and {minSelections,maxSelections} properties | Overrides default option settings for specified chooser |
+| containerExtraClass | Yes | CSS Class Name | The class name that would be added to the options container |
 | hasFilterText | Yes, default is false | Boolean | Should the slice display its local filter text \(selection\). Typically, this slice does not display filter text, so it is disabled by default. You need to explicitly enable it to display filter/selection text |
 | optionTemplate **DEPRECATED** - **If seen, please convert to optionTemplateName** | N/A | N/A | N/A |
 | optionTemplateName | Yes, will use the default template \(see OptionChooserSliceView.js\) | CSS Selector | The name of the template for the options. **NOTE** This option is ignored when the option chooser is setup with the drop down mixin. |
@@ -26,89 +40,6 @@ Option chooser slices support the [common configuration options for all slices](
 | selectorTemplateName | Yes, will use the default template \(see OptionChooserSliceView.js\) | CSS Selector | The name of the template for the container/selector. **NOTE** This option is ignored when the option chooser is setup with the drop down mixin. |
 | showTitles | Yes, default is true | Boolean | Should the selection names be visible right in front of the selection options? |
 | nonSelectedText | Yes, default is `None selected` | String | The text displayed when no option is selected |
-
-### groups \(option chooser\)
-
-Overrides default option settings for specified chooser
-
-| Optional: | Yes. |
-| :--- | :--- |
-| Values: | An object with option name as a key and {minSelections,maxSelections} properties |
-| Example: |  |
-
-### hasFilterText
-
-Should the slice display its local filter text \(selection\). Typically, this slice does not display filter text, so it is disabled by default. You need to explicitly enable it to display filter/selection text
-
-| Optional: | Yes, default is ‘’false’’ |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### optionTemplate
-
-**Deprecated** Use `optionTemplateName` instead! The template that would be used to render options
-
-| Optional: | Yes, default is &lt;div data-id=”&lt;%= id %&gt;” class=”group-container\_\_item”&gt;&lt;%= label %&gt;&lt;/div&gt; |
-| :--- | :--- |
-| Values: | “\*” |
-
-### optionTemplateName
-
-The name of the template for the options.
-
-**NOTE** This option is ignored when the option chooser is setup with the drop down mixin.
-
-| Optional: | Yes, will use the default template \(see OptionChooserSliceView.js\) |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
-
-### templateField
-
-Name of the field in data item that refers to the template defined in template.html. Useful if data items should render different templates
-
-| Optional: | Yes |
-| :--- | :--- |
-| Values: | String |
-| Example: |  |
-
-### selectorTemplate
-
-**Deprecated** Use `selectorTemplateName` instead! The template that would be used to render options container/selector
-
-| Optional: | Yes, default is &lt;div data-name=”&lt;%= name %&gt;” class=”group-container\_\_item-container”&gt;&lt;/div&gt; |
-| :--- | :--- |
-| Values: | “\*” |
-
-### selectorTemplateName
-
-The name of the template for the container/selector.
-
-**NOTE** This option is ignored when the option chooser is setup with the drop down mixin.
-
-| Optional: | Yes, will use the default template \(see OptionChooserSliceView.js\) |
-| :--- | :--- |
-| Values: | CSS selector |
-| Example: |  |
-
-### showTitles
-
-Should the selection names be visible right in front of the selection options?
-
-| Optional: | Yes, default is `true` |
-| :--- | :--- |
-| Values: | true\|false |
-| Example: |  |
-
-### nonSelectedText
-
-The text displayed when no option is selected
-
-| Optional: | Yes, default is `None selected` |
-| :--- | :--- |
-| Values: | String |
-| Example: |  |
 
 ## Flavors for Option Chooser
 
@@ -120,17 +51,19 @@ The default flavor renders on the distinct elements of a single dimension, and s
 
 The code for the default OptionChooser flavor looks as follows:
 
-```text
+{% tabs %}
+{% tab title="censusv2service.py" %}
+```python
 self.metrics = ('pop2000', )
 self.dimensions = ('sex',)
 recipe = self.recipe().metrics(*self.metrics).dimensions(
     *self.dimensions)
 self.response['responses'].append(recipe.render())
 ```
+{% endtab %}
 
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "option-chooser"
   slug: "bar"
   title: "This could stay here"
@@ -143,6 +76,8 @@ And the slice in stack.yaml:
     "maxSelections": 1
   data_service: "censusv2service.FirstChooserV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in anyway.
 
@@ -154,16 +89,18 @@ The dropdown flavor is used to create a drop down selection dialog.
 
 Building a dropdown requires the use of a single dimension in the recipe. This example use the `unit` dimension to build a list of units to choose from:
 
-```text
+{% tabs %}
+{% tab title="EIDataServices.py" %}
+```python
 self.dimensions = ['unit']
 recipe = self.recipe().metrics().dimensions(*self.dimensions)
 self.response['responses'].append(recipe.render('OptionChooser2',
                                                 flavor='dropdown'))
 ```
+{% endtab %}
 
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "option-chooser"
   slug: "option-chooser2"
   title: "Select a workgroup to focus on."
@@ -181,6 +118,8 @@ And the slice in stack.yaml:
     "class": "OptionChooserWithDropdownViewMixin"
   data_service: "EIDataServices.OptionChooser2Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 Any additional dimensions and metrics are not included in the output in anyway.
 
@@ -192,15 +131,17 @@ The metric flavor is used to create a horizontal list without using any dimensio
 
 The metric flavor takes a collection of metrics, and no dimensions to build the response.
 
-```text
+{% tabs %}
+{% tab title="censusV2service.py" %}
+```python
 self.metrics = ('pop2000', 'pop2008', 'popdiff', 'avgage', 'pctfemale')
 recipe = self.recipe().metrics(*self.metrics)
 self.response['responses'].append(recipe.render(flavor='metric'))
 ```
+{% endtab %}
 
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "option-chooser"
   slug: "bar"
   title: "This could stay here"
@@ -213,6 +154,8 @@ And the slice in stack.yaml:
     "maxSelections": 1
   data_service: "censusv2service.FirstChooserV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 The flavor also automatically sets up the slice to use a core template to render the metrics if a custom template hasn’t been setup. The template renders the metrics like this:
 
@@ -224,7 +167,9 @@ The metric\_compare flavor is used to create a horizontal list without using any
 
 The metric flavor takes a collection of metrics, and no dimensions to build the response.
 
-```text
+{% tabs %}
+{% tab title="censusV2service.py" %}
+```python
 self.metrics = ('pop2000', 'pop2008', 'popdiff', 'avgage', 'pctfemale')
 
 # Create a comparison recipe that doesn't apply user filters
@@ -234,10 +179,10 @@ compare_recipe = self.recipe().metrics(*self.metrics)\
 recipe = self.recipe().metrics(*self.metrics).compare(compare_recipe)
 self.response['responses'].append(recipe.render(flavor='metric_compare'))
 ```
+{% endtab %}
 
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "option-chooser"
   slug: "bar"
   title: "This could stay here"
@@ -257,6 +202,8 @@ And the slice in stack.yaml:
     "maxSelections": 1
   data_service: "censusv2service.FirstChooserV3Service"
 ```
+{% endtab %}
+{% endtabs %}
 
 The flavor also automatically sets up the slice to use a core template to render the metrics if a custom template hasn’t been setup. The template renders the metrics like this:
 
@@ -270,7 +217,9 @@ The button flavor is used to create an array of buttons dialog.
 
 Building buttons requires you to create an OptionChooserRenderer and supply it with a render\_config containing the buttons you want as key, values in a dictionary with an optional path key to specify the path as shown here:
 
-```text
+{% tabs %}
+{% tab title="EIDataServices.py" %}
+```python
 render_config = {
      'grouping_metric': 'pct',
      'grouping_ranges': [
@@ -295,16 +244,10 @@ render_config = {
                             render_config=render_config)
  self.response['responses'].append(response)
 ```
+{% endtab %}
 
-NOTE: You must import OptionChooserRenderer:
-
-```text
-from dataservices.renderers import OptionChooserRenderer
-```
-
-And the slice in stack.yaml:
-
-```text
+{% tab title="stack.yaml" %}
+```yaml
 - slice_type: "option-chooser"
   slug: "option-chooser2"
   title: "Select a button to focus on."
@@ -322,6 +265,18 @@ And the slice in stack.yaml:
     "class": "OptionChooserWithMultiselectViewMixin"
   data_service: "EIDataServices.OptionChooser2Service"
 ```
+{% endtab %}
+{% endtabs %}
+
+**NOTE:** You must import OptionChooserRenderer:
+
+{% tabs %}
+{% tab title="EIDataServices.py" %}
+```python
+from dataservices.renderers import OptionChooserRenderer
+```
+{% endtab %}
+{% endtabs %}
 
 The flavor also automatically sets up the slice to use a core template to render the buttons if a custom template hasn’t been setup. The template renders the metrics like this:
 
