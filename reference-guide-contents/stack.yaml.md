@@ -87,9 +87,9 @@ slices:
 | icon | Yes | &lt;= 70 character string | A font-awesome icon that represents this stack. |
 | story\_theme | Yes | A dictionary | A json object that controls story specific theming. |
 | has\_tour | Yes, default is false | true\|false | Does this stack have tours in the help directory? These are yaml files that in the help directory. If so, they will be loaded and will display for this stack. |
-| background | Yes | A background as defined in [Styling Backgrounds](../../where-should-i-live/applying-backgrounds-to-stacks-and-slices.md#styling-backgrounds) | The background or backgrounds for this stack. |
-| header | Yes | A background as defined in [Styling Backgrounds](../../where-should-i-live/applying-backgrounds-to-stacks-and-slices.md#styling-backgrounds) | A background to show in the header of this stack. |
-| global\_filters\_service | No | A package and class name for the global filters data service | A [data\_service](../slices/slices-and-common-configuration.md#data_service) definition for the global filters. If this is missing, no global filters will appear. |
+| background | Yes | A background as defined in [Styling Backgrounds](../where-should-i-live/applying-backgrounds-to-stacks-and-slices.md#styling-backgrounds) | The background or backgrounds for this stack. |
+| header | Yes | A background as defined in [Styling Backgrounds](../where-should-i-live/applying-backgrounds-to-stacks-and-slices.md#styling-backgrounds) | A background to show in the header of this stack. |
+| global\_filters\_service | No | A package and class name for the global filters data service | A [data\_service](slices/slices-and-common-configuration.md#data_service) definition for the global filters. If this is missing, no global filters will appear. |
 | initial\_hash | No, default is empty string | A hash for this stack. | A “getting started” hashr hash that defines what people should see the very first time they open this stack. If an initial\_hash value is set, the Reset button will appear next to the global filters pill. |
-| slices \(stack\) | No | A YAML list of slices that appear in this stack. | A list of slice definitions, see [Defining Slices](../slices/defining-slices.md) |
+| slices \(stack\) | No | A YAML list of slices that appear in this stack. | A list of slice definitions, see [Defining Slices](slices/defining-slices.md) |
 

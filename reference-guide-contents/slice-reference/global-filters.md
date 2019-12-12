@@ -1,14 +1,8 @@
 ---
-description: >-
-  While we are moving away from global filters, we do have past apps that use
-  them and will continue to do so.
+description: current mess they're in.
 ---
 
-# Global Filters
-
-{% hint style="warning" %}
-If you are creating a new app, be sure that this is what you're looking for. Filter pills are the new global filter. Don't get left behind. Check those out here \(will need a link when available\).
-{% endhint %}
+# Defining and Configuring Global Filters \(not done. don't know enough about custom widgets to fix the
 
 A `FilterService` is used to define the filters that will be applied globally, and is a special type of data service. It is visible in the upper right hand corner of the Juicebox stack UI. FilterServices should inherit from the RecipeService you created in the prior section. Also, FilterServices should always use the `self.automatic_filter_keys` in their implementations. FilterServices are often implemented differently from a slice data service. We start by defining them in the `stack.yaml` file.
 
@@ -18,9 +12,13 @@ In the `stack.yaml` file, there is a `global_filters_service` that needs to poin
 
 For example to use the `FilterService` class found in the `basicservice.py` file:
 
-```text
+{% tabs %}
+{% tab title="stack.yaml" %}
+```yaml
 global_filters_service: "basicservice.FilterService"
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Creating a Data Service
 
@@ -30,7 +28,9 @@ For every service that we build, we have to define a `build_response` method tha
 
 Example of a single global filter and recipe:
 
-```text
+{% tabs %}
+{% tab title="Global Filter Service Example" %}
+```python
 class FilterService(CensusService):
     def build_response(self):
         self.metrics = ('pop2000', )
@@ -39,12 +39,16 @@ class FilterService(CensusService):
 
         self.response['responses'].append(recipe.render('State'))
 ```
+{% endtab %}
+{% endtabs %}
 
 Often, you will want to have multiple global filters. To do this you build a recipe using each dimension for which you want a filter. Then you can append the result from each `recipe.render()` to the response; however, we also have another feature called a RecipePool that can take a list of recipe details and build a response. Each recipe detail is a tuple that contains the recipe, name, and optionally a flavor. We’ll talk more about flavors in a bit.
 
 Example of multiple global filters and recipes:
 
-```text
+{% tabs %}
+{% tab title="Multiple Global Filters Example" %}
+```python
 class FilterService(CensusService):
     def build_response(self):
         self.metrics = ('pop2000', )
@@ -56,22 +60,26 @@ class FilterService(CensusService):
         results = RecipePool(recipes).run()
         self.response['responses'] = results
 ```
+{% endtab %}
+{% endtabs %}
 
 When using the `refresh` yaml config setting, the recipe has to have `.exclude_automatic_filter_keys(dimension)` added to the recipe for each dimension in the global filters:
 
-```text
+{% tabs %}
+{% tab title="Using Refresh Config" %}
+```python
 for dim in {list of global filters}:
   recipe = self.recipe().dimensions(dim).metrics(*metrics).exclude_automatic_filter_keys(dim)
 ```
+{% endtab %}
+{% endtabs %}
 
-See more below on reasoning for using `refresh`.
-
-Next, we’ll start building our first visualization slices of our applications.
-
-## Global Filter Configuration and Options
+## Global Filter Configurations and Options
 
 Global filters are configured using `filters_config` in `stack.yaml`. Configuration looks like this:
 
+{% tabs %}
+{% tab title="stack.yaml" %}
 ```text
 filters_config:
   global:
@@ -81,24 +89,56 @@ filters_config:
   "facility":
     maxSelections: 1
 ```
+{% endtab %}
+{% endtabs %}
 
 The global filters can be configured on a per-stack basis. A special config key called `global` is used to specify configuration that is common across all the filters.
 
-The sorting configs are not specific to any particular filter and are applied across all of them. The refreshing of the filters is also controlled by a single option available under “global” called “refresh”. Sometimes users may make filter selections that are inelligible or narrow down the data greatly, causing very little data to show in their slices. Enabling the “refresh” config avoids this scenario by filtering down to eligible remaining global filter options.
+### Sorting Configurations
 
-| Global filter options |  |
-| :--- | :--- |
-|  |  |
-| Option | Description |
-| `defaultSort` | Can either be “name” or “count”. |
-| `defaultSortDirection` | Use -1 for descending and 1 for ascending. |
-| `disableSort` | true/false to turn off sorting. The default is sorting is enabled. |
-| `refresh` | true/false to indicate if the filters should refresh themselves when selections change. |
-| `filterLabel` | Can be any string to override labelling filters as “Filters” |
+The sorting configs are not specific to any particular filter and are applied across all of them. The refreshing of the filters is also controlled by a single option available under “global” called “refresh”. Sometimes users may make filter selections that are ineligible or narrow down the data greatly, causing very little data to show in their slices. Enabling the “refresh” config avoids this scenario by filtering down to eligible remaining global filter options.
 
-For `refresh` config, see note in Creating a Data Service above.
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">
+        <p></p>
+        <p>Option</p>
+      </th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>defaultSort</code>
+      </td>
+      <td style="text-align:left">Can either be &#x201C;name&#x201D; or &#x201C;count&#x201D;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>defaultSortDirection</code>
+      </td>
+      <td style="text-align:left">Use -1 for descending and 1 for ascending.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>disableSort</code>
+      </td>
+      <td style="text-align:left">true/false to turn off sorting. The default is sorting is enabled.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>refresh</code>
+      </td>
+      <td style="text-align:left">true/false to indicate if the filters should refresh themselves when selections
+        change.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>filterLabel</code>
+      </td>
+      <td style="text-align:left">Can be any string to override labelling filters as &#x201C;Filters&#x201D;</td>
+    </tr>
+  </tbody>
+</table>For `refresh` config, see note in Creating a Data Service above.
 
-For example:
+An example:
 
 ```text
 filters_config:
@@ -109,24 +149,110 @@ filters_config:
     "refresh": true
 ```
 
+### Per-Filter Configurations
+
 The following config properties can be specified on a per filter basis. Use the filter’s `group_by_type` property as the key.
 
-| Individual filter options :widths: 10 30 :header-rows: 1 |  |
-| :--- | :--- |
-|  |  |
 | Option | Description |
-| selectionType \(DEPRECATED. Use minSelections and maxSelections instead.\) | Used to configure if single or multiple values can be selected. |
-| canReset \(DEPRECATED. Filters will not be allowed to reset if minSelections &gt; 0\) | A Boolean to indicate if the selections of the filter can be reset. |
-| minSelections | The minimum number of selections required for this filter. This value will be used to automatically select those many items if they aren’t already. Defaults to 0. |
-| maxSelections | The maximum number of selections allowed for this filter. Defaults to the maximum numeric value representable in JavaScript \(approximately 1.79E+308\). |
-| filterTemplateName | A name of a template that would be used to render **all** the items in that filter. |
+| :--- | :--- |
+| `minSelections` | The minimum number of selections required for this filter. This value will be used to automatically select those many items if they aren’t already. Defaults to 0. |
+| `maxSelections` | The maximum number of selections allowed for this filter. Defaults to the maximum numeric value representable in JavaScript \(approximately 1.79E+308\). |
+| `filterTemplateName` | A name of a template that would be used to render **all** the items in that filter. |
 
 An example:
 
+{% tabs %}
+{% tab title="Per-Filter Config Example" %}
 ```text
 {group_by_type}:
     minSelections: 0
     maxSelections: 1
     filterTemplateName: "#mooTemplate"
 ```
+{% endtab %}
+{% endtabs %}
+
+## Custom Widgets
+
+It is possible to render individual filter items using a custom widget. **The only custom widget that is currently supported is a date picker.** Custom widgets require custom backbone views to be built so instead of going down this path, you might want to check if just a custom template might work for you \(`filterTemplateName`\).
+
+Custom Widgets are specified on an individual filter item \(so the data service would have to supply this\) via the `widget` property. You can also supply any options for that widget using the `widgetOptions` property.
+
+For example, consider you have a “Date” global filter with the following items: “This Year”, “Last 3 months”, “Last month”. It’s data response would look like:
+
+{% tabs %}
+{% tab title="date global filter example" %}
+```text
+"items": [
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "thisyear",
+    "name": "This Year",
+    "subtitle": "Jan 1, 2014 - Dec 31, 2014"
+  },
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "last3",
+    "name": "Last three months",
+    "subtitle": "Jan 1, 2015 - March 31, 2015"
+  },
+  {
+    "count": 1,
+    "group_by_type": "date",
+    "id": "lastmonth",
+    "name": "Last month",
+    "subtitle": "March 1, 2015 - March 31, 2015"
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
+
+If you wanted to add a fourth item - a custom date picker - you would be able to do it by adding a new item and giving it an attribute called `widget` which indicates the widget used to render it. Like so:
+
+{% tabs %}
+{% tab title="custom date picker example" %}
+```text
+{
+  "count": 1,
+  "group_by_type": "date",
+  "id": "custom",
+  "name": "custom",
+  "widget": "CustomDatePicker",
+  "widgetOptions":  {},   // Potential widget options.
+}
+```
+{% endtab %}
+{% endtabs %}
+
+The selection from this filter will look like `mm/dd/yyyy-mm/dd/yyyy`. So, the example above would generate `date = mm/dd/yyyy-mm/dd/yyyy`.
+
+### Custom Widget Caveats
+
+{% hint style="info" %}
+> * The global filters will switch to using the SlickGrid component to render a list of filter items if the number of items &gt; 50. The date picker widget is setup to work with the SlickGrid component, but due to SlickGrid’s re-rendering it causes a bunch of flicker. Please avoid using a custom widget for a filter item if the filter has &gt; 50 items.
+> * In the future, the code might be updated to not use the SlickGrid component for a filter if any of its items are using a custom widget.
+{% endhint %}
+
+Three custom widgets currently exist
+
+![](../../.gitbook/assets/screen-shot-2019-12-09-at-4.30.21-pm.png)
+
+## Handling Dates
+
+## Custom Templates
+
+```text
+{
+    "{group_by_type}": {
+        "filterTemplateName": "#mooTemplate"
+    }
+}
+```
+
+## Filter Widgets
+
+[https://github.com/juiceinc/fruition/pull/50](https://github.com/juiceinc/fruition/pull/50)
 

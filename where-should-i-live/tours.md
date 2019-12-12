@@ -2,7 +2,7 @@
 
 ## Enabling stack tours
 
-For tours to be displayed, [has\_tour](../reference-guide-contents/stack.yaml/#has_tour) needs to be `true` in the [stack.yaml](../reference-guide-contents/stack.yaml/).
+For tours to be displayed, [has\_tour](../reference-guide-contents/stack.yaml.md#has_tour) needs to be `true` in the [stack.yaml](../reference-guide-contents/stack.yaml.md).
 
 ## Building stack tours
 

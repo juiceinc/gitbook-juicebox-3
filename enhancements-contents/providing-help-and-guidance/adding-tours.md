@@ -2,7 +2,7 @@
 
 ## Enabling stack tours
 
-For tours to be displayed [has\_tour](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#has-tour) needs to be `true` in [Stacks](../../reference-guide-contents/stack.yaml/).
+For tours to be displayed [has\_tour](https://docs.juiceboxdata.com/projects/juicebox/topics/juicebox_reference/stacks/index.html#has-tour) needs to be `true` in [Stacks](../../reference-guide-contents/stack.yaml.md).
 
 ## Building stack tours
 
