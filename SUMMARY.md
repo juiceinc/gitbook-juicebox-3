@@ -54,7 +54,7 @@
     * [Table \(this is a page that i'm not really sure what to do with\)](reference-guide-contents/slice-reference/table.md)
     * [Trend Another import that didn't work](reference-guide-contents/slice-reference/trend-another-import-that-didnt-work.md)
     * [Defining and Configuring Global Filters \(not done. don't know enough about custom widgets to fix the](reference-guide-contents/slice-reference/global-filters.md)
-  * [Ingredients](reference-guide-contents/ingredients.md)
+  * [Ingredients \(done\)](reference-guide-contents/ingredients.md)
 * [Data Services](data-services-content/README.md)
   * [Getting Started](data-services-content/getting-started.md)
   * [Understanding Juicebox Responses](data-services-content/understanding-juicebox-responses.md)
